@@ -1,5 +1,6 @@
-### 项目介绍
-### 框架初始化：
+### [使用例子/Sample](https://github.com/azhon/todo-flutter/tree/sample)
+## 框架使用详解
+### 一、框架初始化：
 ```java
 return TodoLib(
   //自定义数据
@@ -10,7 +11,7 @@ return TodoLib(
   ),
 );
 ```
-#### 一、路由模块：
+#### 二、路由模块：
 - 初始化路由
 
 ```java
@@ -28,7 +29,7 @@ RouterUtil.instance.addRoute(ModuleRouteName.ButtonPage,
   return ButtonPage();
 });
 ```
-#### 二、屏幕适配：
+#### 三、屏幕适配：
 - https://pub.dev/packages/flutter_screenutil
 - 设置字体不随系统字体大小进行改变
 
@@ -47,7 +48,7 @@ return ScreenUtilInit(
   ),
 );
 ```
-### 三、网络模块
+### 四、网络模块
 - 实现http客户端 `BaseNetEngine`
 - 实现数据转换器，生成对应实体 `BaseConvert`
 - 实现网络请求 `BaseRequest`并指定提供一个`BaseNetProvider`
