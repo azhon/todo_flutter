@@ -1,0 +1,62 @@
+/*
+ * 项目名:    todo_flutter
+ * 包名       
+ * 文件名:    common_click_widget
+ * 创建时间:  2021/9/17 on 21:12
+ * 描述:     TODO
+ *
+ * @author   阿钟
+ */
+import 'package:flutter/material.dart';
+import 'package:flutter_basic_lib/base/base_state.dart';
+import 'package:flutter_basic_lib/base/base_stateful_widget.dart';
+import 'package:flutter_basic_lib/todo_lib.dart';
+
+class CommonClickWidget extends BaseStatefulWidget {
+  final Widget child;
+  final GestureTapCallback? singleClick;
+  final GestureTapCallback? onTap;
+  final GestureLongPressCallback? onLongPress;
+
+  CommonClickWidget({
+    required this.child,
+    Key? key,
+    this.onTap,
+    this.onLongPress,
+    this.singleClick,
+  }) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() {
+    return _CommonClickState();
+  }
+}
+
+class _CommonClickState extends BaseState<CommonClickWidget> {
+  int _lastClick = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      child: widget.child,
+      onLongPress: () => widget.onLongPress?.call(),
+      onTap: () => _interceptClick(TodoLib.of(context).clickInterceptInterval),
+    );
+  }
+
+  ///重复多次点击截流处理
+  void _interceptClick(int clickInterceptInterval) {
+    int nowTime = DateTime.now().millisecondsSinceEpoch;
+    if ((nowTime - _lastClick).abs() > clickInterceptInterval) {
+      if (widget.singleClick != null) {
+        widget.singleClick!.call();
+      } else {
+        widget.onTap?.call();
+      }
+      _lastClick = nowTime;
+    } else {
+      widget.onTap?.call();
+    }
+  }
+}

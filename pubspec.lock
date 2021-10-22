@@ -57,22 +57,15 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.1"
-  cupertino_icons:
-    dependency: "direct main"
-    description:
-      name: cupertino_icons
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "1.0.3"
   dio:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: dio
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "4.0.0"
   extended_image:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: extended_image
       url: "https://pub.flutter-io.cn"
@@ -107,7 +100,7 @@ packages:
     source: hosted
     version: "6.1.2"
   fluro:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: fluro
       url: "https://pub.flutter-io.cn"
@@ -118,22 +111,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_basic_lib:
-    dependency: "direct main"
-    description:
-      path: flutter_basic_lib
-      relative: true
-    source: path
-    version: "0.0.1"
   flutter_bloc:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_bloc
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "7.3.1"
   flutter_screenutil:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_screenutil
       url: "https://pub.flutter-io.cn"
@@ -166,7 +152,7 @@ packages:
     source: hosted
     version: "4.0.0"
   logger:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: logger
       url: "https://pub.flutter-io.cn"
