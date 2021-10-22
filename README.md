@@ -1,4 +1,4 @@
-### [使用例子/Sample](https://github.com/azhon/todo-flutter/tree/sample)
+## [使用例子/Sample](https://github.com/azhon/todo-flutter/tree/sample)
 ## 框架使用详解
 ### 一、框架初始化：
 ```java
@@ -21,16 +21,8 @@ return MaterialApp(
   onGenerateRoute: RouterUtil.instance.generator(),
  );
 ```
-- 添加路由至路由表，路由名称通过`route.sh`脚本自动扫描文件生成
-
-```java
-RouterUtil.instance.addRoute(ModuleRouteName.ButtonPage,
-    (Map<String, dynamic> map, dynamic obj) {
-  return ButtonPage();
-});
-```
 #### 三、屏幕适配：
-- https://pub.dev/packages/flutter_screenutil
+- 使用[flutter_screenutil](https://pub.dev/packages/flutter_screenutil)
 - 设置字体不随系统字体大小进行改变
 
 ```java
