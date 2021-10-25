@@ -1,5 +1,18 @@
 ## [使用例子/Sample](https://github.com/azhon/todo-flutter/tree/sample)
 ## 框架使用详解
+### 组件库介绍
+|  组件名称   | 描述  |
+|  ----  | ----  |
+| CommonButton  | 按钮组件 |
+| CommonImage  | 图片组件 |
+| CommonInput  | 输入框组件 |
+| CommonInputArea  | 带计数的输入框组件 |
+| CommonText  | 文本组件 |
+| CommonClickWidget  | 点击事件组件 |
+| DataChangeWidget  | 简单数据状态管理组件 |
+| BaseStatefulWidget</br>BaseState  | 有状态组件 |
+| BaseStatelessWidget  | 无状态组件 |
+
 ### 一、框架初始化：
 ```java
 return TodoLib(
