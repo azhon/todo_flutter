@@ -24,6 +24,7 @@ class CommonText extends BaseStatelessWidget with UIAdapter {
   final TextOverflow? overflow;
   final TextDecoration? decoration;
   final FontStyle fontStyle;
+  final TextAlign? textAlign;
   final TextDecorationStyle? decorationStyle;
 
   CommonText(
@@ -39,6 +40,7 @@ class CommonText extends BaseStatelessWidget with UIAdapter {
     this.decoration,
     this.decorationStyle,
     this.overflow,
+    this.textAlign,
     this.fontStyle = FontStyle.normal,
   }) : super(key: key);
 
@@ -49,6 +51,7 @@ class CommonText extends BaseStatelessWidget with UIAdapter {
       text,
       maxLines: maxLines,
       overflow: overflow,
+      textAlign: textAlign,
       style: TextStyle(
         color: color,
         fontSize: setFontSize(fontSize ?? defaultFonSize),
