@@ -25,6 +25,7 @@ class CommonButton extends BaseStatelessWidget with UIAdapter {
   final bool disable;
   final double borderWidth;
   final EdgeInsets? margin;
+  final Gradient? gradient;
   final VoidCallback? onPressed;
   final VoidCallback? onLongPress;
 
@@ -39,6 +40,7 @@ class CommonButton extends BaseStatelessWidget with UIAdapter {
     this.margin,
     this.onPressed,
     this.onLongPress,
+    this.gradient,
     this.borderWidth = 2,
     this.disable = false,
     this.borderColor = Colors.transparent,
@@ -56,6 +58,7 @@ class CommonButton extends BaseStatelessWidget with UIAdapter {
         height: setWidth(height ?? defaultButtonHeight),
         margin: margin,
         decoration: BoxDecoration(
+          gradient: gradient,
           borderRadius: BorderRadius.circular(setRadius(radius)),
         ),
         child: TextButton(

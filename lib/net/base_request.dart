@@ -8,9 +8,6 @@
  * @author   阿钟
  */
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
-import 'package:flutter_basic_lib/net/base_net_engine.dart';
-import 'package:flutter_basic_lib/net/base_net_provider.dart';
-import 'package:flutter_basic_lib/util/log_util.dart';
 
 enum RequestMethod {
   GET,
