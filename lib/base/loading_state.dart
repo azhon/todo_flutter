@@ -7,8 +7,12 @@
  *
  * @author   阿钟
  */
+import 'package:flutter_basic_lib/theme/toast_theme_data.dart';
+
 mixin LoadingState {
   void showLoadingDialog({String? msg});
 
   void dismissLoadingDialog();
+
+  void showToast(String msg, {ToastThemeData? data});
 }

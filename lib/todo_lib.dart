@@ -9,6 +9,7 @@
  */
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/error/runtime_exception.dart';
+import 'package:flutter_basic_lib/theme/toast_theme_data.dart';
 
 class TodoLib extends InheritedWidget {
   /// 用于导航的key（从而简化跳转需要context）,需要主动进行初始化
@@ -52,6 +53,9 @@ class TodoLibData {
   ///默认文字大小
   final double textSize;
 
+  ///toast配置
+  ToastThemeData toastThemeData;
+
   TodoLibData({
     this.defaultButtonHeight = 90,
     this.clickInterceptInterval = 1000,
@@ -59,5 +63,6 @@ class TodoLibData {
     this.placeholderColor = const Color(0xFFC7CCD5),
     this.inputTextColor = const Color(0xFF393C42),
     this.inputBackgroundColor = const Color(0xFFF6F7F9),
+    this.toastThemeData = const ToastThemeData(),
   });
 }

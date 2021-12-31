@@ -8,13 +8,12 @@
  * @author   阿钟
  */
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_lib/base/bloc/base_bloc.dart';
 import 'package:flutter_basic_lib/base/loading_state.dart';
-import 'package:flutter_basic_lib/base/ui_adapter.dart';
-import 'package:flutter_basic_lib/base/ui_widget.dart';
 import 'package:flutter_basic_lib/error/runtime_exception.dart';
-import 'package:flutter_basic_lib/route/router_util.dart';
+import 'package:flutter_basic_lib/flutter_basic_lib.dart';
+import 'package:flutter_basic_lib/theme/toast_theme_data.dart';
 import 'package:flutter_basic_lib/ui/widget/loading_dialog_widget.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 abstract class BaseState<T extends StatefulWidget> extends BaseBlocState<T> {
   @override
@@ -65,6 +64,19 @@ abstract class BaseBlocState<T extends StatefulWidget> extends BaseUIState<T>
   @override
   void dismissLoadingDialog() {
     if (_isShowLoadingDialog) RouterUtil.instance.pop();
+  }
+
+  @override
+  void showToast(String msg, {ToastThemeData? data}) {
+    var themeData = data ?? TodoLib.of(context).toastThemeData;
+    Fluttertoast.showToast(
+      msg: msg,
+      fontSize: themeData.fontSize,
+      textColor: themeData.textColor,
+      backgroundColor: themeData.backgroundColor,
+      toastLength: themeData.toastLength,
+      gravity: themeData.gravity,
+    );
   }
 
   @override
