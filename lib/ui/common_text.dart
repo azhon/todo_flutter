@@ -8,8 +8,6 @@
  * @author   阿钟
  */
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_lib/base/base_stateless_widget.dart';
-import 'package:flutter_basic_lib/base/ui_adapter.dart';
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 
 class CommonText extends BaseStatelessWidget with UIAdapter {

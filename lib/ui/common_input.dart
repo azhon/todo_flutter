@@ -8,10 +8,7 @@
  * @author   阿钟
  */
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_basic_lib/base/base_state.dart';
-import 'package:flutter_basic_lib/base/base_stateful_widget.dart';
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 
 class CommonInput extends BaseStatefulWidget {

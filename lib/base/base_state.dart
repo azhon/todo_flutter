@@ -11,9 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/base/loading_state.dart';
 import 'package:flutter_basic_lib/error/runtime_exception.dart';
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
-import 'package:flutter_basic_lib/theme/toast_theme_data.dart';
 import 'package:flutter_basic_lib/ui/widget/loading_dialog_widget.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 abstract class BaseState<T extends StatefulWidget> extends BaseBlocState<T> {
   @override

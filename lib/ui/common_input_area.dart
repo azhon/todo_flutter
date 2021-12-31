@@ -7,15 +7,10 @@
  *
  * @author   阿钟
  */
-import 'package:flutter_basic_lib/base/base_state.dart';
-import 'package:flutter_basic_lib/base/base_stateful_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/bloc/data/data_change_bloc.dart';
 import 'package:flutter_basic_lib/bloc/data/data_change_state.dart';
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
-import 'package:flutter_basic_lib/ui/common_input.dart';
-import 'package:flutter_basic_lib/ui/common_text.dart';
-import 'package:flutter_basic_lib/ui/widget/data_change_widget.dart';
 
 class CommonInputArea extends BaseStatefulWidget {
   final double? minHeight;
