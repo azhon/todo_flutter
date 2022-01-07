@@ -8,6 +8,7 @@
  * @author   阿钟
  */
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 
@@ -115,6 +116,7 @@ class CommonInputState extends BaseState<CommonInput> {
         color: widget.placeholderColor ?? defaultPlaceholderColor,
         fontSize: setFontSize(widget.placeholderFontSize ?? defaultTextSize),
       ),
+      cursorColor: Theme.of(context).textSelectionTheme.cursorColor,
       textInputAction: widget.textInputAction,
       keyboardType: widget.keyboardType,
       inputFormatters: widget.inputFormatters,

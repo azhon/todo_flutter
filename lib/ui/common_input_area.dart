@@ -13,6 +13,7 @@ import 'package:flutter_basic_lib/bloc/data/data_change_state.dart';
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 
 class CommonInputArea extends BaseStatefulWidget {
+  final Key? key;
   final double? minHeight;
   final double? maxHeight;
   final Color? backgroundColor;
@@ -39,7 +40,7 @@ class CommonInputArea extends BaseStatefulWidget {
   final ValueChanged<String>? onSubmitted;
 
   CommonInputArea({
-    Key? key,
+    this.key,
     this.minHeight,
     this.maxHeight,
     this.countPadding,
@@ -73,6 +74,7 @@ class CommonInputArea extends BaseStatefulWidget {
 
 class _CommonInputAreaState extends BaseState<CommonInputArea> {
   DataChangeBloc<int> get _countBloc => getBloc<DataChangeBloc<int>>();
+  GlobalKey<CommonInputState> _inputKey = GlobalKey();
 
   @override
   void initState() {
@@ -98,6 +100,7 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           CommonInput(
+            key: _inputKey,
             text: widget.text,
             padding: widget.padding ?? all(24),
             placeholder: widget.placeholder,
@@ -137,5 +140,19 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
         ],
       ),
     );
+  }
+
+  ///清空输入框内容
+  void clearText() {
+    _inputKey.currentState?.clearText();
+  }
+
+  ///设置内容
+  void setText(String text) {
+    _inputKey.currentState?.setText(text);
+  }
+
+  String getText() {
+    return _inputKey.currentState?.getText() ?? '';
   }
 }
