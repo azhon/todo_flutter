@@ -25,5 +25,5 @@ class BaseBean<T> {
 
 abstract class BaseResultBean {
   ///json数据转实体
-  BaseResultBean fromJson(dynamic json);
+  fromJson(dynamic json);
 }
