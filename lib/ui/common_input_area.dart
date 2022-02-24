@@ -155,4 +155,8 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
   String getText() {
     return _inputKey.currentState?.getText() ?? '';
   }
+
+  void unFocus() {
+    _inputKey.currentState?.unFocus();
+  }
 }

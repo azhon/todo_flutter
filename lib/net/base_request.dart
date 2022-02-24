@@ -54,7 +54,7 @@ abstract class BaseRequest<T extends BaseResultBean> {
       }
     } catch (e) {
       result.statusMessage = _parseError(e);
-      LogUtil.d('BaseRequest：[request error] ${result.statusMessage}');
+      LogUtil.e('BaseRequest：[request error] ${result.statusMessage}');
     }
     return convert.convert<T>(result, resultInstance);
   }

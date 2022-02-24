@@ -73,10 +73,12 @@ class CommonInput extends BaseStatefulWidget {
 class CommonInputState extends BaseState<CommonInput> {
   TextEditingController _controller = TextEditingController();
   bool _obscureText = false;
+  late FocusNode _focusNode;
 
   @override
   void initState() {
     super.initState();
+    _focusNode = widget.focusNode == null ? FocusNode() : widget.focusNode!;
     _obscureText = widget.obscureText;
     _controller.addListener(_onTextChange);
     setText(widget.text);
@@ -93,7 +95,7 @@ class CommonInputState extends BaseState<CommonInput> {
     var defaultInputTextColor = TodoLib.of(context).inputTextColor;
     return CupertinoTextField(
       controller: _controller,
-      focusNode: widget.focusNode,
+      focusNode: _focusNode,
       padding: widget.padding ?? symmetric(20, 0),
       placeholder: widget.placeholder,
       decoration: widget.decoration ??
@@ -152,6 +154,10 @@ class CommonInputState extends BaseState<CommonInput> {
 
   String getText() {
     return _controller.text;
+  }
+
+  void unFocus() {
+    _focusNode.unfocus();
   }
 
   @override
