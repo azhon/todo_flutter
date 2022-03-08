@@ -22,6 +22,8 @@ dependencies:
   dio: ^4.0.0
   #  日志
   logger: ^1.1.0
+  #  刷新
+  pull_to_refresh: ^2.0.0
   #  toast
   fluttertoast: ^8.0.8
 dev_dependencies:

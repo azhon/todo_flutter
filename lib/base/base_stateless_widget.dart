@@ -9,7 +9,9 @@
  */
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/base/ui_adapter.dart';
+import 'package:flutter_basic_lib/base/ui_widget.dart';
 
-abstract class BaseStatelessWidget extends StatelessWidget with UIAdapter {
+abstract class BaseStatelessWidget extends StatelessWidget
+    with UIAdapter, UIWidget {
   BaseStatelessWidget({Key? key}) : super(key: key);
 }

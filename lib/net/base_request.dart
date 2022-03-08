@@ -17,12 +17,14 @@ enum RequestMethod {
   PUT,
 }
 
-abstract class BaseRequest<T extends BaseResultBean> {
+abstract class BaseRequest<T> {
+  Map<String, dynamic>? params;
+
+  BaseRequest(this.params);
+
   String get url;
 
   RequestMethod get method;
-
-  Map<String, dynamic>? get params;
 
   ///返回数据模型示例
   BaseResultBean? get resultInstance;

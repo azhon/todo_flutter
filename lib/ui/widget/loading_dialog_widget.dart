@@ -23,18 +23,18 @@ class LoadingDialog extends Dialog with UIAdapter, UIWidget {
         type: MaterialType.transparency,
         child: Center(
           child: Container(
-            width: setWidth(200),
-            height: setWidth(200),
+            width: setWidth(100),
+            height: setWidth(100),
             alignment: Alignment.center,
             decoration: BoxDecoration(
                 color: Color(0x4D000000),
-                borderRadius: BorderRadius.circular(setRadius(16))),
+                borderRadius: BorderRadius.circular(setRadius(8))),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 CircularProgressIndicator(color: Colors.white),
-                sizedBox(height: 20),
-                CommonText(msg ?? '加载中...', color: Colors.white),
+                sizedBox(height: 10),
+                CommonText(msg ?? 'Loading...', color: Colors.white),
               ],
             ),
           ),

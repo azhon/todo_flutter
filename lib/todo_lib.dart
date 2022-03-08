@@ -57,9 +57,9 @@ class TodoLibData {
   ToastThemeData toastThemeData;
 
   TodoLibData({
-    this.defaultButtonHeight = 90,
+    this.defaultButtonHeight = 45,
     this.clickInterceptInterval = 1000,
-    this.textSize = 28,
+    this.textSize = 14,
     this.placeholderColor = const Color(0xFFC7CCD5),
     this.inputTextColor = const Color(0xFF393C42),
     this.inputBackgroundColor = const Color(0xFFF6F7F9),

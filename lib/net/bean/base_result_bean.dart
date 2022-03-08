@@ -27,3 +27,7 @@ abstract class BaseResultBean {
   ///json数据转实体
   fromJson(dynamic json);
 }
+
+abstract class BaseListResultBean<T> extends BaseResultBean {
+  List<T>? data;
+}

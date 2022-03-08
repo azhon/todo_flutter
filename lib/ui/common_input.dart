@@ -96,14 +96,14 @@ class CommonInputState extends BaseState<CommonInput> {
     return CupertinoTextField(
       controller: _controller,
       focusNode: _focusNode,
-      padding: widget.padding ?? symmetric(20, 0),
+      padding: widget.padding ?? symmetric(10, 0),
       placeholder: widget.placeholder,
       decoration: widget.decoration ??
           BoxDecoration(
             border: Border(
               bottom: BorderSide(
-                color: Color(0xFFECEEF2),
-                width: setWidth(2),
+                color: Color(0xFFEEEEEE),
+                width: setWidth(1),
               ),
             ),
           ),
@@ -145,8 +145,8 @@ class CommonInputState extends BaseState<CommonInput> {
     _controller.text = text;
   }
 
-  void changeObscureText() {
-    this._obscureText = !_obscureText;
+  void changeObscureText(bool obscureText) {
+    this._obscureText = obscureText;
     setState(() {});
   }
 
