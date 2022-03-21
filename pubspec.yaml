@@ -17,7 +17,7 @@ dependencies:
   #  图片库
   extended_image: ^6.0.1
   #  bloc状态管理
-  flutter_bloc: ^7.3.0
+  flutter_bloc: ^8.0.1
   #  网络库
   dio: ^4.0.0
   #  日志

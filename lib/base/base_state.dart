@@ -3,7 +3,7 @@
  * 包名       
  * 文件名:    base_state
  * 创建时间:  2021/9/17 on 21:18
- * 描述:     TODO
+ * 描述:
  *
  * @author   阿钟
  */
@@ -28,16 +28,16 @@ abstract class BaseState<T extends StatefulWidget> extends BaseBlocState<T> {
 abstract class BaseBlocState<T extends StatefulWidget> extends BaseUIState<T>
     with LoadingState {
   bool _isShowLoadingDialog = false;
-  List<BaseBloc>? _blocs;
+  List<BlocBase>? _blocs;
 
   ///添加bloc进行管理
-  addBloc(BaseBloc bloc) {
+  addBloc(BlocBase bloc) {
     if (_blocs == null) _blocs = [];
     _blocs!.add(bloc);
   }
 
   ///获取bloc进行管理
-  B getBloc<B extends BaseBloc>() {
+  B getBloc<B extends BlocBase>() {
     var list = _blocs
         ?.where((element) => element.runtimeType.toString() == B.toString())
         .toList();

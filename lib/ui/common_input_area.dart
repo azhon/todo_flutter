@@ -3,13 +3,12 @@
  * 包名       
  * 文件名:    common_input_area
  * 创建时间:  2021/9/29 on 10:14
- * 描述:     TODO
+ * 描述:
  *
  * @author   阿钟
  */
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/bloc/data/data_change_bloc.dart';
-import 'package:flutter_basic_lib/bloc/data/data_change_state.dart';
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 
 class CommonInputArea extends BaseStatefulWidget {
@@ -79,7 +78,7 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
   @override
   void initState() {
     super.initState();
-    addBloc(DataChangeBloc(data: 0));
+    addBloc(DataChangeBloc<int>(0));
   }
 
   @override
@@ -127,9 +126,9 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
               padding: widget.countPadding ?? only(right: 24, bottom: 24),
               child: DataChangeWidget<int>(
                 bloc: _countBloc,
-                child: (context, DataChangeState<int> state) {
+                child: (context, int state) {
                   return CommonText(
-                    '${state.data}/${widget.maxLength}',
+                    '$state/${widget.maxLength}',
                     color: widget.countTextColor,
                     fontSize: widget.countFontSize,
                   );
