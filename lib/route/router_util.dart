@@ -59,7 +59,8 @@ class RouterUtil {
   ///直接跳转同时接收页面返回值
   Future navigateResult(String route, ValueChanged<RouteParams> result,
       {RouteParams? params}) {
-    return navigateTo(route, params: params).then((value) => result(value));
+    return navigateTo(route, params: params)
+        .then((value) => result(value ?? RouteParams()));
   }
 
   ///替换当前路由跳转

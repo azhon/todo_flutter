@@ -36,7 +36,7 @@ abstract class BaseBloc<E extends BaseEvent, S> extends BaseLoadBloc<E, S> {
 
   LoadBloc get loadBloc => _loadBloc;
 
-  void setState(LoadingState state) {
+  void setState(LoadingState? state) {
     this._loadingState = state;
   }
 
@@ -50,6 +50,11 @@ abstract class BaseBloc<E extends BaseEvent, S> extends BaseLoadBloc<E, S> {
   ///关闭全屏加载等待框
   void dismissPageLoading() {
     _loadingState?.dismissLoadingDialog();
+  }
+
+  ///显示提示
+  void showToast(String msg) {
+    _loadingState?.showToast(msg);
   }
 
   ///配合[BlocLoadWidget]使用，开始加载

@@ -102,7 +102,7 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
           CommonInput(
             key: _inputKey,
             text: widget.text,
-            padding: widget.padding ?? all(24),
+            padding: widget.padding ?? all(12),
             placeholder: widget.placeholder,
             placeholderColor: widget.placeholderColor,
             placeholderFontSize: widget.placeholderFontSize,

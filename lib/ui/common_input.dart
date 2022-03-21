@@ -27,6 +27,8 @@ class CommonInput extends BaseStatefulWidget {
   final Widget? prefix;
   final Widget? suffix;
   final bool obscureText;
+  final bool readOnly;
+  final TextAlign textAlign;
   final FocusNode? focusNode;
   final String obscuringCharacter;
   final ValueChanged<String>? onTextChange;
@@ -51,6 +53,7 @@ class CommonInput extends BaseStatefulWidget {
     this.maxLines,
     this.autofocus = false,
     this.obscureText = false,
+    this.readOnly = false,
     this.prefix,
     this.suffix,
     this.inputFormatters,
@@ -58,6 +61,7 @@ class CommonInput extends BaseStatefulWidget {
     this.onTextChange,
     this.onSubmitted,
     this.focusNode,
+    this.textAlign = TextAlign.start,
     this.prefixMode = OverlayVisibilityMode.always,
     this.suffixMode = OverlayVisibilityMode.always,
     this.textInputAction = TextInputAction.done,
@@ -119,6 +123,7 @@ class CommonInputState extends BaseState<CommonInput> {
         fontSize: setFontSize(widget.placeholderFontSize ?? defaultTextSize),
       ),
       cursorColor: Theme.of(context).textSelectionTheme.cursorColor,
+      textAlign: widget.textAlign,
       textInputAction: widget.textInputAction,
       keyboardType: widget.keyboardType,
       inputFormatters: widget.inputFormatters,
@@ -128,6 +133,7 @@ class CommonInputState extends BaseState<CommonInput> {
       maxLength: widget.maxLength,
       maxLines: widget.maxLines,
       autofocus: widget.autofocus,
+      readOnly: widget.readOnly,
       prefix: widget.prefix,
       suffix: widget.suffix,
       prefixMode: widget.prefixMode,

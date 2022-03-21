@@ -12,21 +12,31 @@ class ListBloc<T> extends BaseBloc<ListEvent<T>, ListState<T>> {
   ListBloc({required this.request}) : super(InitialState(<T>[]));
 
   void init() {
-    _reset();
+    pageNum = 1;
+    _changeParams();
     add(InitEvent());
   }
 
   void refresh() {
-    _reset();
+    pageNum = 1;
+    _changeParams();
     add(RefreshEvent());
   }
 
-  void load() {}
+  void loadMore() {
+    pageNum++;
+    _changeParams();
+    add(LoadMoreEvent());
+  }
 
-  _reset() {
-    pageNum = 1;
+  void loadMoreError() {
+    pageNum--;
+    _changeParams();
+  }
+
+  _changeParams() {
     if (request.params == null) request.params = {};
-    request.params!['pageNum'] = pageNum;
-    request.params!['pageSize'] = pageSize;
+    request.params!['page'] = pageNum;
+    request.params!['limit'] = pageSize;
   }
 }

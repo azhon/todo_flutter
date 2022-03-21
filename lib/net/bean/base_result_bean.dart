@@ -30,4 +30,7 @@ abstract class BaseResultBean {
 
 abstract class BaseListResultBean<T> extends BaseResultBean {
   List<T>? data;
+  int? curPage;
+  int? total;
+  int? totalPage;
 }

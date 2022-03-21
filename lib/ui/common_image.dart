@@ -7,17 +7,17 @@
  *
  * @author   阿钟
  */
+import 'dart:io' as io;
 import 'dart:typed_data';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_lib/base/ui_adapter.dart';
-import 'package:flutter_basic_lib/base/base_stateless_widget.dart';
+import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 
 class CommonImage extends BaseStatelessWidget with UIAdapter {
   final String? network;
   final String? asset;
   final Uint8List? memory;
-  final File? file;
+  final io.File? file;
   final BoxFit fit;
   final double? width;
   final double? height;
@@ -39,15 +39,11 @@ class CommonImage extends BaseStatelessWidget with UIAdapter {
     this.border,
     this.fit = BoxFit.cover,
     this.circle = false,
-  }) : super(key: key) {
-    ///资源来源必须有一个
-    assert(
-        (network != null || asset != null || memory != null || file != null));
-  }
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    late Widget widget;
+    Widget? widget;
     double? w = width == null ? null : setWidth(width!);
     double? h = height == null ? null : setWidth(height!);
     BoxShape shape = circle ? BoxShape.circle : BoxShape.rectangle;
@@ -91,7 +87,7 @@ class CommonImage extends BaseStatelessWidget with UIAdapter {
           border: border,
           borderRadius: borderRadius,
           loadStateChanged: (state) => loadStateChanged(state));
-    return widget;
+    return widget ?? Center(child: Text('Failed to load image'));
   }
 
   Widget? loadStateChanged(ExtendedImageState state) {
@@ -99,7 +95,7 @@ class CommonImage extends BaseStatelessWidget with UIAdapter {
       case LoadState.loading:
         break;
       case LoadState.failed:
-        break;
+        return Center(child: Text('Failed to load image'));
       default:
         return null;
     }

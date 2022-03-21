@@ -44,6 +44,8 @@ export 'ui/common_rich_text.dart';
 
 ///
 export 'util/log_util.dart';
+export 'util/text_util.dart';
+export 'util/preference_util.dart';
 
 export 'todo_lib.dart';
 
