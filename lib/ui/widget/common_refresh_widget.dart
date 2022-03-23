@@ -9,12 +9,14 @@ class CommonRefreshWidget<T> extends StatefulWidget {
   final ListBloc<T> bloc;
   final RefreshChild<T> child;
   final bool enablePullUp;
+  final Widget? emptyWidget;
 
   const CommonRefreshWidget({
     Key? key,
     required this.bloc,
     required this.child,
     this.enablePullUp = true,
+    this.emptyWidget,
   }) : super(key: key);
 
   @override
@@ -43,10 +45,32 @@ class _CommonRefreshWidgetState<T> extends BaseState<CommonRefreshWidget<T>> {
             enablePullUp: widget.enablePullUp,
             physics: ClampingScrollPhysics(),
             header: MaterialClassicHeader(),
-            child: widget.child.call(context, state.data),
+            child: state.data.isEmpty
+                ? _emptyView()
+                : widget.child.call(context, state.data),
           ),
         );
       },
+    );
+  }
+
+  Widget _emptyView() {
+    return Center(
+      child: widget.emptyWidget ??
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CommonText(
+                '(⌒▽⌒)',
+                color: Color(0xFF666666),
+              ),
+              sizedBox(height: 4),
+              CommonText(
+                'No Data.',
+                color: Color(0xFF666666),
+              )
+            ],
+          ),
     );
   }
 
