@@ -52,36 +52,36 @@ class RouterUtil {
   }
 
   ///直接跳转
-  Future navigate(String route, {RouteParams? params}) {
+  Future navigate(String route, [RouteParams? params]) {
     return navigateTo(route, params: params);
   }
 
   ///直接跳转同时接收页面返回值
   Future navigateResult(String route, ValueChanged<RouteParams> result,
-      {RouteParams? params}) {
+      [RouteParams? params]) {
     return navigateTo(route, params: params)
         .then((value) => result(value ?? RouteParams()));
   }
 
   ///替换当前路由跳转
-  Future navigateReplace(String route, {RouteParams? params}) {
+  Future navigateReplace(String route, [RouteParams? params]) {
     return navigateTo(route, replace: true, params: params);
   }
 
   ///清除之前所有路由跳转
-  Future navigateClear(String route, {RouteParams? params}) {
+  Future navigateClear(String route, [RouteParams? params]) {
     return navigateTo(route, clearStack: true, params: params);
   }
 
   ///清除路由为[untilRoute]之上的路由，然后在打开新的路由[route]
   Future navigatePopUntil(String untilRoute, String route,
-      {RouteParams? params}) {
+      [RouteParams? params]) {
     popUntil(untilRoute);
     return navigateTo(route, params: params);
   }
 
   ///返回页面
-  void pop({RouteParams? result}) {
+  void pop([RouteParams? result]) {
     Navigator.of(TodoLib.navigatorKey.currentContext!).pop(result);
   }
 
@@ -102,11 +102,7 @@ class RouterUtil {
       Duration? transitionDuration,
       RouteTransitionsBuilder? transitionBuilder,
       RouteSettings? routeSettings}) {
-    if (params != null && params.getObj() != null) {
-      routeSettings = RouteSettings(name: route, arguments: params.getObj());
-    } else {
-      routeSettings = RouteSettings(name: route);
-    }
+    routeSettings = RouteSettings(name: route, arguments: params);
     if (params != null) {
       route = route + params.toUri();
     }
