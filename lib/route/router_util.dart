@@ -11,6 +11,7 @@ import 'dart:io';
 
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_basic_lib/route/bundle.dart';
 import 'package:flutter_basic_lib/todo_lib.dart';
 import 'package:flutter_basic_lib/route/route_params.dart';
 import 'package:flutter_basic_lib/route/routes.dart';
@@ -51,33 +52,34 @@ class RouterUtil {
     return _router.generator;
   }
 
-  ///直接跳转
-  Future navigate(String route, [RouteParams? params]) {
-    return navigateTo(route, params: params);
+  Bundle build(String route) {
+    return Bundle(route);
   }
 
-  ///直接跳转同时接收页面返回值
-  Future navigateResult(String route, ValueChanged<RouteParams> result,
-      [RouteParams? params]) {
-    return navigateTo(route, params: params)
-        .then((value) => result(value ?? RouteParams()));
+  ///直接跳转
+  Future navigate(Bundle bundle) {
+    return navigateTo(bundle);
   }
 
   ///替换当前路由跳转
-  Future navigateReplace(String route, [RouteParams? params]) {
-    return navigateTo(route, replace: true, params: params);
+  Future navigateReplace(Bundle bundle) {
+    return navigateTo(bundle, replace: true);
   }
 
   ///清除之前所有路由跳转
-  Future navigateClear(String route, [RouteParams? params]) {
-    return navigateTo(route, clearStack: true, params: params);
+  Future navigateClear(Bundle bundle) {
+    return navigateTo(bundle, clearStack: true);
   }
 
   ///清除路由为[untilRoute]之上的路由，然后在打开新的路由[route]
-  Future navigatePopUntil(String untilRoute, String route,
-      [RouteParams? params]) {
+  Future navigatePopUntil(Bundle bundle, String untilRoute) {
     popUntil(untilRoute);
-    return navigateTo(route, params: params);
+    return navigate(bundle);
+  }
+
+  ///直接跳转同时接收页面返回值
+  Future navigateResult(Bundle bundle, ValueChanged<RouteParams> result) {
+    return navigateTo(bundle).then((value) => result(value ?? RouteParams()));
   }
 
   ///返回页面
@@ -92,20 +94,18 @@ class RouterUtil {
   }
 
   ///跳转
-  Future navigateTo(String route,
+  Future navigateTo(Bundle bundle,
       {bool replace = false,
       bool clearStack = false,
       bool rootNavigator = false,
       bool maintainState = true,
       TransitionType transition = TransitionType.material,
-      RouteParams? params,
       Duration? transitionDuration,
       RouteTransitionsBuilder? transitionBuilder,
       RouteSettings? routeSettings}) {
-    routeSettings = RouteSettings(name: route, arguments: params);
-    if (params != null) {
-      route = route + params.toUri();
-    }
+    routeSettings = RouteSettings(name: bundle.route);
+
+    var route = bundle.route + bundle.toUri();
     if (Platform.isIOS) {
       transition = TransitionType.cupertino;
     }

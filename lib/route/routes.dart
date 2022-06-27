@@ -11,7 +11,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/route/route_params.dart';
 
-typedef RouteHandler = Widget Function(Map<String, dynamic> map, dynamic obj);
+typedef RouteHandler = Widget Function(Map<String, dynamic> map);
 
 class Routes {
   ///定义路由
@@ -30,8 +30,7 @@ class Routes {
   static void addRoute(FluroRouter router, String route, RouteHandler handler) {
     router.define(route, handler: Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> map) {
-        var obj = context?.settings?.arguments;
-        return handler.call(convertType(map), obj);
+        return handler.call(convertType(map));
       },
     ));
   }

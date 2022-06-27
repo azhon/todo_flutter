@@ -13,27 +13,24 @@ class RouteParams {
   static const String FLAG_DOUBLE = '0x7C';
   static const String FLAG_BOOL = '0x7D';
 
-  dynamic _obj;
   final Map<String, dynamic> _data = {};
 
   ///存储字符串
-  void putString(String key, String value) {
+  RouteParams withString(String key, String? value) {
     _data[key] = value;
+    return this;
   }
 
   ///存储int double
-  void putNum(String key, num value) {
+  RouteParams withNum(String key, num? value) {
     _data[key] = value;
+    return this;
   }
 
   ///存储布尔值
-  void putBool(String key, bool value) {
+  RouteParams withBool(String key, bool? value) {
     _data[key] = value;
-  }
-
-  ///存储对象
-  void putObj(dynamic obj) {
-    this._obj = obj;
+    return this;
   }
 
   String? getString(String key) {
@@ -46,10 +43,6 @@ class RouteParams {
 
   bool? getBool(String key) {
     return _data[key];
-  }
-
-  dynamic getObj() {
-    return _obj;
   }
 
   String toUri() {
