@@ -48,6 +48,7 @@ export 'util/object_util.dart';
 export 'util/preference_util.dart';
 
 export 'todo_lib.dart';
+export 'todo_app.dart';
 
 ///other library
 export 'package:flutter_bloc/flutter_bloc.dart';
