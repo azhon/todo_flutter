@@ -1,12 +1,8 @@
-/*
- * 项目名:    todo_flutter
- * 包名       
- * 文件名:    dio_engine
- * 创建时间:  2021/10/14 on 13:59
- * 描述:
- *
- * @author   阿钟
- */
+/// createTime: 2021/10/14 on 13:59
+/// desc:
+///
+/// @author azhon
+
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:dio/adapter.dart';

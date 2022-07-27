@@ -1,12 +1,8 @@
-/*
- * 项目名:    todo_flutter
- * 包名       
- * 文件名:    common_image
- * 创建时间:  2021/9/22 on 17:26
- * 描述:
- *
- * @author   阿钟
- */
+/// createTime: 2021/9/22 on 17:26
+/// desc:
+///
+/// @author azhon
+
 import 'dart:io' as io;
 import 'dart:typed_data';
 import 'package:extended_image/extended_image.dart';

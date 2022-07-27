@@ -1,15 +1,9 @@
+/// createTime: 2022/7/26 on 10:16
+/// desc:
+///
+/// @author azhon
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
-
-/*
- * 项目名:    flutter_basic_lib
- * 包名:      
- * 文件名:    todo_app
- * 创建时间:  2022/7/26 on 10:16
- * 描述:     
- *
- * @author   azhon
- */
 
 class TodoApp extends StatelessWidget {
   final String title;

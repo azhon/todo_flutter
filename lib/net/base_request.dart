@@ -1,12 +1,8 @@
-/*
- * 项目名:    todo_flutter
- * 包名       
- * 文件名:    base_request
- * 创建时间:  2021/10/15 on 10:56
- * 描述:     定义请求
- *
- * @author   阿钟
- */
+/// createTime: 2021/10/15 on 10:56
+/// desc:
+///
+/// @author azhon
+
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 
 enum RequestMethod {

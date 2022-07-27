@@ -1,12 +1,8 @@
-/*
- * 项目名:    todo_flutter
- * 包名       
- * 文件名:    base_state
- * 创建时间:  2021/9/17 on 21:18
- * 描述:
- *
- * @author   阿钟
- */
+/// createTime: 2021/9/17 on 21:18
+/// desc:
+///
+/// @author azhon
+
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/base/loading_state.dart';
 import 'package:flutter_basic_lib/error/runtime_exception.dart';

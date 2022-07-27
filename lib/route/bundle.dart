@@ -1,12 +1,7 @@
-/*
- * 项目名:    flutter_basic_lib
- * 包名:      
- * 文件名:    bundle
- * 创建时间:  2022/6/27 on 21:04
- * 描述:     
- *
- * @author   azhon
- */
+/// createTime: 2022/6/27 on 21:04
+/// desc:
+///
+/// @author azhon
 
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/route/route_params.dart';

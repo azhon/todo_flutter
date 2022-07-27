@@ -1,12 +1,8 @@
-/*
- * 项目名:    todo_flutter
- * 包名       
- * 文件名:    todo_lib
- * 创建时间:  2021/9/29 on 13:54
- * 描述:      框架初始化
- *
- * @author   阿钟
- */
+/// createTime: 2021/9/29 on 13:54
+/// desc: 框架初始化
+///
+/// @author azhon
+
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/error/runtime_exception.dart';
 import 'package:flutter_basic_lib/theme/toast_theme_data.dart';

@@ -1,12 +1,8 @@
-/*
- * 项目名:    todo_flutter
- * 包名       
- * 文件名:    common_click_widget
- * 创建时间:  2021/9/17 on 21:12
- * 描述:
- *
- * @author   阿钟
- */
+/// createTime: 2021/9/17 on 21:12
+/// desc:
+///
+/// @author azhon
+
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/base/base_state.dart';
 import 'package:flutter_basic_lib/base/base_stateful_widget.dart';

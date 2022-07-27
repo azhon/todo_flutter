@@ -1,12 +1,8 @@
-/*
- * 项目名:    todo_flutter
- * 包名       
- * 文件名:    common_input
- * 创建时间:  2021/9/27 on 15:33
- * 描述:
- *
- * @author   阿钟
- */
+/// createTime: 2021/9/27 on 15:33
+/// desc:
+///
+/// @author azhon
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

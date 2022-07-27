@@ -1,12 +1,8 @@
-/*
- * 项目名:    todo_flutter
- * 包名       
- * 文件名:    route_params
- * 创建时间:  2021/9/17 on 17:55
- * 描述:
- *
- * @author   阿钟
- */
+/// createTime: 2021/9/17 on 17:55
+/// desc:
+///
+/// @author azhon
+
 class RouteParams {
   static const String FLAG_STRING = '0x7A';
   static const String FLAG_INT = '0x7B';

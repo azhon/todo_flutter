@@ -1,12 +1,8 @@
-/*
- * 项目名:    todo_flutter
- * 包名       
- * 文件名:    base_net_provider
- * 创建时间:  2021/10/14 on 14:47
- * 描述:
- *
- * @author   阿钟
- */
+/// createTime: 2021/10/14 on 14:47
+/// desc:
+///
+/// @author azhon
+
 import 'package:flutter_basic_lib/net/base_convert.dart';
 import 'package:flutter_basic_lib/net/base_net_engine.dart';
 

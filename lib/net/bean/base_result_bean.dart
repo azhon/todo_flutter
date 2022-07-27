@@ -1,12 +1,7 @@
-/*
- * 项目名:    todo_flutter
- * 包名       
- * 文件名:    base_bean
- * 创建时间:  2021/10/15 on 14:15
- * 描述:     请求接口基础类
- *
- * @author   阿钟
- */
+/// createTime: 2021/10/15 on 14:15
+/// desc: 请求接口基础类
+///
+/// @author azhon
 
 class BaseBean<T> {
   static const DEFAULT_CODE = -1;

@@ -1,12 +1,7 @@
-/*
- * 项目名:    todo_flutter
- * 包名       
- * 文件名:    load_bloc
- * 创建时间:  2021/10/21 on 14:55
- * 描述:     
- *
- * @author   阿钟
- */
+/// createTime: 2021/10/21 on 14:55
+/// desc:
+///
+/// @author azhon
 import 'package:flutter_basic_lib/base/bloc/base_bloc.dart';
 import 'package:flutter_basic_lib/bloc/load/load_event.dart';
 import 'package:flutter_basic_lib/bloc/load/load_state.dart';

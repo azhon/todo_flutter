@@ -1,12 +1,8 @@
-/*
- * 项目名:    todo_flutter
- * 包名       
- * 文件名:    router_util
- * 创建时间:  2021/9/17 on 17:58
- * 描述:
- *
- * @author   阿钟
- */
+/// createTime: 2021/9/17 on 17:58
+/// desc:
+///
+/// @author azhon
+
 import 'dart:io';
 
 import 'package:fluro/fluro.dart';

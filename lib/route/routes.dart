@@ -1,12 +1,8 @@
-/*
- * 项目名:    todo_flutter
- * 包名       
- * 文件名:    routes
- * 创建时间:  2021/9/17 on 17:57
- * 描述:
- *
- * @author   阿钟
- */
+/// createTime: 2021/9/17 on 17:57
+/// desc:
+///
+/// @author azhon
+
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/route/route_params.dart';

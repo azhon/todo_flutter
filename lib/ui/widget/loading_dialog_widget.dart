@@ -1,12 +1,8 @@
-/*
- * 项目名:    todo_flutter
- * 包名       
- * 文件名:    loading_dialog
- * 创建时间:  2021/10/19 on 17:24
- * 描述:     
- *
- * @author   阿钟
- */
+/// createTime: 2021/10/19 on 17:24
+/// desc:
+///
+/// @author azhon
+
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 

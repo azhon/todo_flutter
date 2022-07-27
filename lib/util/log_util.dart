@@ -1,12 +1,8 @@
-/*
- * 项目名:    todo_flutter
- * 包名       
- * 文件名:    log_util
- * 创建时间:  2021/10/18 on 17:25
- * 描述:     
- *
- * @author   阿钟
- */
+/// createTime: 2021/10/18 on 17:25
+/// desc:
+///
+/// @author azhon
+
 import 'package:logger/logger.dart';
 
 class LogUtil {

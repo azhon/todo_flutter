@@ -1,12 +1,8 @@
-/*
- * 项目名:    todo_flutter
- * 包名       
- * 文件名:    base_net_engine
- * 创建时间:  2021/10/14 on 11:48
- * 描述:
- *
- * @author   阿钟
- */
+/// createTime: 2021/10/14 on 11:48
+/// desc:
+///
+/// @author azhon
+
 class Result {
   dynamic data;
   int? statusCode;
