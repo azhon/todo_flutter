@@ -26,7 +26,8 @@ class BlocLoadWidget extends BaseStatelessWidget {
       builder: (BuildContext context, LoadState state) {
         if (state is LoadingState) {
           return Container(
-            height: setWidth(200),
+            width: double.infinity,
+            height: double.infinity,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

@@ -7,9 +7,11 @@ class InitEvent<T> extends ListEvent<T> {
   @override
   Future<ListState<T>> on(ListBloc<T> bloc, ListState<T> currentState) async {
     bloc.showPageLoading();
+    bloc.loading();
     var bean = await bloc.request.request();
     var list = bean.data?.data;
     bloc.dismissPageLoading();
+    bloc.loadDone();
     return InitialState(list as List<T>);
   }
 }

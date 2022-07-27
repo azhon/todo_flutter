@@ -35,19 +35,22 @@ class _CommonRefreshWidgetState<T> extends BaseState<CommonRefreshWidget<T>> {
     return BlocBuilder<ListBloc<T>, ListState<T>>(
       bloc: widget.bloc,
       builder: (BuildContext context, ListState<T> state) {
-        return RefreshConfiguration(
-          hideFooterWhenNotFull: true,
-          child: SmartRefresher(
-            onRefresh: () => widget.bloc.refresh(),
-            onLoading: () => widget.bloc.loadMore(),
-            controller: widget.bloc.controller,
-            enablePullDown: true,
-            enablePullUp: widget.enablePullUp,
-            physics: ClampingScrollPhysics(),
-            header: MaterialClassicHeader(),
-            child: state.data.isEmpty
-                ? _emptyView()
-                : widget.child.call(context, state.data),
+        return BlocLoadWidget(
+          loadBloc: widget.bloc.loadBloc,
+          child: RefreshConfiguration(
+            hideFooterWhenNotFull: true,
+            child: SmartRefresher(
+              onRefresh: () => widget.bloc.refresh(),
+              onLoading: () => widget.bloc.loadMore(),
+              controller: widget.bloc.controller,
+              enablePullDown: true,
+              enablePullUp: widget.enablePullUp,
+              physics: ClampingScrollPhysics(),
+              header: MaterialClassicHeader(),
+              child: state.data.isEmpty
+                  ? _emptyView()
+                  : widget.child.call(context, state.data),
+            ),
           ),
         );
       },
