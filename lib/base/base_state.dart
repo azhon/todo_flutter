@@ -50,7 +50,7 @@ abstract class BaseBlocState<T extends StatefulWidget> extends BaseUIState<T>
       barrierColor: Colors.transparent,
       barrierDismissible: false,
       builder: (BuildContext context) {
-        return LoadingDialog(msg: msg);
+        return LoadingDialogWidget(msg: msg);
       },
     ).then((value) => _isShowLoadingDialog = false);
   }

@@ -6,10 +6,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 
-class LoadingDialog extends Dialog with UIAdapter, UIWidget {
+class LoadingDialogWidget extends Dialog with UIAdapter, UIWidget {
   final String? msg;
 
-  LoadingDialog({this.msg}) : super(insetPadding: EdgeInsets.zero);
+  LoadingDialogWidget({this.msg}) : super(insetPadding: EdgeInsets.zero);
 
   @override
   Widget build(BuildContext context) {

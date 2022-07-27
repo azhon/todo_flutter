@@ -9,6 +9,9 @@
 | CommonInputArea  | 带计数的输入框组件 |
 | CommonText  | 文本组件 |
 | CommonClickWidget  | 点击事件组件 |
+| CommonRefreshWidget  | 列表刷新、加载组件 |
+| LoadingDialogWidget  | 全屏对话框组件 |
+| BlocLoadWidget  | 加载组件 |
 | DataChangeWidget  | 简单数据状态管理组件 |
 | BaseStatefulWidget</br>BaseState  | 有状态组件 |
 | BaseStatelessWidget  | 无状态组件 |
