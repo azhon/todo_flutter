@@ -2,10 +2,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 
-class CommonRichText extends StatefulWidget {
+class CommonRichText extends BaseStatefulWidget {
   final List<RichTextParams> params;
 
-  const CommonRichText(this.params, {Key? key}) : super(key: key);
+  CommonRichText(this.params, {Key? key}) : super(key: key);
 
   @override
   _CommonRichTextState createState() => _CommonRichTextState();

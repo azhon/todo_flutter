@@ -6,7 +6,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 
-class CommonText extends BaseStatelessWidget with UIAdapter {
+class CommonText extends BaseStatelessWidget {
   final String text;
   final double? fontSize;
   final Color? color;

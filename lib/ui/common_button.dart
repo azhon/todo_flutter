@@ -9,7 +9,7 @@ import 'package:flutter_basic_lib/todo_lib.dart';
 import 'package:flutter_basic_lib/base/ui_adapter.dart';
 import 'package:flutter_basic_lib/ui/common_text.dart';
 
-class CommonButton extends BaseStatelessWidget with UIAdapter {
+class CommonButton extends BaseStatelessWidget {
   final String text;
   final double radius;
   final double? width;

@@ -9,7 +9,7 @@ import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 
-class CommonImage extends BaseStatelessWidget with UIAdapter {
+class CommonImage extends BaseStatelessWidget {
   final String? network;
   final String? asset;
   final Uint8List? memory;
