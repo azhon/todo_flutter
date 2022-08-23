@@ -92,8 +92,9 @@ class CommonImage extends BaseStatelessWidget {
         break;
       case LoadState.failed:
         return Center(child: Text('Failed to load image'));
-      default:
+      case LoadState.completed:
         return null;
     }
+    return null;
   }
 }
