@@ -4,10 +4,10 @@
 /// @author azhon
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 
-class DataChangeBloc<T> extends Cubit<T> {
-  DataChangeBloc(T data) : super(data);
+class DataChangeBloc<T> extends Cubit<T?> {
+  DataChangeBloc(T? data) : super(data);
 
-  void changeData(T data) {
+  void changeData(T? data) {
     emit(data);
   }
 }

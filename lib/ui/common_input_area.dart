@@ -122,7 +122,7 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
               padding: widget.countPadding ?? only(right: 24, bottom: 24),
               child: DataChangeWidget<int>(
                 bloc: _countBloc,
-                child: (context, int state) {
+                child: (context, int? state) {
                   return CommonText(
                     '$state/${widget.maxLength}',
                     color: widget.countTextColor,

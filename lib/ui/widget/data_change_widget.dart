@@ -10,7 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DataChangeWidget<T> extends BaseStatelessWidget {
   final DataChangeBloc<T> bloc;
-  final BlocWidgetBuilder<T> child;
+  final BlocWidgetBuilder<T?> child;
 
   DataChangeWidget({
     Key? key,
@@ -20,9 +20,9 @@ class DataChangeWidget<T> extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DataChangeBloc<T>, T>(
+    return BlocBuilder<DataChangeBloc<T>, T?>(
       bloc: bloc,
-      builder: (BuildContext context, T state) => child.call(context, state),
+      builder: (BuildContext context, T? state) => child.call(context, state),
     );
   }
 }
