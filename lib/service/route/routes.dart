@@ -5,7 +5,7 @@
 
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_lib/route/route_params.dart';
+import 'package:flutter_basic_lib/service/route/route_params.dart';
 
 typedef RouteHandler = Widget Function(Map<String, dynamic> map);
 

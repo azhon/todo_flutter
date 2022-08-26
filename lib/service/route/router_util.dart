@@ -7,10 +7,10 @@ import 'dart:io';
 
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_lib/route/bundle.dart';
+import 'package:flutter_basic_lib/service/route/bundle.dart';
+import 'package:flutter_basic_lib/service/route/route_params.dart';
+import 'package:flutter_basic_lib/service/route/routes.dart';
 import 'package:flutter_basic_lib/todo_lib.dart';
-import 'package:flutter_basic_lib/route/route_params.dart';
-import 'package:flutter_basic_lib/route/routes.dart';
 
 class RouterUtil {
   factory RouterUtil() => _getInstance();

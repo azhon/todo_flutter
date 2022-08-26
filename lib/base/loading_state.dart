@@ -2,7 +2,7 @@
 /// desc:
 ///
 /// @author azhon
-import 'package:flutter_basic_lib/theme/toast_theme_data.dart';
+import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 
 mixin LoadingState {
   void showLoadingDialog({String? msg});

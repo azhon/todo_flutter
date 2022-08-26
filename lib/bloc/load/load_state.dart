@@ -2,8 +2,7 @@
 /// desc:
 ///
 /// @author azhon
-
-import 'package:flutter_basic_lib/error/api_exception.dart';
+import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 
 abstract class LoadState {}
 

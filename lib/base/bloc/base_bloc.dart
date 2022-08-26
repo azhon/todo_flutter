@@ -5,7 +5,6 @@
 
 import 'package:flutter_basic_lib/base/loading_state.dart';
 import 'package:flutter_basic_lib/bloc/load/load_bloc.dart';
-import 'package:flutter_basic_lib/error/api_exception.dart';
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 
 abstract class BaseLoadBloc<E extends BaseEvent, S> extends Bloc<E, S> {

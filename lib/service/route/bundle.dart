@@ -4,8 +4,8 @@
 /// @author azhon
 
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_lib/route/route_params.dart';
-import 'package:flutter_basic_lib/route/router_util.dart';
+import 'package:flutter_basic_lib/service/route/route_params.dart';
+import 'package:flutter_basic_lib/service/route/router_util.dart';
 
 class Bundle extends RouteParams {
   final String route;
