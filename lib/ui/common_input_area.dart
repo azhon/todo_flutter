@@ -17,7 +17,6 @@ class CommonInputArea extends BaseStatefulWidget {
   final double? countFontSize;
   final Color? countTextColor;
 
-  final String text;
   final EdgeInsetsGeometry? padding;
   final String placeholder;
   final double? placeholderFontSize;
@@ -29,7 +28,7 @@ class CommonInputArea extends BaseStatefulWidget {
   final int? maxLines;
   final bool autofocus;
   final FocusNode? focusNode;
-  final ValueChanged<String>? onTextChange;
+  final TextEditingController? controller;
   final TextInputAction textInputAction;
   final TextInputType? keyboardType;
   final ValueChanged<String>? onSubmitted;
@@ -45,7 +44,7 @@ class CommonInputArea extends BaseStatefulWidget {
     this.borderRadius,
 
     ///原本输入的属性
-    this.text = '',
+    this.controller,
     this.padding,
     this.placeholder = '请输入描述信息',
     this.placeholderFontSize,
@@ -56,7 +55,6 @@ class CommonInputArea extends BaseStatefulWidget {
     this.maxLength,
     this.maxLines,
     this.autofocus = false,
-    this.onTextChange,
     this.onSubmitted,
     this.focusNode,
     this.textInputAction = TextInputAction.done,
@@ -69,12 +67,14 @@ class CommonInputArea extends BaseStatefulWidget {
 
 class _CommonInputAreaState extends BaseState<CommonInputArea> {
   DataChangeBloc<int> get _countBloc => getBloc<DataChangeBloc<int>>();
-  GlobalKey<CommonInputState> _inputKey = GlobalKey();
+  late TextEditingController _controller;
 
   @override
   void initState() {
     super.initState();
+    _controller = widget.controller ?? TextEditingController();
     addBloc(DataChangeBloc<int>(0));
+    _controller.addListener(_onTextChange);
   }
 
   @override
@@ -95,8 +95,7 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           CommonInput(
-            key: _inputKey,
-            text: widget.text,
+            controller: _controller,
             padding: widget.padding ?? all(12),
             placeholder: widget.placeholder,
             placeholderColor: widget.placeholderColor,
@@ -111,10 +110,6 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
             textInputAction: widget.textInputAction,
             keyboardType: widget.keyboardType,
             decoration: BoxDecoration(),
-            onTextChange: (text) {
-              widget.onTextChange?.call(text);
-              _countBloc.changeData(text.length);
-            },
           ),
           Visibility(
             visible: widget.maxLength != null,
@@ -137,21 +132,13 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
     );
   }
 
-  ///清空输入框内容
-  void clearText() {
-    _inputKey.currentState?.clearText();
+  void _onTextChange() {
+    _countBloc.changeData(_controller.text.length);
   }
 
-  ///设置内容
-  void setText(String text) {
-    _inputKey.currentState?.setText(text);
-  }
-
-  String getText() {
-    return _inputKey.currentState?.getText() ?? '';
-  }
-
-  void unFocus() {
-    _inputKey.currentState?.unFocus();
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.removeListener(_onTextChange);
   }
 }
