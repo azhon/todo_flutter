@@ -21,6 +21,7 @@ class CommonButton extends BaseStatelessWidget {
   final bool disable;
   final double borderWidth;
   final EdgeInsets? margin;
+  final EdgeInsets? padding;
   final Gradient? gradient;
   final VoidCallback? onPressed;
   final VoidCallback? onLongPress;
@@ -34,10 +35,11 @@ class CommonButton extends BaseStatelessWidget {
     this.radius = 0,
     this.fontSize,
     this.margin,
+    this.padding,
     this.onPressed,
     this.onLongPress,
     this.gradient,
-    this.borderWidth = 2,
+    this.borderWidth = 1,
     this.disable = false,
     this.borderColor = Colors.transparent,
     this.textColor = Colors.white,
@@ -46,33 +48,32 @@ class CommonButton extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     var primaryColor = Theme.of(context).primaryColor;
+    double textSize = TodoLib.of(context).textSize;
     double defaultButtonHeight = TodoLib.of(context).defaultButtonHeight;
     return IgnorePointer(
       ignoring: disable,
-      child: Container(
-        width: width == null ? double.infinity : setWidth(width!),
-        height: setWidth(height ?? defaultButtonHeight),
-        margin: margin,
-        decoration: BoxDecoration(
-          gradient: gradient,
-          borderRadius: BorderRadius.circular(setRadius(radius)),
-        ),
-        child: TextButton(
-          onPressed: () => onPressed?.call(),
-          onLongPress: () => onLongPress?.call(),
-          style: TextButton.styleFrom(
-            primary: Colors.black,
-            backgroundColor: color ?? primaryColor,
-            side: BorderSide(color: borderColor, width: setWidth(borderWidth)),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(setRadius(radius)),
-            ),
+      child: GestureDetector(
+        onTap: () => onPressed?.call(),
+        onLongPress: () => onLongPress?.call(),
+        child: Container(
+          width: width == null ? null : setWidth(width!),
+          height: height == null
+              ? (padding == null ? setWidth(defaultButtonHeight) : null)
+              : setWidth(height!),
+          margin: margin,
+          padding: padding,
+          decoration: BoxDecoration(
+            gradient: gradient,
+            borderRadius: BorderRadius.circular(setRadius(radius)),
+            color: color ?? primaryColor,
+            border:
+                Border.all(color: borderColor, width: setWidth(borderWidth)),
           ),
           child: Center(
             child: CommonText(
               text,
               color: textColor,
-              fontSize: fontSize,
+              fontSize: setFontSize(fontSize ?? textSize),
             ),
           ),
         ),
