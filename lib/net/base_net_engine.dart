@@ -4,7 +4,7 @@
 /// @author azhon
 
 class Result {
-  dynamic data;
+  Map? data;
   int? statusCode;
   String? statusMessage;
 
