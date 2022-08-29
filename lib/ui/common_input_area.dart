@@ -8,7 +8,6 @@ import 'package:flutter_basic_lib/bloc/data/data_change_bloc.dart';
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 
 class CommonInputArea extends BaseStatefulWidget {
-  final Key? key;
   final double? minHeight;
   final double? maxHeight;
   final Color? backgroundColor;
@@ -34,7 +33,7 @@ class CommonInputArea extends BaseStatefulWidget {
   final ValueChanged<String>? onSubmitted;
 
   CommonInputArea({
-    this.key,
+    Key? key,
     this.minHeight,
     this.maxHeight,
     this.countPadding,
@@ -62,7 +61,7 @@ class CommonInputArea extends BaseStatefulWidget {
   }) : super(key: key);
 
   @override
-  _CommonInputAreaState createState() => _CommonInputAreaState();
+  State<StatefulWidget> createState() => _CommonInputAreaState();
 }
 
 class _CommonInputAreaState extends BaseState<CommonInputArea> {
@@ -79,7 +78,8 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
 
   @override
   Widget build(BuildContext context) {
-    Color defaultBackgroundColor = TodoLib.of(context).inputBackgroundColor;
+    final Color defaultBackgroundColor =
+        TodoLib.of(context).inputBackgroundColor;
     return Container(
       constraints: BoxConstraints(
         minHeight: widget.minHeight ?? 0,
@@ -109,7 +109,7 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
             focusNode: widget.focusNode,
             textInputAction: widget.textInputAction,
             keyboardType: widget.keyboardType,
-            decoration: BoxDecoration(),
+            decoration: const BoxDecoration(),
           ),
           Visibility(
             visible: widget.maxLength != null,

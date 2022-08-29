@@ -12,21 +12,6 @@ class Bundle extends RouteParams {
 
   Bundle(this.route);
 
-  Bundle withString(String key, String? value) {
-    super.withString(key, value);
-    return this;
-  }
-
-  Bundle withNum(String key, num? value) {
-    super.withNum(key, value);
-    return this;
-  }
-
-  Bundle withBool(String key, bool? value) {
-    super.withBool(key, value);
-    return this;
-  }
-
   Future navigate() {
     return RouterUtil.instance.navigate(this);
   }

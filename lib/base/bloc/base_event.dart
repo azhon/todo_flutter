@@ -6,6 +6,6 @@
 abstract class BaseEvent<B, S> {
   ///event transform to state
   ///[bloc] 事件的Bloc
-  ///[state] 当前的状态
+  ///[currentState] 当前的状态
   Future<S> on(B bloc, S currentState);
 }

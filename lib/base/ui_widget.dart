@@ -27,10 +27,11 @@ mixin UIWidget implements UIAdapter {
     double bottom = 0.0,
   }) {
     return EdgeInsets.only(
-        left: setWidth(left),
-        top: setWidth(top),
-        right: setWidth(right),
-        bottom: setWidth(bottom));
+      left: setWidth(left),
+      top: setWidth(top),
+      right: setWidth(right),
+      bottom: setWidth(bottom),
+    );
   }
 
   ///间距

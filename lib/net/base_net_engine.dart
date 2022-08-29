@@ -14,7 +14,8 @@ class Result {
 abstract class BaseNetEngine {
   final String baseUrl;
 
-  BaseNetEngine(this.baseUrl);
+  BaseNetEngine(this.baseUrl)
+      : assert(baseUrl.endsWith('/'), 'baseUrl must be end with /');
 
   Future<Result> get(String url, {Map<String, dynamic>? params});
 
@@ -28,14 +29,14 @@ abstract class BaseNetEngine {
 
   ///设置连接超时时间
   ///[timeout]超时时间ms
-  setConnectTimeout(int timeout);
+  void setConnectTimeout(int timeout);
 
   ///设置接收超时时间
   ///[timeout]超时时间ms
-  setReceiveTimeout(int timeout);
+  void setReceiveTimeout(int timeout);
 
   ///设置dio代理
   ///[ip]代理ip地址
   ///[port]代理端口
-  setProxy(String ip, String port);
+  void setProxy(String ip, String port);
 }

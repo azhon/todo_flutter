@@ -4,9 +4,9 @@
 /// @author azhon
 
 class BaseBean<T> {
-  static const DEFAULT_CODE = -1;
+  static const defaultCode = -1;
 
-  int code = DEFAULT_CODE;
+  int code = defaultCode;
   T? data;
   String? message;
 
@@ -20,7 +20,7 @@ class BaseBean<T> {
 
 abstract class BaseResultBean {
   ///json数据转实体
-  fromJson(dynamic json);
+  BaseResultBean fromJson(json);
 }
 
 abstract class BaseListResultBean<T> extends BaseResultBean {

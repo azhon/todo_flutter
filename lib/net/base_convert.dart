@@ -6,6 +6,6 @@
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 
 abstract class BaseConvert {
-  ///[json]转成对应实体类
+  ///[result]中的data json 数据转成对应实体类
   BaseBean<T> convert<T>(Result result, BaseResultBean? resultBean);
 }

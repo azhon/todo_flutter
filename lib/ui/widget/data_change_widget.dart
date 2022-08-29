@@ -13,16 +13,16 @@ class DataChangeWidget<T> extends BaseStatelessWidget {
   final BlocWidgetBuilder<T?> child;
 
   DataChangeWidget({
-    Key? key,
     required this.bloc,
     required this.child,
+    Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<DataChangeBloc<T>, T?>(
       bloc: bloc,
-      builder: (BuildContext context, T? state) => child.call(context, state),
+      builder: child.call,
     );
   }
 }

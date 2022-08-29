@@ -21,9 +21,7 @@ class RouterUtil {
   late FluroRouter _router;
 
   static RouterUtil _getInstance() {
-    if (_instance == null) {
-      _instance = RouterUtil._internal();
-    }
+    _instance ??= RouterUtil._internal();
     return _instance!;
   }
 
@@ -44,7 +42,7 @@ class RouterUtil {
     Routes.addRoute(_router, route, handler);
   }
 
-  generator() {
+  RouteFactory? generator() {
     return _router.generator;
   }
 
@@ -67,7 +65,7 @@ class RouterUtil {
     return navigateTo(bundle, clearStack: true);
   }
 
-  ///清除路由为[untilRoute]之上的路由，然后在打开新的路由[route]
+  ///清除路由为[untilRoute]之上的路由，然后在打开新的路由[bundle]里的route
   Future navigatePopUntil(Bundle bundle, String untilRoute) {
     popUntil(untilRoute);
     return navigate(bundle);
@@ -90,29 +88,32 @@ class RouterUtil {
   }
 
   ///跳转
-  Future navigateTo(Bundle bundle,
-      {bool replace = false,
-      bool clearStack = false,
-      bool rootNavigator = false,
-      bool maintainState = true,
-      TransitionType transition = TransitionType.material,
-      Duration? transitionDuration,
-      RouteTransitionsBuilder? transitionBuilder,
-      RouteSettings? routeSettings}) {
-    routeSettings = RouteSettings(name: bundle.route);
-
-    var route = bundle.route + bundle.toUri();
+  Future navigateTo(
+    Bundle bundle, {
+    bool replace = false,
+    bool clearStack = false,
+    bool rootNavigator = false,
+    bool maintainState = true,
+    TransitionType transition = TransitionType.material,
+    Duration? transitionDuration,
+    RouteTransitionsBuilder? transitionBuilder,
+  }) {
+    final RouteSettings routeSettings = RouteSettings(name: bundle.route);
+    final route = bundle.route + bundle.toUri();
     if (Platform.isIOS) {
       transition = TransitionType.cupertino;
     }
-    return _router.navigateTo(TodoLib.navigatorKey.currentContext!, route,
-        replace: replace,
-        clearStack: clearStack,
-        maintainState: maintainState,
-        rootNavigator: rootNavigator,
-        transition: transition,
-        transitionDuration: transitionDuration,
-        transitionBuilder: transitionBuilder,
-        routeSettings: routeSettings);
+    return _router.navigateTo(
+      TodoLib.navigatorKey.currentContext!,
+      route,
+      replace: replace,
+      clearStack: clearStack,
+      maintainState: maintainState,
+      rootNavigator: rootNavigator,
+      transition: transition,
+      transitionDuration: transitionDuration,
+      transitionBuilder: transitionBuilder,
+      routeSettings: routeSettings,
+    );
   }
 }

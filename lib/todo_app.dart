@@ -4,7 +4,6 @@
 /// @author azhon
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
-import 'package:flutter_basic_lib/service/route/router_util.dart';
 
 class TodoApp extends StatelessWidget {
   final String title;
@@ -18,7 +17,6 @@ class TodoApp extends StatelessWidget {
   final Iterable<LocalizationsDelegate<dynamic>>? localizationsDelegates;
 
   const TodoApp({
-    Key? key,
     required this.home,
     this.title = '',
     this.theme,
@@ -28,6 +26,7 @@ class TodoApp extends StatelessWidget {
     this.designSize = const Size(375, 667),
     this.navigatorObservers = const <NavigatorObserver>[],
     this.supportedLocales = const <Locale>[Locale('en', 'US')],
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -49,7 +48,7 @@ class TodoApp extends StatelessWidget {
             onGenerateRoute: RouterUtil.instance.generator(),
             builder: (BuildContext context, Widget? widget) {
               return MediaQuery(
-                data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+                data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
                 child: widget ?? Container(),
               );
             },

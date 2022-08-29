@@ -64,9 +64,9 @@ class CommonInput extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var defaultTextSize = TodoLib.of(context).textSize;
-    var defaultPlaceholderColor = TodoLib.of(context).placeholderColor;
-    var defaultInputTextColor = TodoLib.of(context).inputTextColor;
+    final defaultTextSize = TodoLib.of(context).textSize;
+    final defaultPlaceholderColor = TodoLib.of(context).placeholderColor;
+    final defaultInputTextColor = TodoLib.of(context).inputTextColor;
     return CupertinoTextField(
       controller: controller,
       focusNode: focusNode,
@@ -76,7 +76,7 @@ class CommonInput extends BaseStatelessWidget {
           BoxDecoration(
             border: Border(
               bottom: BorderSide(
-                color: Color(0xFFEEEEEE),
+                color: const Color(0xFFEEEEEE),
                 width: setWidth(1),
               ),
             ),

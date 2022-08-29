@@ -40,7 +40,7 @@ class CommonText extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var defaultFonSize = TodoLib.of(context).textSize;
+    final defaultFonSize = TodoLib.of(context).textSize;
     return Text(
       text,
       maxLines: maxLines,

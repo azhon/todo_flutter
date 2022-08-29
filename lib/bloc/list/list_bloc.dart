@@ -34,8 +34,8 @@ class ListBloc<T> extends BaseBloc<ListEvent<T>, ListState<T>> {
     _changeParams();
   }
 
-  _changeParams() {
-    if (request.params == null) request.params = {};
+  void _changeParams() {
+    request.params ??= {};
     request.params!['page'] = pageNum;
     request.params!['limit'] = pageSize;
   }

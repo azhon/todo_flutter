@@ -6,11 +6,11 @@
 import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 
 enum RequestMethod {
-  GET,
-  POST,
-  POST_JSON,
-  DEL,
-  PUT,
+  get,
+  post,
+  postJson,
+  del,
+  put,
 }
 
 abstract class BaseRequest<T> {
@@ -29,24 +29,24 @@ abstract class BaseRequest<T> {
 
   ///请求数据
   Future<BaseBean<T>> request() async {
-    BaseNetEngine engine = getNetProvider().getEngine();
-    BaseConvert convert = getNetProvider().getConvert();
+    final BaseNetEngine engine = getNetProvider().getEngine();
+    final BaseConvert convert = getNetProvider().getConvert();
     Result result = Result(null, null, null);
     try {
       switch (method) {
-        case RequestMethod.GET:
+        case RequestMethod.get:
           result = await engine.get(url, params: params);
           break;
-        case RequestMethod.POST:
+        case RequestMethod.post:
           result = await engine.post(url, params: params);
           break;
-        case RequestMethod.POST_JSON:
+        case RequestMethod.postJson:
           result = await engine.postJson(url, params: params);
           break;
-        case RequestMethod.DEL:
+        case RequestMethod.del:
           result = await engine.del(url, params: params);
           break;
-        case RequestMethod.PUT:
+        case RequestMethod.put:
           result = await engine.put(url, params: params);
           break;
       }

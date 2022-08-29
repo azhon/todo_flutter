@@ -9,15 +9,15 @@ import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 class LoadBloc extends BaseLoadBloc<LoadEvent, LoadState> {
   LoadBloc() : super(InitialState());
 
-  loading() {
+  void loading() {
     add(LoadingEvent());
   }
 
-  loadDone() {
+  void loadDone() {
     add(InitialEvent());
   }
 
-  loadError(ApiException exception) {
+  void loadError(ApiException exception) {
     add(ErrorEvent(exception));
   }
 }

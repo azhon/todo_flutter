@@ -12,15 +12,15 @@ class CommonRefreshWidget<T> extends StatefulWidget {
   final Widget? emptyWidget;
 
   const CommonRefreshWidget({
-    Key? key,
     required this.bloc,
     required this.child,
     this.enablePullUp = true,
     this.emptyWidget,
+    Key? key,
   }) : super(key: key);
 
   @override
-  _CommonRefreshWidgetState createState() => _CommonRefreshWidgetState<T>();
+  State<StatefulWidget> createState() => _CommonRefreshWidgetState<T>();
 }
 
 class _CommonRefreshWidgetState<T> extends BaseState<CommonRefreshWidget<T>> {
@@ -43,10 +43,9 @@ class _CommonRefreshWidgetState<T> extends BaseState<CommonRefreshWidget<T>> {
               onRefresh: () => widget.bloc.refresh(),
               onLoading: () => widget.bloc.loadMore(),
               controller: widget.bloc.controller,
-              enablePullDown: true,
               enablePullUp: widget.enablePullUp,
-              physics: ClampingScrollPhysics(),
-              header: MaterialClassicHeader(),
+              physics: const ClampingScrollPhysics(),
+              header: const MaterialClassicHeader(),
               child: state.data.isEmpty
                   ? _emptyView()
                   : widget.child.call(context, state.data),
@@ -65,12 +64,12 @@ class _CommonRefreshWidgetState<T> extends BaseState<CommonRefreshWidget<T>> {
             children: [
               CommonText(
                 '(⌒▽⌒)',
-                color: Color(0xFF666666),
+                color: const Color(0xFF666666),
               ),
               sizedBox(height: 4),
               CommonText(
                 'No Data.',
-                color: Color(0xFF666666),
+                color: const Color(0xFF666666),
               )
             ],
           ),

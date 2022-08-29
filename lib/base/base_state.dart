@@ -26,18 +26,19 @@ abstract class BaseBlocState<T extends StatefulWidget> extends BaseUIState<T>
   List<BlocBase>? _blocs;
 
   ///添加bloc进行管理
-  addBloc(BlocBase bloc) {
-    if (_blocs == null) _blocs = [];
+  void addBloc(BlocBase bloc) {
+    _blocs ??= [];
     _blocs!.add(bloc);
   }
 
   ///获取bloc进行管理
   B getBloc<B extends BlocBase>() {
-    var list = _blocs
+    final list = _blocs
         ?.where((element) => element.runtimeType.toString() == B.toString())
         .toList();
-    if (list == null || list.isEmpty)
+    if (list == null || list.isEmpty) {
       throw RuntimeException('please use addBloc(${B.toString()}()) first...');
+    }
     return list.first as B;
   }
 
@@ -56,12 +57,14 @@ abstract class BaseBlocState<T extends StatefulWidget> extends BaseUIState<T>
 
   @override
   void dismissLoadingDialog() {
-    if (_isShowLoadingDialog) RouterUtil.instance.pop();
+    if (_isShowLoadingDialog) {
+      RouterUtil.instance.pop();
+    }
   }
 
   @override
   void showToast(String msg, {ToastThemeData? data}) {
-    var themeData = data ?? TodoLib.of(context).toastThemeData;
+    final themeData = data ?? TodoLib.of(context).toastThemeData;
     Fluttertoast.showToast(
       msg: msg,
       fontSize: themeData.fontSize,

@@ -10,7 +10,8 @@ class ApiException implements Exception {
 
   ApiException(this.error);
 
+  @override
   String toString() {
-    return "ApiException: ${error.toString()}";
+    return 'ApiException: ${error.toString()}';
   }
 }

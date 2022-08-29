@@ -8,7 +8,9 @@ class TextUtil {
   ///对象是否为空
   ///[obj] 任意对象
   static bool isEmpty(Object? obj) {
-    if (obj == null) return true;
+    if (obj == null) {
+      return true;
+    }
     if (obj is String) {
       return obj.isEmpty;
     }

@@ -9,7 +9,8 @@ import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 class LoadingDialogWidget extends Dialog with UIAdapter, UIWidget {
   final String? msg;
 
-  LoadingDialogWidget({this.msg}) : super(insetPadding: EdgeInsets.zero);
+  LoadingDialogWidget({Key? key, this.msg})
+      : super(key: key, insetPadding: EdgeInsets.zero);
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +24,13 @@ class LoadingDialogWidget extends Dialog with UIAdapter, UIWidget {
             height: setWidth(100),
             alignment: Alignment.center,
             decoration: BoxDecoration(
-                color: Color(0x4D000000),
-                borderRadius: BorderRadius.circular(setRadius(8))),
+              color: const Color(0x4D000000),
+              borderRadius: BorderRadius.circular(setRadius(8)),
+            ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                CircularProgressIndicator(color: Colors.white),
+                const CircularProgressIndicator(color: Colors.white),
                 sizedBox(height: 10),
                 CommonText(msg ?? 'Loading...', color: Colors.white),
               ],

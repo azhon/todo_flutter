@@ -4,29 +4,26 @@
 /// @author azhon
 
 class RouteParams {
-  static const String FLAG_STRING = '0x7A';
-  static const String FLAG_INT = '0x7B';
-  static const String FLAG_DOUBLE = '0x7C';
-  static const String FLAG_BOOL = '0x7D';
+  static const String flagString = '0x7A';
+  static const String flagInt = '0x7B';
+  static const String flagDouble = '0x7C';
+  static const String flagBool = '0x7D';
 
   final Map<String, dynamic> _data = {};
 
   ///存储字符串
-  RouteParams withString(String key, String? value) {
+  void withString(String key, String? value) {
     _data[key] = value;
-    return this;
   }
 
   ///存储int double
-  RouteParams withNum(String key, num? value) {
+  void withNum(String key, num? value) {
     _data[key] = value;
-    return this;
   }
 
   ///存储布尔值
-  RouteParams withBool(String key, bool? value) {
+  void withBool(String key, bool? value) {
     _data[key] = value;
-    return this;
   }
 
   String? getString(String key) {
@@ -42,7 +39,9 @@ class RouteParams {
   }
 
   String toUri() {
-    if (_data.isEmpty) return '';
+    if (_data.isEmpty) {
+      return '';
+    }
     String params = '?';
     _data.forEach((key, value) {
       params += '$key=${paramsType(value)}&';
@@ -51,16 +50,16 @@ class RouteParams {
   }
 
   ///参数类型标记
-  String paramsType(dynamic value) {
+  String paramsType(value) {
     String flag = '';
     if (value is String) {
-      flag = FLAG_STRING;
+      flag = flagString;
     } else if (value is int) {
-      flag = FLAG_INT;
+      flag = flagInt;
     } else if (value is double) {
-      flag = FLAG_DOUBLE;
+      flag = flagDouble;
     } else if (value is bool) {
-      flag = FLAG_BOOL;
+      flag = flagBool;
     }
     if (value is String) {
       ///中文需要uri编码

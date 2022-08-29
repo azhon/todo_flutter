@@ -17,7 +17,8 @@ class BlocLoadWidget extends BaseStatelessWidget {
     required this.child,
     required this.loadBloc,
     this.error,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +26,10 @@ class BlocLoadWidget extends BaseStatelessWidget {
       bloc: loadBloc,
       builder: (BuildContext context, LoadState state) {
         if (state is LoadingState) {
-          return Container(
-            width: double.infinity,
-            height: double.infinity,
+          return SizedBox.expand(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 CircularProgressIndicator(),
               ],
             ),
@@ -45,7 +44,9 @@ class BlocLoadWidget extends BaseStatelessWidget {
   }
 
   Widget _errorWidget() {
-    if (error != null) return error!;
+    if (error != null) {
+      return error!;
+    }
     return Container(
       height: setWidth(200),
       alignment: Alignment.center,

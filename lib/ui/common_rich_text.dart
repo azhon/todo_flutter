@@ -8,12 +8,12 @@ class CommonRichText extends BaseStatefulWidget {
   CommonRichText(this.params, {Key? key}) : super(key: key);
 
   @override
-  _CommonRichTextState createState() => _CommonRichTextState();
+  State<StatefulWidget> createState() => _CommonRichTextState();
 }
 
 class _CommonRichTextState extends BaseState<CommonRichText> {
   List<TextSpan> _getItem() {
-    List<TextSpan> list = [];
+    final List<TextSpan> list = [];
     widget.params.forEach((element) {
       list.add(
         TextSpan(
@@ -48,6 +48,11 @@ class RichTextParams {
   final FontWeight? fontWeight;
   final VoidCallback? click;
 
-  RichTextParams(this.text, this.size, this.color,
-      {this.fontWeight, this.click});
+  RichTextParams(
+    this.text,
+    this.size,
+    this.color, {
+    this.fontWeight,
+    this.click,
+  });
 }

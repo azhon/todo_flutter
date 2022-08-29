@@ -12,20 +12,23 @@ class TodoLib extends InheritedWidget {
 
   final TodoLibData? data;
 
-  TodoLib({
-    Key? key,
+  const TodoLib({
     required Widget child,
     this.data,
+    Key? key,
   }) : super(key: key, child: child);
 
   ///获取库配置数据
   static TodoLibData of(BuildContext context) {
-    TodoLib? todoLib = context.dependOnInheritedWidgetOfExactType<TodoLib>();
-    if (todoLib == null)
+    final TodoLib? todoLib =
+        context.dependOnInheritedWidgetOfExactType<TodoLib>();
+    if (todoLib == null) {
       throw RuntimeException('please init [TodoLib] first...');
+    }
     return todoLib.data ?? TodoLibData();
   }
 
+  @override
   bool updateShouldNotify(TodoLib oldWidget) => data != oldWidget.data;
 }
 

@@ -43,7 +43,7 @@ class _CommonClickState extends BaseState<CommonClickWidget> {
 
   ///重复多次点击截流处理
   void _interceptClick(int clickInterceptInterval) {
-    int nowTime = DateTime.now().millisecondsSinceEpoch;
+    final int nowTime = DateTime.now().millisecondsSinceEpoch;
     if ((nowTime - _lastClick).abs() > clickInterceptInterval) {
       if (widget.singleClick != null) {
         widget.singleClick!.call();

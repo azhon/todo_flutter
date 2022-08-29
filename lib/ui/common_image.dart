@@ -40,50 +40,62 @@ class CommonImage extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget? widget;
-    double? w = width == null ? null : setWidth(width!);
-    double? h = height == null ? null : setWidth(height!);
-    BoxShape shape = circle ? BoxShape.circle : BoxShape.rectangle;
-    if (network != null)
-      widget = ExtendedImage.network(network!,
-          width: w,
-          height: h,
-          shape: shape,
-          fit: fit,
-          color: color,
-          border: border,
-          borderRadius: borderRadius,
-          loadStateChanged: (state) => loadStateChanged(state));
-    if (asset != null)
-      widget = ExtendedImage.asset(asset!,
-          width: w,
-          height: h,
-          shape: shape,
-          fit: fit,
-          color: color,
-          border: border,
-          borderRadius: borderRadius,
-          loadStateChanged: (state) => loadStateChanged(state));
-    if (memory != null)
-      widget = ExtendedImage.memory(memory!,
-          width: w,
-          height: h,
-          shape: shape,
-          fit: fit,
-          color: color,
-          border: border,
-          borderRadius: borderRadius,
-          loadStateChanged: (state) => loadStateChanged(state));
-    if (file != null)
-      widget = ExtendedImage.file(file!,
-          width: w,
-          height: h,
-          shape: shape,
-          fit: fit,
-          color: color,
-          border: border,
-          borderRadius: borderRadius,
-          loadStateChanged: (state) => loadStateChanged(state));
-    return widget ?? Center(child: Text('Failed to load image'));
+    final double? w = width == null ? null : setWidth(width!);
+    final double? h = height == null ? null : setWidth(height!);
+    final BoxShape shape = circle ? BoxShape.circle : BoxShape.rectangle;
+    if (network != null) {
+      widget = ExtendedImage.network(
+        network!,
+        width: w,
+        height: h,
+        shape: shape,
+        fit: fit,
+        color: color,
+        border: border,
+        borderRadius: borderRadius,
+        loadStateChanged: loadStateChanged,
+      );
+    }
+    if (asset != null) {
+      widget = ExtendedImage.asset(
+        asset!,
+        width: w,
+        height: h,
+        shape: shape,
+        fit: fit,
+        color: color,
+        border: border,
+        borderRadius: borderRadius,
+        loadStateChanged: loadStateChanged,
+      );
+    }
+    if (memory != null) {
+      widget = ExtendedImage.memory(
+        memory!,
+        width: w,
+        height: h,
+        shape: shape,
+        fit: fit,
+        color: color,
+        border: border,
+        borderRadius: borderRadius,
+        loadStateChanged: loadStateChanged,
+      );
+    }
+    if (file != null) {
+      widget = ExtendedImage.file(
+        file!,
+        width: w,
+        height: h,
+        shape: shape,
+        fit: fit,
+        color: color,
+        border: border,
+        borderRadius: borderRadius,
+        loadStateChanged: loadStateChanged,
+      );
+    }
+    return widget ?? const Center(child: Text('Failed to load image'));
   }
 
   Widget? loadStateChanged(ExtendedImageState state) {
@@ -91,7 +103,7 @@ class CommonImage extends BaseStatelessWidget {
       case LoadState.loading:
         break;
       case LoadState.failed:
-        return Center(child: Text('Failed to load image'));
+        return const Center(child: Text('Failed to load image'));
       case LoadState.completed:
         return null;
     }

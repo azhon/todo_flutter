@@ -12,10 +12,10 @@ abstract class BaseLoadBloc<E extends BaseEvent, S> extends Bloc<E, S> {
     _init();
   }
 
-  _init() {
+  void _init() {
     ///分发至event处理
     on<E>((E event, Emitter<S> emit) async {
-      S resultState = await event.on(this, state);
+      final S resultState = await event.on(this, state);
       emit.call(resultState);
       onStateChange(resultState);
     });
@@ -27,12 +27,12 @@ abstract class BaseLoadBloc<E extends BaseEvent, S> extends Bloc<E, S> {
 
 abstract class BaseBloc<E extends BaseEvent, S> extends BaseLoadBloc<E, S> {
   LoadingState? _loadingState;
-  LoadBloc _loadBloc = LoadBloc();
+  final LoadBloc _loadBloc = LoadBloc();
 
   LoadBloc get loadBloc => _loadBloc;
 
-  void setState(LoadingState? state) {
-    this._loadingState = state;
+  Future<void> setState(LoadingState? state) async {
+    _loadingState = state;
   }
 
   BaseBloc(S initialState) : super(initialState);
@@ -67,8 +67,9 @@ abstract class BaseBloc<E extends BaseEvent, S> extends BaseLoadBloc<E, S> {
     loadBloc.loadError(ApiException(bean));
   }
 
+  @override
   Future<void> close() async {
-    loadBloc.close();
-    super.close();
+    await loadBloc.close();
+    await super.close();
   }
 }

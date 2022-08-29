@@ -6,7 +6,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/base/base_stateless_widget.dart';
 import 'package:flutter_basic_lib/todo_lib.dart';
-import 'package:flutter_basic_lib/base/ui_adapter.dart';
 import 'package:flutter_basic_lib/ui/common_text.dart';
 
 class CommonButton extends BaseStatelessWidget {
@@ -47,9 +46,9 @@ class CommonButton extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var primaryColor = Theme.of(context).primaryColor;
-    double textSize = TodoLib.of(context).textSize;
-    double defaultButtonHeight = TodoLib.of(context).defaultButtonHeight;
+    final primaryColor = Theme.of(context).primaryColor;
+    final double textSize = TodoLib.of(context).textSize;
+    final double defaultButtonHeight = TodoLib.of(context).defaultButtonHeight;
     return IgnorePointer(
       ignoring: disable,
       child: GestureDetector(
