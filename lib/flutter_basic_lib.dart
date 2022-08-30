@@ -33,6 +33,7 @@ export 'service/error/api_exception.dart';
 export 'service/error/runtime_exception.dart';
 export 'service/error/runtime_exception.dart';
 export 'service/route/router_util.dart';
+export 'service/route/router_history_stack.dart';
 
 ///
 export 'ui/common_button.dart';

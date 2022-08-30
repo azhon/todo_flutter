@@ -42,7 +42,7 @@ class TodoApp extends StatelessWidget {
             theme: theme,
             supportedLocales: supportedLocales,
             navigatorKey: TodoLib.navigatorKey,
-            navigatorObservers: navigatorObservers,
+            navigatorObservers: navigatorObservers + [RouterHistoryObserver()],
             localizationsDelegates: localizationsDelegates,
             debugShowCheckedModeBanner: debugShowCheckedModeBanner,
             onGenerateRoute: RouterUtil.instance.generator(),
