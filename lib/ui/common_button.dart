@@ -14,6 +14,7 @@ class CommonButton extends BaseStatelessWidget {
   final double? width;
   final double? height;
   final double? fontSize;
+  final FontWeight? fontWeight;
   final Color? color;
   final Color? textColor;
   final Color borderColor;
@@ -33,6 +34,7 @@ class CommonButton extends BaseStatelessWidget {
     this.height,
     this.radius = 0,
     this.fontSize,
+    this.fontWeight,
     this.margin,
     this.padding,
     this.onPressed,
@@ -51,27 +53,33 @@ class CommonButton extends BaseStatelessWidget {
     final double defaultButtonHeight = TodoLib.of(context).defaultButtonHeight;
     return IgnorePointer(
       ignoring: disable,
-      child: GestureDetector(
-        onTap: () => onPressed?.call(),
-        onLongPress: () => onLongPress?.call(),
-        child: Container(
-          width: width == null ? null : setWidth(width!),
-          height: height == null
-              ? (padding == null ? setWidth(defaultButtonHeight) : null)
-              : setWidth(height!),
-          margin: margin,
-          padding: padding,
-          decoration: BoxDecoration(
-            gradient: gradient,
-            borderRadius: BorderRadius.circular(setRadius(radius)),
-            color: color ?? primaryColor,
-            border:
-                Border.all(color: borderColor, width: setWidth(borderWidth)),
+      child: Container(
+        width: width == null ? null : setWidth(width!),
+        height: height == null
+            ? (padding == null ? setWidth(defaultButtonHeight) : null)
+            : setWidth(height!),
+        margin: margin,
+        decoration: BoxDecoration(
+          gradient: gradient,
+        ),
+        child: TextButton(
+          onPressed: () => onPressed?.call(),
+          onLongPress: () => onLongPress?.call(),
+          style: TextButton.styleFrom(
+            primary: Colors.black,
+            backgroundColor: gradient == null ? (color ?? primaryColor) : null,
+            side: BorderSide(color: borderColor, width: setWidth(borderWidth)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(setRadius(radius)),
+            ),
+            minimumSize: Size.zero,
+            padding: padding ?? EdgeInsets.zero,
           ),
           child: Center(
             child: CommonText(
               text,
               color: textColor,
+              fontWeight: fontWeight,
               fontSize: setFontSize(fontSize ?? textSize),
             ),
           ),
