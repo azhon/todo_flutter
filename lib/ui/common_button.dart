@@ -49,7 +49,6 @@ class CommonButton extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     final primaryColor = Theme.of(context).primaryColor;
-    final double textSize = TodoLib.of(context).textSize;
     final double defaultButtonHeight = TodoLib.of(context).defaultButtonHeight;
     return IgnorePointer(
       ignoring: disable,
@@ -80,7 +79,7 @@ class CommonButton extends BaseStatelessWidget {
               text,
               color: textColor,
               fontWeight: fontWeight,
-              fontSize: setFontSize(fontSize ?? textSize),
+              fontSize: fontSize,
             ),
           ),
         ),
