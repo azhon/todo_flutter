@@ -5,9 +5,15 @@
 
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_lib/service/route/route_params.dart';
 
 typedef RouteHandler = Widget Function(Map<String, dynamic> map);
+
+class RouteKeyFlag {
+  static const String flagString = 'str>';
+  static const String flagInt = 'int>';
+  static const String flagDouble = 'double>';
+  static const String flagBool = 'bool>';
+}
 
 class Routes {
   ///定义路由
@@ -46,19 +52,19 @@ class Routes {
 
   ///数据转型
   static dynamic parseType(String value) {
-    if (value.startsWith(RouteParams.flagString)) {
-      return value.replaceAll(RouteParams.flagString, '');
+    if (value.startsWith(RouteKeyFlag.flagString)) {
+      return value.replaceAll(RouteKeyFlag.flagString, '');
     }
-    if (value.startsWith(RouteParams.flagInt)) {
-      final intStr = value.replaceAll(RouteParams.flagInt, '');
+    if (value.startsWith(RouteKeyFlag.flagInt)) {
+      final intStr = value.replaceAll(RouteKeyFlag.flagInt, '');
       return int.parse(intStr);
     }
-    if (value.startsWith(RouteParams.flagDouble)) {
-      final doubleStr = value.replaceAll(RouteParams.flagDouble, '');
+    if (value.startsWith(RouteKeyFlag.flagDouble)) {
+      final doubleStr = value.replaceAll(RouteKeyFlag.flagDouble, '');
       return double.parse(doubleStr);
     }
-    if (value.startsWith(RouteParams.flagBool)) {
-      final boolStr = value.replaceAll(RouteParams.flagBool, '');
+    if (value.startsWith(RouteKeyFlag.flagBool)) {
+      final boolStr = value.replaceAll(RouteKeyFlag.flagBool, '');
       return boolStr == 'true';
     }
     return value;

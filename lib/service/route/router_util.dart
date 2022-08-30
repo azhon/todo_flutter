@@ -8,7 +8,6 @@ import 'dart:io';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/service/route/bundle.dart';
-import 'package:flutter_basic_lib/service/route/route_params.dart';
 import 'package:flutter_basic_lib/service/route/routes.dart';
 import 'package:flutter_basic_lib/todo_lib.dart';
 
@@ -72,13 +71,13 @@ class RouterUtil {
   }
 
   ///直接跳转同时接收页面返回值
-  Future navigateResult(Bundle bundle, ValueChanged<RouteParams> result) {
-    return navigateTo(bundle).then((value) => result(value ?? RouteParams()));
+  Future navigateResult(Bundle bundle, ValueChanged<Bundle> result) {
+    return navigateTo(bundle).then((value) => result(value ?? Bundle()));
   }
 
   ///返回页面
-  void pop([RouteParams? result]) {
-    Navigator.of(TodoLib.navigatorKey.currentContext!).pop(result);
+  void pop([Bundle? bundle]) {
+    Navigator.of(TodoLib.navigatorKey.currentContext!).pop(bundle);
   }
 
   ///返回页面直到路由为[untilRoute]时停止
