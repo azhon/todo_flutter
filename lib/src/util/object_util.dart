@@ -1,4 +1,4 @@
-class TextUtil {
+class ObjectUtil {
   ///对象是不为空
   ///[obj] 任意对象
   static bool isNotEmpty(Object? obj) {
