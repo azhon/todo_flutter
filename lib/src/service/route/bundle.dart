@@ -1,3 +1,4 @@
+// ignore_for_file: avoid_returning_this
 /// createTime: 2022/6/27 on 21:04
 /// desc:
 ///
@@ -14,18 +15,21 @@ class Bundle {
   Bundle([this.route = '']);
 
   ///存储字符串
-  void withString(String key, String? value) {
+  Bundle withString(String key, String? value) {
     _data[key] = value;
+    return this;
   }
 
   ///存储int double
-  void withNum(String key, num? value) {
+  Bundle withNum(String key, num? value) {
     _data[key] = value;
+    return this;
   }
 
   ///存储布尔值
-  void withBool(String key, bool? value) {
+  Bundle withBool(String key, bool? value) {
     _data[key] = value;
+    return this;
   }
 
   String? getString(String key) {
