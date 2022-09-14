@@ -33,6 +33,7 @@ class CommonInputArea extends BaseStatefulWidget {
   final bool autofocus;
   final FocusNode? focusNode;
   final TextEditingController? controller;
+  final ValueChanged<String>? onTextChange;
   final TextInputAction textInputAction;
   final TextInputType? keyboardType;
   final ValueChanged<String>? onSubmitted;
@@ -61,6 +62,7 @@ class CommonInputArea extends BaseStatefulWidget {
     this.autofocus = false,
     this.onSubmitted,
     this.focusNode,
+    this.onTextChange,
     this.textInputAction = TextInputAction.done,
     this.keyboardType = TextInputType.text,
   }) : super(key: key);
@@ -71,14 +73,11 @@ class CommonInputArea extends BaseStatefulWidget {
 
 class _CommonInputAreaState extends BaseState<CommonInputArea> {
   DataChangeBloc<int> get _countBloc => getBloc<DataChangeBloc<int>>();
-  late TextEditingController _controller;
 
   @override
   void initState() {
     super.initState();
-    _controller = widget.controller ?? TextEditingController();
     addBloc(DataChangeBloc<int>(0));
-    _controller.addListener(_onTextChange);
   }
 
   @override
@@ -100,7 +99,7 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           CommonInput(
-            controller: _controller,
+            controller: widget.controller,
             padding: widget.padding ?? all(12),
             placeholder: widget.placeholder,
             placeholderColor: widget.placeholderColor,
@@ -115,6 +114,10 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
             textInputAction: widget.textInputAction,
             keyboardType: widget.keyboardType,
             decoration: const BoxDecoration(),
+            onTextChange: (text) {
+              widget.onTextChange?.call(text);
+              _countBloc.changeData(text.length);
+            },
           ),
           Visibility(
             visible: widget.maxLength != null,
@@ -135,15 +138,5 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
         ],
       ),
     );
-  }
-
-  void _onTextChange() {
-    _countBloc.changeData(_controller.text.length);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.removeListener(_onTextChange);
   }
 }

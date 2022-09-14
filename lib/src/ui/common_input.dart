@@ -28,6 +28,7 @@ class CommonInput extends BaseStatelessWidget {
   final FocusNode? focusNode;
   final String obscuringCharacter;
   final TextEditingController? controller;
+  final ValueChanged<String>? onTextChange;
   final TextInputAction textInputAction;
   final TextInputType? keyboardType;
   final ValueChanged<String>? onSubmitted;
@@ -56,6 +57,7 @@ class CommonInput extends BaseStatelessWidget {
     this.obscuringCharacter = '•',
     this.onSubmitted,
     this.focusNode,
+    this.onTextChange,
     this.textAlign = TextAlign.start,
     this.prefixMode = OverlayVisibilityMode.always,
     this.suffixMode = OverlayVisibilityMode.always,
@@ -93,6 +95,7 @@ class CommonInput extends BaseStatelessWidget {
         color: placeholderColor ?? defaultPlaceholderColor,
         fontSize: setFontSize(placeholderFontSize ?? defaultTextSize),
       ),
+      onChanged: (text) => onTextChange?.call(text),
       cursorColor: Theme.of(context).textSelectionTheme.cursorColor,
       textAlign: textAlign,
       textInputAction: textInputAction,
