@@ -21,6 +21,8 @@ class CommonImage extends BaseStatelessWidget {
   final Color? color;
   final BoxBorder? border;
   final bool circle;
+  final Widget? loading;
+  final Widget? error;
 
   CommonImage({
     this.network,
@@ -35,6 +37,8 @@ class CommonImage extends BaseStatelessWidget {
     this.border,
     this.fit = BoxFit.cover,
     this.circle = false,
+    this.loading,
+    this.error,
   }) : super(key: key);
 
   @override
@@ -101,12 +105,16 @@ class CommonImage extends BaseStatelessWidget {
   Widget? loadStateChanged(ExtendedImageState state) {
     switch (state.extendedImageLoadState) {
       case LoadState.loading:
-        break;
+        return Center(child: loading);
       case LoadState.failed:
-        return const Center(child: Text('Failed to load image'));
+        return Container(
+          width: width == null ? null : setWidth(width!),
+          height: height == null ? null : setWidth(height!),
+          alignment: Alignment.center,
+          child: error ?? const Text('Failed to load image'),
+        );
       case LoadState.completed:
         return null;
     }
-    return null;
   }
 }
