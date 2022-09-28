@@ -4,9 +4,9 @@
 /// @author azhon
 
 import 'package:flutter_basic_lib/src/net/base_net_engine.dart';
-import 'package:flutter_basic_lib/src/net/bean/base_result_bean.dart';
+import 'package:flutter_basic_lib/src/net/entity/base_entity.dart';
 
 abstract class BaseConvert {
   ///[result]中的data json 数据转成对应实体类
-  BaseBean<T> convert<T>(Result result, BaseResultBean? resultBean);
+  BaseEntity<T> convert<T>(Result result);
 }

@@ -16,7 +16,7 @@ export 'src/net/base_net_provider.dart';
 export 'src/net/base_request.dart';
 export 'src/net/dio_engine.dart';
 export 'src/net/base_convert.dart';
-export 'src/net/bean/base_result_bean.dart';
+export 'src/net/entity/base_entity.dart';
 
 ///
 export 'src/ui/common_button.dart';

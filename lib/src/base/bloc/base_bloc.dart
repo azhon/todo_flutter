@@ -6,7 +6,7 @@
 import 'package:flutter_basic_lib/src/base/bloc/base_event.dart';
 import 'package:flutter_basic_lib/src/base/loading_state.dart';
 import 'package:flutter_basic_lib/src/bloc/load/load_bloc.dart';
-import 'package:flutter_basic_lib/src/net/bean/base_result_bean.dart';
+import 'package:flutter_basic_lib/src/net/entity/base_entity.dart';
 import 'package:flutter_basic_lib/src/service/error/api_exception.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -66,8 +66,8 @@ abstract class BaseBloc<E extends BaseEvent, S> extends BaseLoadBloc<E, S> {
   }
 
   ///配合BlocLoadWidget使用，加载失败
-  void loadError(BaseBean bean) {
-    loadBloc.loadError(ApiException(bean));
+  void loadError(BaseEntity entity) {
+    loadBloc.loadError(ApiException(entity));
   }
 
   @override

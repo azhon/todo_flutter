@@ -7,7 +7,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_basic_lib/src/net/base_convert.dart';
 import 'package:flutter_basic_lib/src/net/base_net_engine.dart';
 import 'package:flutter_basic_lib/src/net/base_net_provider.dart';
-import 'package:flutter_basic_lib/src/net/bean/base_result_bean.dart';
+import 'package:flutter_basic_lib/src/net/entity/base_entity.dart';
 import 'package:flutter_basic_lib/src/util/log_util.dart';
 
 enum RequestMethod {
@@ -27,13 +27,10 @@ abstract class BaseRequest<T> {
 
   RequestMethod get method;
 
-  ///返回数据模型示例
-  BaseResultBean? get resultInstance;
-
   BaseNetProvider getNetProvider();
 
   ///请求数据
-  Future<BaseBean<T>> request() async {
+  Future<BaseEntity<T>> request() async {
     final BaseNetEngine engine = getNetProvider().getEngine();
     final BaseConvert convert = getNetProvider().getConvert();
     Result result = Result(null, null, null);
@@ -59,7 +56,7 @@ abstract class BaseRequest<T> {
       result.statusMessage = _parseError(e);
       LogUtil.e('BaseRequest：[request error] ${result.statusMessage}');
     }
-    return convert.convert<T>(result, resultInstance);
+    return convert.convert<T>(result);
   }
 
   ///获取异常信息

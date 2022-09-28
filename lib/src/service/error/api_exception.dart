@@ -3,15 +3,15 @@
 ///
 /// @author azhon
 
-import 'package:flutter_basic_lib/src/net/bean/base_result_bean.dart';
+import 'package:flutter_basic_lib/src/net/entity/base_entity.dart';
 
 class ApiException implements Exception {
-  final BaseBean error;
+  final BaseEntity entity;
 
-  ApiException(this.error);
+  ApiException(this.entity);
 
   @override
   String toString() {
-    return 'ApiException: ${error.toString()}';
+    return 'ApiException: ${entity.toString()}';
   }
 }
