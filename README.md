@@ -7,6 +7,7 @@
 | CommonImage  | 图片组件 |
 | CommonInput  | 输入框组件 |
 | CommonInputArea  | 带计数的输入框组件 |
+| CommonRichText  | 富文本组件 |
 | CommonText  | 文本组件 |
 | CommonClickWidget  | 点击事件组件 |
 | CommonRefreshWidget  | 列表刷新、加载组件 |
@@ -31,4 +32,4 @@ void main() {
 - 实现http客户端 `BaseNetEngine`
 - 实现数据转换器，生成对应实体 `BaseConvert`
 - 实现网络请求 `BaseRequest`并指定提供一个`BaseNetProvider`
-- json实体插件[JsonToDart (JSON To Dart)](https://plugins.jetbrains.com/plugin/12562-jsontodart-json-to-dart-)
+- json实体插件[FlutterJsonBeanFactory](https://plugins.jetbrains.com/plugin/11415-flutterjsonbeanfactory-only-null-safety-)
