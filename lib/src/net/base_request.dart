@@ -3,6 +3,8 @@
 ///
 /// @author azhon
 
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter_basic_lib/src/net/base_convert.dart';
 import 'package:flutter_basic_lib/src/net/base_net_engine.dart';
@@ -56,6 +58,8 @@ abstract class BaseRequest<T> {
       result.statusMessage = _parseError(e);
       LogUtil.e('BaseRequest：[request error] ${result.statusMessage}');
     }
+    final logUrl = 'url：${engine.baseUrl}$url\nparams：${jsonEncode(params)}';
+    LogUtil.d('BaseRequest：[request start]\n$logUrl\nmethod：$method');
     return convert.convert<T>(result);
   }
 
