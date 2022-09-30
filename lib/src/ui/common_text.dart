@@ -20,6 +20,7 @@ class CommonText extends BaseStatelessWidget {
   final TextDecoration? decoration;
   final FontStyle fontStyle;
   final TextAlign? textAlign;
+  final StrutStyle? strutStyle;
   final TextDecorationStyle? decorationStyle;
 
   CommonText(
@@ -36,6 +37,7 @@ class CommonText extends BaseStatelessWidget {
     this.decorationStyle,
     this.overflow,
     this.textAlign,
+    this.strutStyle,
     this.fontStyle = FontStyle.normal,
   }) : super(key: key);
 
@@ -47,6 +49,7 @@ class CommonText extends BaseStatelessWidget {
       maxLines: maxLines,
       overflow: overflow,
       textAlign: textAlign,
+      strutStyle: strutStyle,
       style: TextStyle(
         color: color,
         fontSize: setFontSize(fontSize ?? defaultFonSize),
