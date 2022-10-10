@@ -13,11 +13,11 @@ dependencies:
   #  路由
   fluro: ^2.0.3
   #  屏幕适配
-  flutter_screenutil: ^5.5.3+2
+  flutter_screenutil: ^5.5.4
   #  图片库
   extended_image: ^6.2.1
   #  bloc状态管理
-  flutter_bloc: ^8.0.1
+  flutter_bloc: ^8.1.1
   #  网络库
   dio: ^4.0.6
   #  日志

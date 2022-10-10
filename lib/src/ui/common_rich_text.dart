@@ -5,8 +5,15 @@ import 'package:flutter_basic_lib/src/base/base_stateful_widget.dart';
 
 class CommonRichText extends BaseStatefulWidget {
   final List<RichTextParams> params;
+  final int maxLines;
+  final TextOverflow? overflow;
 
-  CommonRichText(this.params, {Key? key}) : super(key: key);
+  CommonRichText(
+    this.params, {
+    Key? key,
+    this.maxLines = 1,
+    this.overflow = TextOverflow.ellipsis,
+  }) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _CommonRichTextState();
@@ -38,6 +45,8 @@ class _CommonRichTextState extends BaseState<CommonRichText> {
       TextSpan(
         children: _getItem(),
       ),
+      maxLines: widget.maxLines,
+      overflow: widget.overflow,
     );
   }
 }
