@@ -28,6 +28,7 @@ class _RemoveRippleBehavior extends ScrollBehavior {
         showTrailing: false,
         axisDirection: axisDirection,
         color: Theme.of(context).colorScheme.secondary,
+        child: child,
       );
     }
     return child;
