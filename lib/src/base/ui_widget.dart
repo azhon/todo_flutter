@@ -6,12 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_basic_lib/src/base/ui_adapter.dart';
 
 mixin UIWidget implements UIAdapter {
-  ///所有方向边距
   EdgeInsets all(double value) {
     return EdgeInsets.all(setWidth(value));
   }
 
-  ///水平、竖直方向边距
   EdgeInsets symmetric(double vertical, double horizontal) {
     return EdgeInsets.symmetric(
       vertical: setWidth(vertical),
@@ -19,7 +17,6 @@ mixin UIWidget implements UIAdapter {
     );
   }
 
-  ///指定方向边距
   EdgeInsets only({
     double left = 0.0,
     double top = 0.0,
@@ -34,8 +31,15 @@ mixin UIWidget implements UIAdapter {
     );
   }
 
-  ///间距
-  SizedBox sizedBox({double width = 0, double height = 0}) {
-    return SizedBox(width: setWidth(width), height: setWidth(height));
+  SizedBox sizedBox({
+    double width = 0,
+    double height = 0,
+    Widget? child,
+  }) {
+    return SizedBox(
+      width: setWidth(width),
+      height: setWidth(height),
+      child: child,
+    );
   }
 }

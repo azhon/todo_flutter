@@ -46,13 +46,11 @@ class BlocLoadWidget extends BaseStatelessWidget {
   }
 
   Widget _errorWidget() {
-    if (error != null) {
-      return error!;
-    }
-    return Container(
-      height: setWidth(200),
-      alignment: Alignment.center,
-      child: CommonText('加载失败~'),
-    );
+    return error ??
+        Container(
+          height: setWidth(200),
+          alignment: Alignment.center,
+          child: CommonText('加载失败~'),
+        );
   }
 }

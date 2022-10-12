@@ -3,8 +3,7 @@
 ///
 /// @author azhon
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_lib/src/service/route/router_history_stack.dart';
-import 'package:flutter_basic_lib/src/service/route/router_util.dart';
+import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 import 'package:flutter_basic_lib/todo_lib.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,7 +18,7 @@ class TodoApp extends StatelessWidget {
   final List<NavigatorObserver> navigatorObservers;
   final Iterable<LocalizationsDelegate<dynamic>>? localizationsDelegates;
 
-  const TodoApp({
+  TodoApp({
     required this.home,
     this.title = '',
     this.theme,
@@ -30,7 +29,14 @@ class TodoApp extends StatelessWidget {
     this.navigatorObservers = const <NavigatorObserver>[],
     this.supportedLocales = const <Locale>[Locale('en', 'US')],
     Key? key,
-  }) : super(key: key);
+  }) : super(key: key) {
+    _init();
+  }
+
+  ///内部初始化
+  void _init() {
+    PreferencesUtil.init();
+  }
 
   @override
   Widget build(BuildContext context) {

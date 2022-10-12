@@ -10,10 +10,6 @@ class RuntimeException implements Exception {
 
   @override
   String toString() {
-    final Object? message = this.message;
-    if (message == null) {
-      return 'RuntimeException';
-    }
     return 'RuntimeException: $message';
   }
 }
