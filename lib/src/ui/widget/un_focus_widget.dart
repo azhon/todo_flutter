@@ -7,18 +7,13 @@ import 'package:flutter_basic_lib/flutter_basic_lib.dart';
 /// @author azhon
 class UnFocusWidget extends BaseStatelessWidget {
   final Widget child;
-  final List<FocusNode?>? nodes;
 
-  UnFocusWidget({required this.child, this.nodes, Key? key}) : super(key: key);
+  UnFocusWidget({required this.child, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CommonClickWidget(
-      onTap: () {
-        nodes?.forEach((node) {
-          node?.unfocus();
-        });
-      },
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: child,
     );
   }
