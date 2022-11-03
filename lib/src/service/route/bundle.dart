@@ -57,6 +57,9 @@ class Bundle {
 
   ///参数类型标记
   String _paramsType(value) {
+    if (value == null) {
+      return RouteKeyFlag.flagNull;
+    }
     String flag = '';
     if (value is String) {
       flag = RouteKeyFlag.flagString;

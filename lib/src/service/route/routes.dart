@@ -13,6 +13,7 @@ class RouteKeyFlag {
   static const String flagInt = 'int>';
   static const String flagDouble = 'double>';
   static const String flagBool = 'bool>';
+  static const String flagNull = 'null>';
 }
 
 class Routes {
@@ -44,14 +45,17 @@ class Routes {
     final Map<String, dynamic> resultMap = {};
     map.forEach((key, value) {
       value.forEach((element) {
-        resultMap[key] = parseType(element);
+        resultMap[key] = _parseType(element);
       });
     });
     return resultMap;
   }
 
   ///数据转型
-  static dynamic parseType(String value) {
+  static dynamic _parseType(String value) {
+    if (value.startsWith(RouteKeyFlag.flagNull)) {
+      return null;
+    }
     if (value.startsWith(RouteKeyFlag.flagString)) {
       return value.replaceAll(RouteKeyFlag.flagString, '');
     }
