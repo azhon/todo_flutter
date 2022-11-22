@@ -1,5 +1,5 @@
-import 'package:todo_flutter/generated/json/base/json_convert_content.dart';
-import 'package:todo_flutter/domain/request/entity/get_entity.dart';
+import 'package:todo_flutter_example/generated/json/base/json_convert_content.dart';
+import 'package:todo_flutter_example/domain/request/entity/get_entity.dart';
 
 GetEntity $GetEntityFromJson(Map<String, dynamic> json) {
 	final GetEntity getEntity = GetEntity();

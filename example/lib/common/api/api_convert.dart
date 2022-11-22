@@ -4,8 +4,8 @@
 /// @author   azhon
 
 import 'dart:io';
-import 'package:flutter_basic_lib/flutter_basic_lib.dart';
-import 'package:todo_flutter/generated/json/base/json_convert_content.dart';
+import 'package:todo_flutter/todo_flutter.dart';
+import 'package:todo_flutter_example/generated/json/base/json_convert_content.dart';
 
 class ApiConvert extends BaseConvert {
   @override

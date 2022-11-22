@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_lib/flutter_basic_lib.dart';
-import 'package:flutter_basic_lib/todo_app.dart';
-import 'package:todo_flutter/common/route/module_route.dart';
-import 'package:todo_flutter/generated/route/todo_flutter_route.dart';
+import 'package:todo_flutter/todo_flutter.dart';
+import 'package:todo_flutter/todo_app.dart';
+import 'package:todo_flutter_example/common/route/module_route.dart';
+import 'package:todo_flutter_example/generated/route/todo_flutter_route.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

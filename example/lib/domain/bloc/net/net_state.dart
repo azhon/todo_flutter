@@ -3,7 +3,7 @@
 ///
 /// @author azhon
 
-import 'package:todo_flutter/domain/request/entity/get_entity.dart';
+import 'package:todo_flutter_example/domain/request/entity/get_entity.dart';
 
 abstract class NetState {
   final List<GetEntity>? data;

@@ -5,8 +5,8 @@
 /// @author azhon
 
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_lib/src/service/route/router_util.dart';
-import 'package:flutter_basic_lib/src/service/route/routes.dart';
+import 'package:todo_flutter/src/service/route/router_util.dart';
+import 'package:todo_flutter/src/service/route/routes.dart';
 
 class Bundle {
   final String route;

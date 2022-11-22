@@ -3,10 +3,10 @@
 ///
 /// @author azhon
 
-import 'package:flutter_basic_lib/src/base/bloc/base_event.dart';
-import 'package:flutter_basic_lib/src/bloc/load/load_bloc.dart';
-import 'package:flutter_basic_lib/src/bloc/load/load_state.dart';
-import 'package:flutter_basic_lib/src/service/error/api_exception.dart';
+import 'package:todo_flutter/src/base/bloc/base_event.dart';
+import 'package:todo_flutter/src/bloc/load/load_bloc.dart';
+import 'package:todo_flutter/src/bloc/load/load_state.dart';
+import 'package:todo_flutter/src/service/error/api_exception.dart';
 
 abstract class LoadEvent extends BaseEvent<LoadBloc, LoadState> {}
 

@@ -4,7 +4,7 @@
 /// @author azhon
 
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_lib/src/base/ui_adapter.dart';
+import 'package:todo_flutter/src/base/ui_adapter.dart';
 
 abstract class BaseStatefulWidget extends StatefulWidget with UIAdapter {
   BaseStatefulWidget({Key? key}) : super(key: key);

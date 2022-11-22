@@ -3,11 +3,11 @@
 ///
 /// @author azhon
 
-import 'package:flutter_basic_lib/src/base/bloc/base_event.dart';
-import 'package:flutter_basic_lib/src/base/loading_state.dart';
-import 'package:flutter_basic_lib/src/bloc/load/load_bloc.dart';
-import 'package:flutter_basic_lib/src/net/entity/base_entity.dart';
-import 'package:flutter_basic_lib/src/service/error/api_exception.dart';
+import 'package:todo_flutter/src/base/bloc/base_event.dart';
+import 'package:todo_flutter/src/base/loading_state.dart';
+import 'package:todo_flutter/src/bloc/load/load_bloc.dart';
+import 'package:todo_flutter/src/net/entity/base_entity.dart';
+import 'package:todo_flutter/src/service/error/api_exception.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 abstract class BaseLoadBloc<E extends BaseEvent, S> extends Bloc<E, S> {

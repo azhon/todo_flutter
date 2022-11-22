@@ -1,7 +1,7 @@
-import 'package:flutter_basic_lib/src/base/bloc/base_bloc.dart';
-import 'package:flutter_basic_lib/src/bloc/list/list_event.dart';
-import 'package:flutter_basic_lib/src/bloc/list/list_state.dart';
-import 'package:flutter_basic_lib/src/net/base_request.dart';
+import 'package:todo_flutter/src/base/bloc/base_bloc.dart';
+import 'package:todo_flutter/src/bloc/list/list_event.dart';
+import 'package:todo_flutter/src/bloc/list/list_state.dart';
+import 'package:todo_flutter/src/net/base_request.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class ListBloc<T> extends BaseBloc<ListEvent<T>, ListState<T>> {

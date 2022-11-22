@@ -4,9 +4,9 @@
 /// @author azhon
 
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_lib/src/base/base_state.dart';
-import 'package:flutter_basic_lib/src/base/base_stateful_widget.dart';
-import 'package:flutter_basic_lib/todo_lib.dart';
+import 'package:todo_flutter/src/base/base_state.dart';
+import 'package:todo_flutter/src/base/base_stateful_widget.dart';
+import 'package:todo_flutter/todo_lib.dart';
 
 class CommonClickWidget extends BaseStatefulWidget {
   final Widget child;

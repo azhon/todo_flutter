@@ -1,4 +1,4 @@
-library flutter_basic_lib;
+library todo_flutter;
 
 export 'src/base/base_state.dart';
 export 'src/base/base_stateful_widget.dart';

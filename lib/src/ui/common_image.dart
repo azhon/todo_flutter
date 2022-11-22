@@ -7,7 +7,7 @@ import 'dart:io' as io;
 import 'dart:typed_data';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_lib/src/base/base_stateless_widget.dart';
+import 'package:todo_flutter/src/base/base_stateless_widget.dart';
 
 class CommonImage extends BaseStatelessWidget {
   final String? network;

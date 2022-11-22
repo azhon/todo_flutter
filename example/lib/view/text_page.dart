@@ -3,7 +3,7 @@
 ///
 /// @author azhon
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_lib/flutter_basic_lib.dart';
+import 'package:todo_flutter/todo_flutter.dart';
 
 class TextPage extends BaseStatefulWidget {
   TextPage({Key? key}) : super(key: key);

@@ -6,8 +6,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_basic_lib/todo_lib.dart';
-import 'package:flutter_basic_lib/src/base/base_stateless_widget.dart';
+import 'package:todo_flutter/todo_lib.dart';
+import 'package:todo_flutter/src/base/base_stateless_widget.dart';
 
 class CommonInput extends BaseStatelessWidget {
   final EdgeInsetsGeometry? padding;

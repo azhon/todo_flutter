@@ -4,9 +4,9 @@
 /// @author azhon
 
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_lib/src/base/ui_adapter.dart';
-import 'package:flutter_basic_lib/src/base/ui_widget.dart';
-import 'package:flutter_basic_lib/src/ui/common_text.dart';
+import 'package:todo_flutter/src/base/ui_adapter.dart';
+import 'package:todo_flutter/src/base/ui_widget.dart';
+import 'package:todo_flutter/src/ui/common_text.dart';
 
 class LoadingDialogWidget extends Dialog with UIAdapter, UIWidget {
   final String? msg;

@@ -4,9 +4,9 @@
 /// @author azhon
 
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_lib/flutter_basic_lib.dart';
-import 'package:todo_flutter/domain/bloc/bloc/test_bloc.dart';
-import 'package:todo_flutter/domain/bloc/bloc/test_state.dart';
+import 'package:todo_flutter/todo_flutter.dart';
+import 'package:todo_flutter_example/domain/bloc/bloc/test_bloc.dart';
+import 'package:todo_flutter_example/domain/bloc/bloc/test_state.dart';
 
 class BlocPage extends StatefulWidget {
   const BlocPage({Key? key}) : super(key: key);

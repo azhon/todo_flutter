@@ -3,9 +3,9 @@
 ///
 /// @author azhon
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_lib/flutter_basic_lib.dart';
-import 'package:todo_flutter/domain/bloc/net/net_bloc.dart';
-import 'package:todo_flutter/domain/bloc/net/net_state.dart';
+import 'package:todo_flutter/todo_flutter.dart';
+import 'package:todo_flutter_example/domain/bloc/net/net_bloc.dart';
+import 'package:todo_flutter_example/domain/bloc/net/net_state.dart';
 
 class NetPage extends StatefulWidget {
   const NetPage({Key? key}) : super(key: key);

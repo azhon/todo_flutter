@@ -5,8 +5,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_basic_lib/flutter_basic_lib.dart';
-import 'package:todo_flutter/generated/assets/todo_flutter_assets.dart';
+import 'package:todo_flutter/todo_flutter.dart';
+import 'package:todo_flutter_example/generated/assets/todo_flutter_assets.dart';
 
 class InputPage extends BaseStatefulWidget {
   InputPage({Key? key}) : super(key: key);

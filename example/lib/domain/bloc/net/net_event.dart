@@ -3,10 +3,10 @@
 ///
 /// @author azhon
 
-import 'package:flutter_basic_lib/flutter_basic_lib.dart';
-import 'package:todo_flutter/domain/bloc/net/net_bloc.dart';
-import 'package:todo_flutter/domain/bloc/net/net_state.dart';
-import 'package:todo_flutter/domain/request/net_request.dart';
+import 'package:todo_flutter/todo_flutter.dart';
+import 'package:todo_flutter_example/domain/bloc/net/net_bloc.dart';
+import 'package:todo_flutter_example/domain/bloc/net/net_state.dart';
+import 'package:todo_flutter_example/domain/request/net_request.dart';
 
 abstract class NetEvent extends BaseEvent<NetBloc, NetState> {}
 

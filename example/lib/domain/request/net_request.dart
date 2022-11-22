@@ -3,9 +3,9 @@
 ///
 /// @author azhon
 
-import 'package:flutter_basic_lib/flutter_basic_lib.dart';
-import 'package:todo_flutter/common/api/api_provider.dart';
-import 'package:todo_flutter/domain/request/entity/get_entity.dart';
+import 'package:todo_flutter/todo_flutter.dart';
+import 'package:todo_flutter_example/common/api/api_provider.dart';
+import 'package:todo_flutter_example/domain/request/entity/get_entity.dart';
 
 class NetGetRequest extends ApiRequest<List<GetEntity>> {
   NetGetRequest() : super({'id': '323', 'name': 'azhon'});

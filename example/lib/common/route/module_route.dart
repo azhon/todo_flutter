@@ -2,17 +2,17 @@
 /// desc:
 ///
 /// @author azhon
-import 'package:flutter_basic_lib/flutter_basic_lib.dart';
-import 'package:todo_flutter/generated/route/todo_flutter_route.dart';
-import 'package:todo_flutter/view/bloc_page.dart';
-import 'package:todo_flutter/view/button_page.dart';
-import 'package:todo_flutter/view/image_page.dart';
-import 'package:todo_flutter/view/input_page.dart';
-import 'package:todo_flutter/view/net_page.dart';
-import 'package:todo_flutter/view/refresh_page.dart';
-import 'package:todo_flutter/view/sliver_page.dart';
-import 'package:todo_flutter/view/text_page.dart';
-import 'package:todo_flutter/view/toast_page.dart';
+import 'package:todo_flutter/todo_flutter.dart';
+import 'package:todo_flutter_example/generated/route/todo_flutter_route.dart';
+import 'package:todo_flutter_example/view/bloc_page.dart';
+import 'package:todo_flutter_example/view/button_page.dart';
+import 'package:todo_flutter_example/view/image_page.dart';
+import 'package:todo_flutter_example/view/input_page.dart';
+import 'package:todo_flutter_example/view/net_page.dart';
+import 'package:todo_flutter_example/view/refresh_page.dart';
+import 'package:todo_flutter_example/view/sliver_page.dart';
+import 'package:todo_flutter_example/view/text_page.dart';
+import 'package:todo_flutter_example/view/toast_page.dart';
 
 class ModuleRoute {
   ///添加模块路由

@@ -3,7 +3,7 @@
 ///
 /// @author azhon
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_lib/src/base/ui_adapter.dart';
+import 'package:todo_flutter/src/base/ui_adapter.dart';
 
 mixin UIWidget implements UIAdapter {
   EdgeInsets all(double value) {

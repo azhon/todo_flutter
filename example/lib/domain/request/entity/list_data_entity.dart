@@ -1,5 +1,5 @@
-import 'package:todo_flutter/generated/json/base/json_field.dart';
-import 'package:todo_flutter/generated/json/list_data_entity.g.dart';
+import 'package:todo_flutter_example/generated/json/base/json_field.dart';
+import 'package:todo_flutter_example/generated/json/list_data_entity.g.dart';
 import 'dart:convert';
 
 @JsonSerializable()

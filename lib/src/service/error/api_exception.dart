@@ -3,7 +3,7 @@
 ///
 /// @author azhon
 
-import 'package:flutter_basic_lib/src/net/entity/base_entity.dart';
+import 'package:todo_flutter/src/net/entity/base_entity.dart';
 
 class ApiException implements Exception {
   final BaseEntity entity;

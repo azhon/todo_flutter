@@ -3,8 +3,8 @@
 ///
 /// @author azhon
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_lib/flutter_basic_lib.dart';
-import 'package:flutter_basic_lib/todo_lib.dart';
+import 'package:todo_flutter/todo_flutter.dart';
+import 'package:todo_flutter/todo_lib.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TodoApp extends StatelessWidget {

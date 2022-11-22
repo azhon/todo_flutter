@@ -5,9 +5,9 @@
 
 import 'dart:math';
 
-import 'package:flutter_basic_lib/flutter_basic_lib.dart';
-import 'package:todo_flutter/domain/bloc/bloc/test_event.dart';
-import 'package:todo_flutter/domain/bloc/bloc/test_state.dart';
+import 'package:todo_flutter/todo_flutter.dart';
+import 'package:todo_flutter_example/domain/bloc/bloc/test_event.dart';
+import 'package:todo_flutter_example/domain/bloc/bloc/test_state.dart';
 
 class TestBloc extends BaseBloc<TestEvent, TestState> {
   DataChangeBloc<int> dataChangeBloc = DataChangeBloc(0);

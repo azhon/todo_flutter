@@ -5,10 +5,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_basic_lib/src/base/base_stateless_widget.dart';
-import 'package:flutter_basic_lib/src/bloc/load/load_bloc.dart';
-import 'package:flutter_basic_lib/src/bloc/load/load_state.dart';
-import 'package:flutter_basic_lib/src/ui/common_text.dart';
+import 'package:todo_flutter/src/base/base_stateless_widget.dart';
+import 'package:todo_flutter/src/bloc/load/load_bloc.dart';
+import 'package:todo_flutter/src/bloc/load/load_state.dart';
+import 'package:todo_flutter/src/ui/common_text.dart';
 
 class BlocLoadWidget extends BaseStatelessWidget {
   final Widget child;
