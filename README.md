@@ -1,4 +1,4 @@
-## [使用例子/Sample](https://github.com/azhon/todo-flutter/tree/sample)
+## [使用例子/Sample](https://github.com/azhon/todo-flutter/tree/main/example)
 ## 框架使用详解
 ### 组件库介绍
 |  组件名称   | 描述  |
