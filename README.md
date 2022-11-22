@@ -27,6 +27,7 @@ void main() {
     - 使用[fluro](https://pub.dev/packages/fluro)
 - 屏幕适配：
     - 使用[flutter_screenutil](https://pub.dev/packages/flutter_screenutil)
+- 图片资源路径与路由路径通过[这个插件](https://github.com/Xie-Yin/FlutterPlugin)自动生成
 
 ### 二、网络模块
 - 实现http客户端 `BaseNetEngine`
