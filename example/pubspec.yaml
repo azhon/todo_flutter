@@ -50,6 +50,10 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+  fonts:
+    - family: todoIcon
+      fonts:
+        - asset: assets/iconfont/iconfont.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -79,3 +83,4 @@ flutter:
 xie_yin:
   # 当前模块是否是子模块，对生成的图片资源路径有影响
   isModule: false
+  prefix: example

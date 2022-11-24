@@ -3,7 +3,7 @@
 ///
 /// @author azhon
 import 'package:todo_flutter/todo_flutter.dart';
-import 'package:todo_flutter_example/generated/route/todo_flutter_route.dart';
+import 'package:todo_flutter_example/generated/route/example_route.dart';
 import 'package:todo_flutter_example/view/bloc_page.dart';
 import 'package:todo_flutter_example/view/button_page.dart';
 import 'package:todo_flutter_example/view/image_page.dart';
@@ -17,39 +17,39 @@ import 'package:todo_flutter_example/view/toast_page.dart';
 class ModuleRoute {
   ///添加模块路由
   static void initRoute() {
-    RouterUtil.instance.addRoute(TodoFlutterRoute.textPage,
+    RouterUtil.instance.addRoute(ExampleRoute.textPage,
         (Map<String, dynamic> map) {
       return TextPage();
     });
-    RouterUtil.instance.addRoute(TodoFlutterRoute.buttonPage,
+    RouterUtil.instance.addRoute(ExampleRoute.buttonPage,
         (Map<String, dynamic> map) {
       return ButtonPage();
     });
-    RouterUtil.instance.addRoute(TodoFlutterRoute.imagePage,
+    RouterUtil.instance.addRoute(ExampleRoute.imagePage,
         (Map<String, dynamic> map) {
       return ImagePage();
     });
-    RouterUtil.instance.addRoute(TodoFlutterRoute.toastPage,
+    RouterUtil.instance.addRoute(ExampleRoute.toastPage,
         (Map<String, dynamic> map) {
       return const ToastPage();
     });
-    RouterUtil.instance.addRoute(TodoFlutterRoute.inputPage,
+    RouterUtil.instance.addRoute(ExampleRoute.inputPage,
         (Map<String, dynamic> map) {
       return InputPage();
     });
-    RouterUtil.instance.addRoute(TodoFlutterRoute.blocPage,
+    RouterUtil.instance.addRoute(ExampleRoute.blocPage,
         (Map<String, dynamic> map) {
       return const BlocPage();
     });
-    RouterUtil.instance.addRoute(TodoFlutterRoute.netPage,
+    RouterUtil.instance.addRoute(ExampleRoute.netPage,
         (Map<String, dynamic> map) {
       return const NetPage();
     });
-    RouterUtil.instance.addRoute(TodoFlutterRoute.refreshPage,
+    RouterUtil.instance.addRoute(ExampleRoute.refreshPage,
         (Map<String, dynamic> map) {
       return const RefreshPage();
     });
-    RouterUtil.instance.addRoute(TodoFlutterRoute.sliverPage,
+    RouterUtil.instance.addRoute(ExampleRoute.sliverPage,
         (Map<String, dynamic> map) {
       return const SliverPage();
     });

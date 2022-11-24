@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:todo_flutter/todo_flutter.dart';
-import 'package:todo_flutter_example/generated/assets/todo_flutter_assets.dart';
+import 'package:todo_flutter_example/generated/assets/example_assets.dart';
 
 class InputPage extends BaseStatefulWidget {
   InputPage({Key? key}) : super(key: key);
@@ -60,7 +60,7 @@ class _InputPageState extends BaseState<InputPage> {
                   prefix: Padding(
                     padding: symmetric(0, 4),
                     child: CommonImage(
-                      asset: TodoFlutterAssets.icSearch,
+                      asset: ExampleAssets.icSearch,
                       width: 18,
                       height: 18,
                     ),
@@ -68,7 +68,7 @@ class _InputPageState extends BaseState<InputPage> {
                   suffix: CommonClickWidget(
                     onTap: () => _controller.text = '',
                     child: CommonImage(
-                      asset: TodoFlutterAssets.icClear,
+                      asset: ExampleAssets.icClear,
                       width: 18,
                       height: 18,
                     ),
@@ -107,7 +107,7 @@ class _InputPageState extends BaseState<InputPage> {
                             _obscureTextBloc.changeData(false),
                         onPointerUp: (de) => _obscureTextBloc.changeData(true),
                         child: CommonImage(
-                          asset: TodoFlutterAssets.icEye,
+                          asset: ExampleAssets.icEye,
                           width: 18,
                           height: 18,
                         ),

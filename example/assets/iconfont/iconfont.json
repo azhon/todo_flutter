@@ -1,0 +1,16 @@
+{
+  "id": "3788531",
+  "name": "todo_flutter",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "33036883",
+      "name": "menu",
+      "font_class": "menu",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_flutter/todo_flutter.dart';
 import 'package:todo_flutter/todo_app.dart';
 import 'package:todo_flutter_example/common/route/module_route.dart';
-import 'package:todo_flutter_example/generated/route/todo_flutter_route.dart';
+import 'package:todo_flutter_example/generated/route/example_route.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,15 +19,15 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends BaseState<MyHomePage> {
   List<List<String>> routes = [
-    ['文本示例', TodoFlutterRoute.textPage],
-    ['按钮示例', TodoFlutterRoute.buttonPage],
-    ['图片示例', TodoFlutterRoute.imagePage],
-    ['Toast示例', TodoFlutterRoute.toastPage],
-    ['输入框示例', TodoFlutterRoute.inputPage],
-    ['Bloc示例', TodoFlutterRoute.blocPage],
-    ['网络示例', TodoFlutterRoute.netPage],
-    ['下拉刷新示例', TodoFlutterRoute.refreshPage],
-    ['Sliver示例', TodoFlutterRoute.sliverPage],
+    ['文本示例', ExampleRoute.textPage],
+    ['按钮示例', ExampleRoute.buttonPage],
+    ['图片示例', ExampleRoute.imagePage],
+    ['Toast示例', ExampleRoute.toastPage],
+    ['输入框示例', ExampleRoute.inputPage],
+    ['Bloc示例', ExampleRoute.blocPage],
+    ['网络示例', ExampleRoute.netPage],
+    ['下拉刷新示例', ExampleRoute.refreshPage],
+    ['Sliver示例', ExampleRoute.sliverPage],
   ];
 
   @override

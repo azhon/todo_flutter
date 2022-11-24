@@ -4,7 +4,8 @@
 /// @author azhon
 import 'package:flutter/material.dart';
 import 'package:todo_flutter/todo_flutter.dart';
-import 'package:todo_flutter_example/generated/assets/todo_flutter_assets.dart';
+import 'package:todo_flutter_example/generated/assets/example_assets.dart';
+import 'package:todo_flutter_example/generated/assets/example_icon.dart';
 
 class ImagePage extends BaseStatefulWidget {
   ImagePage({Key? key}) : super(key: key);
@@ -27,6 +28,10 @@ class _ImagePageState extends BaseState<ImagePage> {
             runSpacing: setWidth(10),
             spacing: setWidth(10),
             children: [
+              Icon(
+                ExampleIcon.menu,
+                size: setWidth(48),
+              ),
               CommonImage(
                 network: imgUrl,
                 width: 80,
@@ -51,7 +56,7 @@ class _ImagePageState extends BaseState<ImagePage> {
 
               ///本地图片
               CommonImage(
-                asset: TodoFlutterAssets.icPolice,
+                asset: ExampleAssets.icPolice,
                 width: 200,
                 height: 200,
               ),
