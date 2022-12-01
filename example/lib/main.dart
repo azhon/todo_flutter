@@ -6,7 +6,11 @@ import 'package:todo_flutter_example/generated/route/example_route.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(TodoApp(home: const MyHomePage()));
+  runApp(
+    TodoApp(
+      home: const MyHomePage(),
+    ),
+  );
   ModuleRoute.initRoute();
 }
 
