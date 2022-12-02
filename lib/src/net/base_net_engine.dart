@@ -38,5 +38,5 @@ abstract class BaseNetEngine {
   ///设置dio代理
   ///[ip]代理ip地址
   ///[port]代理端口
-  void setProxy(String ip, String port);
+  void setProxy(String ip, int port);
 }

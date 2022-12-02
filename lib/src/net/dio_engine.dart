@@ -69,7 +69,7 @@ class DioEngine extends BaseNetEngine {
   ///[ip]代理ip地址
   ///[port]代理端口
   @override
-  void setProxy(String ip, String port) {
+  void setProxy(String ip, int port) {
     final DefaultHttpClientAdapter adapter = DefaultHttpClientAdapter()
       ..onHttpClientCreate = (HttpClient client) {
         client
