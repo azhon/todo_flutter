@@ -8,6 +8,7 @@ import 'dart:io';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_flutter/src/service/route/bundle.dart';
+import 'package:todo_flutter/src/service/route/router_history_stack.dart';
 import 'package:todo_flutter/src/service/route/routes.dart';
 import 'package:todo_flutter/todo_lib.dart';
 
@@ -84,6 +85,17 @@ class RouterUtil {
   void popUntil(String untilRoute) {
     Navigator.of(TodoLib.navigatorKey.currentContext!)
         .popUntil((route) => route.settings.name == untilRoute);
+  }
+
+  ///移除指定[route]路由名称的路由
+  bool removeRoute(String route) {
+    final Route? history = RouterHistoryStack.instance.get(route);
+    if (history == null) {
+      return false;
+    } else {
+      Navigator.of(TodoLib.navigatorKey.currentContext!).removeRoute(history);
+      return true;
+    }
   }
 
   ///跳转
