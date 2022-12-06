@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.azhon.todo_flutter">
    <application
-        android:label="todo_flutter"
+        android:label="TodoFlutter"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
