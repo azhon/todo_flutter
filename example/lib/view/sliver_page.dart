@@ -3,8 +3,12 @@
 ///
 /// @author azhon
 
+import 'dart:math';
+
+import 'package:extended_nested_scroll_view/extended_nested_scroll_view.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_flutter/todo_flutter.dart';
+import 'package:todo_flutter_example/generated/assets/example_assets.dart';
 
 class SliverPage extends StatefulWidget {
   const SliverPage({Key? key}) : super(key: key);
@@ -16,99 +20,120 @@ class SliverPage extends StatefulWidget {
 class _SliverPageState extends BaseState<SliverPage>
     with TickerProviderStateMixin {
   final List<String> _tabs = ['Tab1', 'Tab2', 'Tab3', 'Tab4'];
-  late TabController _controller;
+  late TabController _tabController;
 
   @override
   void initState() {
     super.initState();
-    _controller = TabController(length: _tabs.length, vsync: this);
+    _tabController = TabController(length: _tabs.length, vsync: this);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: NestedScrollView(
-        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-          return [
-            SliverAppBar(
-              pinned: true,
-              expandedHeight: setWidth(250),
-              flexibleSpace: FlexibleSpaceBar(
-                title: const Text('Sliver示例'),
-                titlePadding: only(bottom: 16, left: 60),
-                background: CommonImage(
-                  network:
-                      'https://cdn-usa.skypixel.com/uploads/usa_files/photo/image/367e939b-a88b-4891-983d-10edb4e72cf0.5766795@!1920',
-                ),
-              ),
-            ),
-            SliverPersistentHeader(
-              pinned: true,
-              delegate: _SliverTabBarDelegate(
-                tabBar: TabBar(
-                  labelColor: Colors.blue,
-                  controller: _controller,
-                  unselectedLabelColor: Colors.black,
-                  indicatorSize: TabBarIndicatorSize.label,
-                  tabs: _tabs.map((e) => Tab(text: e)).toList(),
-                ),
-              ),
-            ),
-          ];
+      appBar: AppBar(title: const Text('Sliver示例')),
+
+      ///pull refresh
+      body: ExtendedRefreshIndicator(
+        notificationPredicate: (notification) {
+          return true;
         },
-        body: TabBarView(
-          controller: _controller,
-          children: _tabs.map((e) => _tabBody()).toList(),
+        onRefresh: () {
+          final second = Random().nextInt(2) + 1;
+          return Future<bool>.delayed(Duration(seconds: second), () {
+            return true;
+          });
+        },
+        child: ExtendedNestedScrollView(
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return _createSlivers();
+          },
+          body: Column(
+            children: [
+              TabBar(
+                controller: _tabController,
+                labelColor: Colors.black,
+                indicatorSize: TabBarIndicatorSize.label,
+                tabs: _tabs.map((e) {
+                  return Tab(text: e);
+                }).toList(),
+              ),
+              Expanded(
+                child: TabBarView(
+                  controller: _tabController,
+                  children: _tabs
+                      .map(
+                        (e) => BodyWidget(
+                          tab: e,
+                          key: PageStorageKey(e),
+                        ),
+                      )
+                      .toList(),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  Widget _tabBody() {
+  /// 是否需要刷新
+  List<Widget> _createSlivers() {
+    return [
+      SliverToBoxAdapter(
+        child: Column(
+          children: [
+            Container(height: 50, color: Colors.amber),
+            Padding(
+              padding: symmetric(16, 0),
+              child: CommonText(
+                '头部可以放任意组件',
+                fontSize: 16,
+              ),
+            ),
+            Container(height: 50, color: Colors.blue),
+            CommonImage(
+              asset: ExampleAssets.icPolice,
+              width: 150,
+              height: 150,
+            ),
+            Container(height: 50, color: Colors.orange),
+            Padding(
+              padding: symmetric(16, 0),
+              child: CommonText(
+                '底部Tab带状态保存',
+                fontSize: 16,
+              ),
+            ),
+            Container(height: 50, color: Colors.indigoAccent),
+          ],
+        ),
+      ),
+    ];
+  }
+}
+
+class BodyWidget extends BaseStatelessWidget {
+  final String tab;
+
+  BodyWidget({required this.tab, Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return ListView.separated(
       itemCount: 100,
-      padding: EdgeInsets.zero,
+      physics: const ClampingScrollPhysics(),
       itemBuilder: (_, index) {
         return Container(
-          color: Colors.blue[200],
           height: setWidth(50),
-          child: Center(
-            child: CommonText('$index'),
-          ),
+          color: Colors.blue[200],
+          child: Center(child: Text('$tab -- $index')),
         );
       },
       separatorBuilder: (_, index) {
         return sizedBox(height: 8);
       },
     );
-  }
-}
-
-class _SliverTabBarDelegate extends SliverPersistentHeaderDelegate {
-  final TabBar tabBar;
-
-  _SliverTabBarDelegate({required this.tabBar});
-
-  @override
-  Widget build(
-    BuildContext context,
-    double shrinkOffset,
-    bool overlapsContent,
-  ) {
-    return ColoredBox(
-      color: Colors.white,
-      child: tabBar,
-    );
-  }
-
-  @override
-  double get maxExtent => tabBar.preferredSize.height;
-
-  @override
-  double get minExtent => tabBar.preferredSize.height;
-
-  @override
-  bool shouldRebuild(_SliverTabBarDelegate oldDelegate) {
-    return oldDelegate.tabBar != tabBar;
   }
 }
