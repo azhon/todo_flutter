@@ -19,7 +19,6 @@ class _InputPageState extends BaseState<InputPage> {
   final TextEditingController _controller = TextEditingController();
   final TextEditingController _psdController = TextEditingController();
   final DataChangeBloc<bool> _obscureTextBloc = DataChangeBloc<bool>(true);
-  final FocusNode _focusNode = FocusNode();
 
   @override
   void initState() {
@@ -38,7 +37,6 @@ class _InputPageState extends BaseState<InputPage> {
               children: [
                 CommonInput(
                   placeholder: '自动获取焦点',
-                  focusNode: _focusNode,
                   autofocus: true,
                 ),
                 sizedBox(height: 10),

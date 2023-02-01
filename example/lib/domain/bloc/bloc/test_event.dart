@@ -18,6 +18,6 @@ class InitEvent extends TestEvent {
     final result = Random().nextInt(9999).toString();
     await Future.delayed(const Duration(milliseconds: 1500));
     bloc.dismissPageLoading();
-    return Future.value(TestInitialState(result));
+    return TestInitialState(result);
   }
 }
