@@ -7,6 +7,7 @@ class ExampleRoute {
   static const inputPage = '/example/inputPage';
   static const toastPage = '/example/toastPage';
   static const buttonPage = '/example/buttonPage';
+  static const dialogPage = '/example/dialogPage';
   static const sliverPage = '/example/sliverPage';
   static const refreshPage = '/example/refreshPage';
 }

@@ -28,6 +28,7 @@ class _MyHomePageState extends BaseState<MyHomePage> {
     ['图片示例', ExampleRoute.imagePage],
     ['Toast示例', ExampleRoute.toastPage],
     ['输入框示例', ExampleRoute.inputPage],
+    ['Dialog示例', ExampleRoute.dialogPage],
     ['Bloc示例', ExampleRoute.blocPage],
     ['网络示例', ExampleRoute.netPage],
     ['下拉刷新示例', ExampleRoute.refreshPage],
