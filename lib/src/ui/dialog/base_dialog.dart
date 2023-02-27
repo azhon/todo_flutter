@@ -23,7 +23,7 @@ mixin BaseDialog implements UIWidget {
   ///[canceledOutside] 点击对话框外是否可以关闭
   ///[backgroundColor] 背景颜色
   ///[messageMaxHeight] 消息内容最大高度，超过滚动
-  Future<bool> baseDialog(
+  Future<bool?> baseDialog(
     BuildContext context, {
     required String message,
     String? title,
@@ -101,7 +101,7 @@ mixin BaseDialog implements UIWidget {
         );
       },
     );
-    return result!.getBool('result')!;
+    return result?.getBool('result');
   }
 
   ///俩个按钮还是一个按钮

@@ -13,7 +13,7 @@ class CommonDialog with BaseDialog, UIWidget, UIAdapter {
 
   ///提示对话框
   ///return [bool] false：取消，true：确定
-  Future<bool> tipDialog(
+  Future<bool?> tipDialog(
     BuildContext context,
     String? title,
     String message, {
@@ -35,7 +35,7 @@ class CommonDialog with BaseDialog, UIWidget, UIAdapter {
 
   ///只显示一个按钮
   ///return [bool] true：确定
-  Future<bool> singleButtonDialog(
+  Future<bool?> singleButtonDialog(
     BuildContext context,
     String? title,
     String message, {
