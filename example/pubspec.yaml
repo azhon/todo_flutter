@@ -81,7 +81,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
-xie_yin:
+flutter_res:
   # 当前模块是否是子模块，对生成的图片资源路径有影响
   isModule: false
   prefix: example
