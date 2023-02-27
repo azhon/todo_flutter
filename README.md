@@ -11,6 +11,7 @@
 | CommonText  | 文本组件 |
 | CommonClickWidget  | 点击事件组件 |
 | CommonRefreshWidget  | 列表刷新、加载组件 |
+| CommonDialog  | 对话框组件 |
 | SaturationWidget  | 饱和度组件 |
 | LoadingDialogWidget  | 全屏对话框组件 |
 | BlocLoadWidget  | 加载组件 |

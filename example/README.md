@@ -1,23 +1,21 @@
-### 效果图
+### 一、效果图
 <img src="https://github.com/azhon/todo-flutter/blob/main/example/img/img1.png" width="300"> <img src="https://github.com/azhon/todo-flutter/blob/main/example/img/img2.png" width="300">
 <img src="https://github.com/azhon/todo-flutter/blob/main/example/img/img3.png" width="300"> <img src="https://github.com/azhon/todo-flutter/blob/main/example/img/img4.png" width="300">
-### 图片资源路径与路由路径通过[这个插件](https://github.com/Xie-Yin/FlutterPlugin)自动生成
-### 目录结构
-- main.dart：todo-flutter项目初始化
-- lib/common/api/：网络请求
-- lib/common/route/：页面路由
-- lib/domain/：Bloc、网络请求相关
-- lib/generated/：自动生成代码存放目录
-- lib/view/：使用示例
+<img src="https://github.com/azhon/todo-flutter/blob/main/example/img/img5.png" width="300">
+
+### 二、图片资源路径与路由路径通过[这个插件](https://github.com/Xie-Yin/FlutterPlugin)自动生成
+
+### 三、目录结构
+
 ```
 ./lib
 ├── common
-│         ├── api
+│         ├── api（网络请求）
 │         │      ├── api_convert.dart
 │         │      └── api_provider.dart
-│         └── route
+│         └── route（页面路由）
 │             └── module_route.dart
-├── domain
+├── domain（Bloc、网络请求相关）
 │         ├── bloc
 │         │       ├── bloc
 │         │       │       ├── test_bloc.dart
@@ -33,9 +31,10 @@
 │             │         └── list_data_entity.dart
 │             ├── list_request.dart
 │             └── net_request.dart
-├── generated
+├── generated（自动生成代码存放目录）
 │            ├── assets
-│            │         └── todo_flutter_assets.dart
+│            │         ├── example_assets.dart
+│            │         └── example_icon.dart
 │            ├── json
 │            │       ├── base
 │            │       │       ├── json_convert_content.dart
@@ -43,11 +42,12 @@
 │            │       ├── get_entity.g.dart
 │            │       └── list_data_entity.g.dart
 │            └── route
-│                └── todo_flutter_route.dart
-├── main.dart
-└── view
+│                └── example_route.dart
+├── main.dart（项目初始化）
+└── view（使用示例）
     ├── bloc_page.dart
     ├── button_page.dart
+    ├── dialog_page.dart
     ├── image_page.dart
     ├── input_page.dart
     ├── net_page.dart
