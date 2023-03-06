@@ -20,7 +20,7 @@ class ApiProvider extends BaseNetProvider {
   ApiConvert convert = ApiConvert();
 
   ApiProvider._internal() {
-    // engine.setProxy('192.168.110.159', '8888');
+    // engine.setProxy('192.168.110.254', 8888);
     engine.addInterceptor(TestInterceptor());
   }
 

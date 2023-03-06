@@ -11,23 +11,23 @@ dependencies:
   flutter:
     sdk: flutter
   #  路由
-  fluro: ^2.0.4
+  fluro: ^2.0.5
   #  屏幕适配
   flutter_screenutil: ^5.6.1
   #  图片库
-  extended_image: ^7.0.0
+  extended_image: ^7.0.2
   #  bloc状态管理
-  flutter_bloc: ^8.1.1
+  flutter_bloc: ^8.1.2
   #  网络库
-  dio: ^4.0.6
+  dio: ^5.0.1
   #  日志
-  logger: ^1.1.0
+  logger: ^1.2.2
   #  刷新
   pull_to_refresh: ^2.0.0
   # 本地存储
-  shared_preferences: ^2.0.17
+  shared_preferences: ^2.0.18
   #  toast
-  fluttertoast: ^8.1.2
+  fluttertoast: ^8.2.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

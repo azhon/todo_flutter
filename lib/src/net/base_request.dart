@@ -66,7 +66,7 @@ abstract class BaseRequest<T> {
   ///获取异常信息
   String _parseError(e) {
     if (e is DioError) {
-      return e.message;
+      return e.message ?? '';
     }
     return e.toString();
   }

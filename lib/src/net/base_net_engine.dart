@@ -28,12 +28,12 @@ abstract class BaseNetEngine {
   Future<Result> put(String url, {Map<String, dynamic>? params});
 
   ///设置连接超时时间
-  ///[timeout]超时时间ms
-  void setConnectTimeout(int timeout);
+  ///[timeout]超时时间
+  void setConnectTimeout(Duration timeout);
 
   ///设置接收超时时间
-  ///[timeout]超时时间ms
-  void setReceiveTimeout(int timeout);
+  ///[timeout]超时时间
+  void setReceiveTimeout(Duration timeout);
 
   ///设置dio代理
   ///[ip]代理ip地址

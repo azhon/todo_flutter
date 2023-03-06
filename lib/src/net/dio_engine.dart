@@ -5,7 +5,7 @@
 
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:dio/adapter.dart';
+import 'package:dio/io.dart';
 import 'package:todo_flutter/src/net/base_net_engine.dart';
 
 class DioEngine extends BaseNetEngine {
@@ -15,8 +15,8 @@ class DioEngine extends BaseNetEngine {
     _dio = Dio();
     _dio.options = BaseOptions(
       baseUrl: baseUrl,
-      connectTimeout: 5 * 1000,
-      receiveTimeout: 5 * 1000,
+      connectTimeout: const Duration(seconds: 5),
+      receiveTimeout: const Duration(seconds: 5),
     );
   }
 
@@ -54,14 +54,14 @@ class DioEngine extends BaseNetEngine {
   ///设置连接超时时间
   ///[timeout]超时时间ms
   @override
-  void setConnectTimeout(int timeout) {
+  void setConnectTimeout(Duration timeout) {
     _dio.options.connectTimeout = timeout;
   }
 
   ///设置接收超时时间
   ///[timeout]超时时间ms
   @override
-  void setReceiveTimeout(int timeout) {
+  void setReceiveTimeout(Duration timeout) {
     _dio.options.receiveTimeout = timeout;
   }
 
@@ -70,7 +70,7 @@ class DioEngine extends BaseNetEngine {
   ///[port]代理端口
   @override
   void setProxy(String ip, int port) {
-    final DefaultHttpClientAdapter adapter = DefaultHttpClientAdapter()
+    final IOHttpClientAdapter adapter = IOHttpClientAdapter()
       ..onHttpClientCreate = (HttpClient client) {
         client
           ..findProxy = (uri) {
