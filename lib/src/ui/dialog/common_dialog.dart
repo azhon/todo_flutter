@@ -28,8 +28,10 @@ class CommonDialog with BaseDialog, UIWidget, UIAdapter {
       title: title,
       message: message,
       canceledOutside: canceledOutside,
-      confirmWidget: buttonWidget(confirmText, confirmColor),
-      cancelWidget: buttonWidget(cancelText, cancelColor, result: false),
+      confirmText: confirmText,
+      confirmColor: confirmColor,
+      cancelText: cancelText,
+      cancelColor: cancelColor,
     );
   }
 
@@ -49,7 +51,31 @@ class CommonDialog with BaseDialog, UIWidget, UIAdapter {
       message: message,
       singleButton: true,
       canceledOutside: canceledOutside,
-      confirmWidget: buttonWidget(confirmText, confirmColor),
+      confirmText: confirmText,
+      confirmColor: confirmColor,
+    );
+  }
+
+  ///return [String] 文本框内容
+  Future<String?> inputDialog(
+    BuildContext context,
+    String? title, {
+    String placeholder = '',
+    bool canceledOutside = true,
+    String confirmText = '确定',
+    Color confirmColor = Colors.blue,
+    String cancelText = '取消',
+    Color cancelColor = const Color(0xFF666666),
+  }) {
+    return baseInputDialog(
+      context,
+      title: title,
+      placeholder: placeholder,
+      canceledOutside: canceledOutside,
+      confirmText: confirmText,
+      confirmColor: confirmColor,
+      cancelText: cancelText,
+      cancelColor: cancelColor,
     );
   }
 }

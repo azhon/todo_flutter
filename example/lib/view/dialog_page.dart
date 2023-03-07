@@ -56,6 +56,18 @@ class _DialogPageState extends BaseState<DialogPage> {
                     .singleButtonDialog(context, '提示', '你确定要这么操作吗' * 5);
               },
             ),
+            CommonButton(
+              '输入框对话框',
+              margin: only(bottom: 10),
+              radius: 10,
+              onPressed: () {
+                CommonDialog.instance.inputDialog(
+                  context,
+                  '请输入密码',
+                  placeholder: '请输入密码',
+                );
+              },
+            ),
           ],
         ),
       ),
