@@ -238,7 +238,7 @@ mixin BaseDialog implements UIWidget {
         _buttonWidget(cancelText, cancelColor, result: false),
         Container(
           width: setWidth(1),
-          height: setWidth(45),
+          height: setWidth(40),
           color: const Color(0xFFEEEEEE),
         ),
         _buttonWidget(confirmText, confirmColor),
@@ -257,7 +257,7 @@ mixin BaseDialog implements UIWidget {
       child: CommonButton(
         text,
         fontSize: fontSize,
-        height: setWidth(45),
+        height: setWidth(40),
         textColor: color,
         color: Colors.transparent,
         onPressed: () {
