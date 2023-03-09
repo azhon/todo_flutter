@@ -6,7 +6,8 @@
 import 'dart:io' as io;
 import 'dart:typed_data';
 import 'package:extended_image/extended_image.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:todo_flutter/generated/assets/todo_flutter_assets.dart';
 import 'package:todo_flutter/src/base/base_stateless_widget.dart';
 
 class CommonImage extends BaseStatelessWidget {
@@ -99,22 +100,37 @@ class CommonImage extends BaseStatelessWidget {
         loadStateChanged: loadStateChanged,
       );
     }
-    return widget ?? const Center(child: Text('Failed to load image'));
+    return widget ?? _defaultError();
   }
 
   Widget? loadStateChanged(ExtendedImageState state) {
     switch (state.extendedImageLoadState) {
       case LoadState.loading:
-        return Center(child: loading);
+        return _defaultLoading(width, height);
       case LoadState.failed:
         return Container(
           width: width == null ? null : setWidth(width!),
           height: height == null ? null : setWidth(height!),
           alignment: Alignment.center,
-          child: error ?? const Text('Failed to load image'),
+          child: error ?? _defaultError(),
         );
       case LoadState.completed:
         return null;
     }
+  }
+
+  Widget _defaultLoading(double? width, double? height) {
+    return Container(
+      width: width == null ? null : setWidth(width),
+      height: height == null ? null : setWidth(height),
+      alignment: Alignment.center,
+      child: loading ?? const CupertinoActivityIndicator(),
+    );
+  }
+
+  Widget _defaultError() {
+    return CommonImage(
+      asset: TodoFlutterAssets.icImageError,
+    );
   }
 }

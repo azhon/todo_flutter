@@ -65,7 +65,7 @@ class CommonButton extends BaseStatelessWidget {
           onPressed: () => onPressed?.call(),
           onLongPress: () => onLongPress?.call(),
           style: TextButton.styleFrom(
-            primary: Colors.black,
+            foregroundColor: Colors.black,
             backgroundColor: gradient == null ? (color ?? primaryColor) : null,
             side: BorderSide(color: borderColor, width: setWidth(borderWidth)),
             shape: RoundedRectangleBorder(
