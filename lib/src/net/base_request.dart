@@ -20,7 +20,21 @@ enum RequestMethod {
   put,
 }
 
-abstract class BaseRequest<T> {
+mixin Paging {
+  ///用于处理分页参数存在url path上，动态改变Url
+  final String pagingUrlKey = 'pagingUrlKey';
+
+  ///用于处理分页参数存在url path上
+  final String page = '{page}';
+
+  ///分页 页码字段值
+  String get pageKey;
+
+  ///分页 一页数量字段值
+  String get pageSizeKey;
+}
+
+abstract class BaseRequest<T> with Paging {
   Map<String, dynamic>? params;
 
   BaseRequest(this.params);
@@ -29,13 +43,22 @@ abstract class BaseRequest<T> {
 
   RequestMethod get method;
 
-  BaseNetProvider getNetProvider();
+  BaseNetProvider get netProvider;
+
+  String get _realUrl {
+    final temp = params?[pagingUrlKey] ?? url;
+    params?.remove(pagingUrlKey);
+    return temp;
+  }
 
   ///请求数据
   Future<BaseEntity<T>> request() async {
-    final BaseNetEngine engine = getNetProvider().getEngine();
-    final BaseConvert convert = getNetProvider().getConvert();
+    final BaseNetEngine engine = netProvider.engine;
+    final BaseConvert convert = netProvider.convert;
     Result result = Result(null, null, null);
+    final url = _realUrl;
+    final logUrl = 'url：${engine.baseUrl}$url\nparams：${jsonEncode(params)}';
+    LogUtil.d('BaseRequest：[request start]\n$logUrl\nmethod：$method');
     try {
       switch (method) {
         case RequestMethod.get:
@@ -58,8 +81,6 @@ abstract class BaseRequest<T> {
       result.statusMessage = _parseError(e);
       LogUtil.e('BaseRequest：[request error] ${result.statusMessage}');
     }
-    final logUrl = 'url：${engine.baseUrl}$url\nparams：${jsonEncode(params)}';
-    LogUtil.d('BaseRequest：[request start]\n$logUrl\nmethod：$method');
     return convert.convert<T>(result);
   }
 

@@ -16,23 +16,19 @@ class ApiProvider extends BaseNetProvider {
     return _instance!;
   }
 
-  DioEngine engine = DioEngine('https://www.wanandroid.com/');
-  ApiConvert convert = ApiConvert();
+  DioEngine dioEngine = DioEngine('http://www.wanandroid.com/');
+  ApiConvert apiConvert = ApiConvert();
 
   ApiProvider._internal() {
-    // engine.setProxy('192.168.110.254', 8888);
-    engine.addInterceptor(TestInterceptor());
+    // dioEngine.setProxy('192.168.110.7', 8888);
+    dioEngine.addInterceptor(TestInterceptor());
   }
 
   @override
-  BaseNetEngine getEngine() {
-    return engine;
-  }
+  BaseNetEngine get engine => dioEngine;
 
   @override
-  BaseConvert getConvert() {
-    return convert;
-  }
+  BaseConvert get convert => apiConvert;
 }
 
 class TestInterceptor extends InterceptorsWrapper {
@@ -47,7 +43,11 @@ abstract class ApiRequest<T> extends BaseRequest<T> {
   ApiRequest(Map<String, dynamic>? params) : super(params);
 
   @override
-  BaseNetProvider getNetProvider() {
-    return ApiProvider.instance;
-  }
+  String get pageKey => 'page';
+
+  @override
+  String get pageSizeKey => 'page_size';
+
+  @override
+  BaseNetProvider get netProvider => ApiProvider.instance;
 }

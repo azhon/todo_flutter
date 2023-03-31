@@ -14,5 +14,5 @@ class ListRequest extends ApiRequest<List<ListDataEntity>> {
   RequestMethod get method => RequestMethod.get;
 
   @override
-  String get url => 'article/list/0/json';
+  String get url => 'article/list/$page/json';
 }

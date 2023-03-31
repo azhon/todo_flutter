@@ -8,8 +8,8 @@ import 'package:todo_flutter/src/net/base_net_engine.dart';
 
 abstract class BaseNetProvider {
   ///创建网络请求客户端
-  BaseNetEngine getEngine();
+  BaseNetEngine get engine;
 
   ///网络数据转换器
-  BaseConvert getConvert();
+  BaseConvert get convert;
 }
