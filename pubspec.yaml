@@ -28,6 +28,10 @@ dependencies:
   shared_preferences: ^2.0.20
   #  toast
   fluttertoast: ^8.2.1
+  #  模块通信
+  module_bridge: ^1.0.0
+  #  版本更新
+  flutter_app_update: ^3.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
