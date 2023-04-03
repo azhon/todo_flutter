@@ -4,6 +4,7 @@
 /// @author azhon
 import 'package:todo_flutter/todo_flutter.dart';
 import 'package:todo_flutter_example/generated/route/example_route.dart';
+import 'package:todo_flutter_example/view/app_update_page.dart';
 import 'package:todo_flutter_example/view/bloc_page.dart';
 import 'package:todo_flutter_example/view/button_page.dart';
 import 'package:todo_flutter_example/view/dialog_page.dart';
@@ -53,6 +54,10 @@ class ModuleRoute {
     RouterUtil.instance.addRoute(ExampleRoute.refreshPage,
         (Map<String, dynamic> map) {
       return const RefreshPage();
+    });
+    RouterUtil.instance.addRoute(ExampleRoute.appUpdatePage,
+        (Map<String, dynamic> map) {
+      return const AppUpdatePage();
     });
     RouterUtil.instance.addRoute(ExampleRoute.sliverPage,
         (Map<String, dynamic> map) {

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:todo_flutter/todo_flutter.dart';
 import 'package:todo_flutter/todo_app.dart';
@@ -32,6 +34,7 @@ class _MyHomePageState extends BaseState<MyHomePage> {
     ['Bloc示例', ExampleRoute.blocPage],
     ['网络示例', ExampleRoute.netPage],
     ['下拉刷新示例', ExampleRoute.refreshPage],
+    ['版本更新示例', ExampleRoute.appUpdatePage],
     ['Sliver示例', ExampleRoute.sliverPage],
   ];
 
@@ -41,26 +44,46 @@ class _MyHomePageState extends BaseState<MyHomePage> {
       appBar: AppBar(
         title: const Text('TODO-Flutter'),
       ),
-      body: Padding(
+      body: GridView.builder(
+        itemCount: routes.length,
         padding: symmetric(16, 16),
-        child: ListView.builder(
-          itemCount: routes.length,
-          itemBuilder: (context, index) {
-            return CommonButton(
-              routes[index].first,
-              margin: only(bottom: 10),
-              radius: 10,
-              onPressed: () {
-                RouterUtil.instance
-                    .build(routes[index].last)
-                    .withString('key-s', null)
-                    .withBool('key-b', false)
-                    .withNum('key-n', 3)
-                    .navigate();
-              },
-            );
-          },
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 2.2,
+          mainAxisSpacing: setWidth(16),
+          crossAxisSpacing: setWidth(16),
         ),
+        itemBuilder: (_, index) {
+          final item = routes[index];
+          return CommonClickWidget(
+            singleClick: () {
+              RouterUtil.instance
+                  .build(routes[index].last)
+                  .withString('key-s', null)
+                  .withBool('key-b', false)
+                  .withNum('key-n', 3)
+                  .navigate();
+            },
+            child: Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Color.fromRGBO(
+                  Random().nextInt(255),
+                  Random().nextInt(255),
+                  Random().nextInt(255),
+                  1,
+                ),
+                borderRadius: BorderRadius.circular(setRadius(10)),
+              ),
+              child: CommonText(
+                item.first,
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          );
+        },
       ),
     );
   }
