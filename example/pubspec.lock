@@ -138,10 +138,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_app_update
-      sha256: b86da911535f00419c7cf7039c39ab7de2f5a2c2d939cc84c1f9a79b8c1b447b
+      sha256: "55a75c75eec1178549a7b15a4113c42208dde378556f858af7b99f092a27d359"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "3.0.0"
+    version: "3.0.2"
   flutter_bloc:
     dependency: transitive
     description:

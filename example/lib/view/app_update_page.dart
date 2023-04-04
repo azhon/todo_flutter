@@ -5,8 +5,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:todo_flutter/todo_flutter.dart';
-import 'package:flutter_app_update/azhon_app_update.dart';
-import 'package:flutter_app_update/update_model.dart';
 
 class AppUpdatePage extends StatefulWidget {
   const AppUpdatePage({Key? key}) : super(key: key);

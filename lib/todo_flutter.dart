@@ -52,3 +52,4 @@ export 'package:dio/dio.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
 export 'package:fluttertoast/fluttertoast.dart';
 export 'package:module_bridge/module_bridge.dart';
+export 'package:flutter_app_update/flutter_app_update.dart';

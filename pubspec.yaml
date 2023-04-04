@@ -31,7 +31,7 @@ dependencies:
   #  模块通信
   module_bridge: ^1.0.0
   #  版本更新
-  flutter_app_update: ^3.0.0
+  flutter_app_update: ^3.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
