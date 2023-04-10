@@ -17,6 +17,7 @@ analyzer:
     avoid_positional_boolean_parameters: ignore
     avoid_function_literals_in_foreach_calls: ignore
     parameter_assignments: ignore
+    cascade_invocations: ignore
 linter:
   rules:
     - always_declare_return_types
