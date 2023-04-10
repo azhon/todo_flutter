@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:todo_flutter/src/base/ui_adapter.dart';
 import 'package:todo_flutter/src/base/ui_widget.dart';
 import 'package:todo_flutter/src/ui/dialog/base_dialog.dart';
+import 'package:todo_flutter/src/ui/dialog/loading_dialog.dart';
+import 'package:todo_flutter/src/ui/widget/loading_dialog_widget.dart';
 
 /// createTime: 2023/2/23 on 16:01
 /// desc:
@@ -56,6 +58,7 @@ class CommonDialog with BaseDialog, UIWidget, UIAdapter {
     );
   }
 
+  ///输入框对话框
   ///return [String] 文本框内容
   Future<String?> inputDialog(
     BuildContext context,
@@ -76,6 +79,21 @@ class CommonDialog with BaseDialog, UIWidget, UIAdapter {
       confirmColor: confirmColor,
       cancelText: cancelText,
       cancelColor: cancelColor,
+    );
+  }
+
+  ///等待对话框
+  Future<T?> loadingDialog<T>(
+    BuildContext context, {
+    LoadingDialogController? controller,
+  }) {
+    return showDialog(
+      context: context,
+      barrierColor: Colors.transparent,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return LoadingDialogWidget(controller: controller);
+      },
     );
   }
 }

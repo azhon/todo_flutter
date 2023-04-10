@@ -13,11 +13,11 @@ abstract class NetEvent extends BaseEvent<NetBloc, NetState> {}
 class GetEvent extends NetEvent {
   @override
   Future<NetState> on(NetBloc bloc, NetState currentState) async {
-    bloc.showPageLoading();
+    bloc.showLoading();
     final bean = await NetGetRequest().request();
     await Future.delayed(const Duration(seconds: 1));
     bloc
-      ..dismissPageLoading()
+      ..dismissLoading()
       ..loadDone();
     return NetInitialState(bean.data);
   }

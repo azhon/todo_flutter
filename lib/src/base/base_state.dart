@@ -8,28 +8,16 @@ import 'package:todo_flutter/src/base/loading_state.dart';
 import 'package:todo_flutter/src/base/ui_adapter.dart';
 import 'package:todo_flutter/src/base/ui_widget.dart';
 import 'package:todo_flutter/src/service/error/runtime_exception.dart';
-import 'package:todo_flutter/src/service/route/router_util.dart';
 import 'package:todo_flutter/src/service/theme/toast_theme_data.dart';
-import 'package:todo_flutter/src/ui/widget/loading_dialog_widget.dart';
+import 'package:todo_flutter/src/ui/dialog/loading_dialog.dart';
 import 'package:todo_flutter/todo_lib.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-abstract class BaseState<T extends StatefulWidget> extends BaseBlocState<T> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-}
+abstract class BaseState<T extends StatefulWidget> extends BaseBlocState<T> {}
 
 abstract class BaseBlocState<T extends StatefulWidget> extends BaseUIState<T>
     with LoadingState {
-  bool _isShowLoadingDialog = false;
   List<BlocBase>? _blocs;
 
   ///添加bloc进行管理
@@ -50,23 +38,13 @@ abstract class BaseBlocState<T extends StatefulWidget> extends BaseUIState<T>
   }
 
   @override
-  void showLoadingDialog({String? msg}) {
-    _isShowLoadingDialog = true;
-    showDialog(
-      context: context,
-      barrierColor: Colors.transparent,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return LoadingDialogWidget(msg: msg);
-      },
-    ).then((value) => _isShowLoadingDialog = false);
+  void showLoading({String? msg}) {
+    LoadingDialog.show(msg: msg);
   }
 
   @override
-  void dismissLoadingDialog() {
-    if (_isShowLoadingDialog) {
-      RouterUtil.instance.pop();
-    }
+  void dismissLoading() {
+    LoadingDialog.dismiss();
   }
 
   @override

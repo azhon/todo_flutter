@@ -5,9 +5,9 @@
 import 'package:todo_flutter/src/service/theme/toast_theme_data.dart';
 
 mixin LoadingState {
-  void showLoadingDialog({String? msg});
+  void showLoading({String? msg});
 
-  void dismissLoadingDialog();
+  void dismissLoading();
 
   void showToast(String msg, {ToastThemeData? data});
 }

@@ -4,15 +4,35 @@
 /// @author azhon
 
 import 'package:flutter/material.dart';
+import 'package:todo_flutter/src/base/base_state.dart';
 import 'package:todo_flutter/src/base/ui_adapter.dart';
 import 'package:todo_flutter/src/base/ui_widget.dart';
 import 'package:todo_flutter/src/ui/common_text.dart';
+import 'package:todo_flutter/src/base/base_stateful_widget.dart';
+import 'package:todo_flutter/src/ui/dialog/loading_dialog.dart';
 
-class LoadingDialogWidget extends Dialog with UIAdapter, UIWidget {
-  final String? msg;
+class LoadingDialogWidget extends BaseStatefulWidget {
+  final LoadingDialogController? controller;
 
-  LoadingDialogWidget({Key? key, this.msg})
-      : super(key: key, insetPadding: EdgeInsets.zero);
+  LoadingDialogWidget({Key? key, this.controller}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() {
+    return LoadingDialogWidgetState();
+  }
+}
+
+class LoadingDialogWidgetState extends BaseState<LoadingDialogWidget>
+    with UIAdapter, UIWidget {
+  @override
+  void initState() {
+    super.initState();
+    widget.controller?.addListener(_updateMsg);
+  }
+
+  void _updateMsg() {
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +46,7 @@ class LoadingDialogWidget extends Dialog with UIAdapter, UIWidget {
             height: setWidth(100),
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: const Color(0x4D000000),
+              color: const Color(0x99000000),
               borderRadius: BorderRadius.circular(setRadius(8)),
             ),
             child: Column(
@@ -34,12 +54,21 @@ class LoadingDialogWidget extends Dialog with UIAdapter, UIWidget {
               children: [
                 const CircularProgressIndicator(color: Colors.white),
                 sizedBox(height: 10),
-                CommonText(msg ?? 'Loading...', color: Colors.white),
+                CommonText(
+                  widget.controller?.msg ?? 'Loading...',
+                  color: Colors.white,
+                ),
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    widget.controller?.removeListener(_updateMsg);
   }
 }

@@ -23,6 +23,20 @@ class _DialogPageState extends BaseState<DialogPage> {
         child: Column(
           children: [
             CommonButton(
+              '等待对话框',
+              margin: only(bottom: 10),
+              radius: 10,
+              onPressed: () {
+                LoadingDialog.show();
+                Future.delayed(const Duration(seconds: 2)).then((value) {
+                  LoadingDialog.show(msg: '第二个内容消息');
+                });
+                Future.delayed(const Duration(seconds: 4)).then((value) {
+                  LoadingDialog.dismiss();
+                });
+              },
+            ),
+            CommonButton(
               '提示对话框',
               margin: only(bottom: 10),
               radius: 10,

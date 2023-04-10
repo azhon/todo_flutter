@@ -41,13 +41,13 @@ abstract class BaseBloc<E extends BaseEvent, S> extends BaseLoadBloc<E, S> {
   BaseBloc(S initialState) : super(initialState);
 
   ///显示全屏加载等待框
-  void showPageLoading({String? msg}) {
-    _loadingState?.showLoadingDialog(msg: msg);
+  void showLoading({String? msg}) {
+    _loadingState?.showLoading(msg: msg);
   }
 
   ///关闭全屏加载等待框
-  void dismissPageLoading() {
-    _loadingState?.dismissLoadingDialog();
+  void dismissLoading() {
+    _loadingState?.dismissLoading();
   }
 
   ///显示提示
