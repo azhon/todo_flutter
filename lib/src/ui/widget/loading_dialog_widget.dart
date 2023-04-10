@@ -44,7 +44,6 @@ class LoadingDialogWidgetState extends BaseState<LoadingDialogWidget>
           child: Container(
             width: setWidth(100),
             height: setWidth(100),
-            alignment: Alignment.center,
             decoration: BoxDecoration(
               color: const Color(0x99000000),
               borderRadius: BorderRadius.circular(setRadius(8)),
@@ -52,11 +51,19 @@ class LoadingDialogWidgetState extends BaseState<LoadingDialogWidget>
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                sizedBox(height: 20),
                 const CircularProgressIndicator(color: Colors.white),
-                sizedBox(height: 10),
-                CommonText(
-                  widget.controller?.msg ?? 'Loading...',
-                  color: Colors.white,
+                sizedBox(height: 12),
+                Padding(
+                  padding: symmetric(0, 10),
+                  child: CommonText(
+                    widget.controller?.msg ?? 'Loading...',
+                    color: Colors.white,
+                    maxLines: 2,
+                    fontSize: 12,
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               ],
             ),
