@@ -21,7 +21,7 @@ class _RefreshPageState extends BaseState<RefreshPage> {
   @override
   void initState() {
     super.initState();
-    _listBloc = ListBloc(request: ListRequest());
+    _listBloc = ListBloc(request: ListRequest(), startPageNum: 0);
   }
 
   @override
