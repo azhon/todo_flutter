@@ -59,4 +59,10 @@ class ListBloc<T> extends BaseBloc<ListEvent<T>, ListState<T>> {
     }
     request.params![request.pageSizeKey] = pageSize;
   }
+
+  @override
+  Future<void> close() async {
+    controller.dispose();
+    await super.close();
+  }
 }

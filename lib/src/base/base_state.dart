@@ -68,6 +68,7 @@ abstract class BaseBlocState<T extends StatefulWidget> extends BaseUIState<T>
     _blocs?.forEach((element) {
       element.close();
     });
+    _blocs?.clear();
   }
 }
 
