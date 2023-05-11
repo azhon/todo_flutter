@@ -4,7 +4,6 @@
 /// @author azhon
 
 import 'package:flutter/material.dart';
-import 'package:todo_flutter/src/service/error/runtime_exception.dart';
 import 'package:todo_flutter/src/service/theme/toast_theme_data.dart';
 
 class TodoLib extends InheritedWidget {
@@ -24,7 +23,7 @@ class TodoLib extends InheritedWidget {
     final TodoLib? todoLib =
         context.dependOnInheritedWidgetOfExactType<TodoLib>();
     if (todoLib == null) {
-      throw RuntimeException('please init [TodoLib] first...');
+      throw Exception('please init [TodoLib] first...');
     }
     return todoLib.data ?? TodoLibData();
   }

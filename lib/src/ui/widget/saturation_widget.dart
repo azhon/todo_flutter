@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:todo_flutter/src/base/base_stateless_widget.dart';
 
 /// createTime: 2022/12/1 on 10:59
 /// desc: The app is black and white to commemorate important events and people
 ///
 /// @author azhon
 
-class SaturationWidget extends StatelessWidget {
+class SaturationWidget extends BaseStatelessWidget {
   final Widget child;
 
   ///value [0,1]

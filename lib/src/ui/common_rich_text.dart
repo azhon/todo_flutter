@@ -8,7 +8,7 @@ class CommonRichText extends BaseStatefulWidget {
   final int maxLines;
   final TextOverflow? overflow;
 
-  CommonRichText(
+  const CommonRichText(
     this.params, {
     Key? key,
     this.maxLines = 1,

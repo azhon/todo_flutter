@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_flutter/todo_flutter.dart';
 
 class ButtonPage extends BaseStatefulWidget {
-  ButtonPage({Key? key}) : super(key: key);
+  const ButtonPage({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _ButtonPageState();
@@ -46,7 +46,7 @@ class _ButtonPageState extends BaseState<ButtonPage> {
                     '小按钮',
                     radius: 10,
                     fontSize: 10,
-                    padding: symmetric(4, 13),
+                    padding: symmetric(vertical: 4, horizontal: 13),
                     color: Colors.blue,
                     margin: only(left: 10, top: 10),
                   ),
@@ -54,28 +54,33 @@ class _ButtonPageState extends BaseState<ButtonPage> {
               ),
               CommonButton(
                 '不可点击按钮',
+                width: double.infinity,
                 color: Colors.grey,
                 disable: true,
                 margin: only(top: 10),
               ),
               CommonButton(
                 '普通按钮',
+                width: double.infinity,
                 margin: only(top: 10),
               ),
               CommonButton(
                 '圆角按钮',
+                width: double.infinity,
                 color: Colors.blue,
                 radius: 20,
                 margin: only(top: 10),
               ),
               CommonButton(
                 '两边正圆角按钮',
+                width: double.infinity,
                 color: Colors.blue,
                 radius: 100,
                 margin: only(top: 10),
               ),
               CommonButton(
                 '渐变色按钮',
+                width: double.infinity,
                 gradient: const LinearGradient(
                   colors: [Colors.blue, Colors.red],
                 ),
@@ -83,6 +88,7 @@ class _ButtonPageState extends BaseState<ButtonPage> {
               ),
               CommonButton(
                 '镂空不可点击按钮',
+                width: double.infinity,
                 disable: true,
                 color: Colors.transparent,
                 borderColor: Colors.red,
@@ -91,6 +97,7 @@ class _ButtonPageState extends BaseState<ButtonPage> {
               ),
               CommonButton(
                 '镂空按钮',
+                width: double.infinity,
                 color: Colors.transparent,
                 borderColor: Colors.red,
                 textColor: Colors.red,
@@ -98,6 +105,7 @@ class _ButtonPageState extends BaseState<ButtonPage> {
               ),
               CommonButton(
                 '镂空圆角按钮',
+                width: double.infinity,
                 color: Colors.transparent,
                 borderColor: Colors.red,
                 textColor: Colors.red,
@@ -106,6 +114,7 @@ class _ButtonPageState extends BaseState<ButtonPage> {
               ),
               CommonButton(
                 '镂空两边正圆角按钮',
+                width: double.infinity,
                 color: Colors.transparent,
                 borderColor: Colors.red,
                 textColor: Colors.red,

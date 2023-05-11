@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_flutter/src/service/route/router_history_stack.dart';
 import 'package:todo_flutter/src/service/route/router_util.dart';
-import 'package:todo_flutter/src/util/preference_util.dart';
+import 'package:todo_flutter/src/ui/dialog/loading_dialog.dart';
 import 'package:todo_flutter/todo_lib.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,7 +20,7 @@ class TodoApp extends StatelessWidget {
   final List<NavigatorObserver> navigatorObservers;
   final Iterable<LocalizationsDelegate<dynamic>>? localizationsDelegates;
 
-  TodoApp({
+  const TodoApp({
     required this.home,
     this.title = '',
     this.theme,
@@ -31,14 +31,7 @@ class TodoApp extends StatelessWidget {
     this.navigatorObservers = const <NavigatorObserver>[],
     this.supportedLocales = const <Locale>[Locale('en', 'US')],
     Key? key,
-  }) : super(key: key) {
-    _init();
-  }
-
-  ///内部初始化
-  void _init() {
-    PreferencesUtil.init();
-  }
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -58,9 +51,11 @@ class TodoApp extends StatelessWidget {
             debugShowCheckedModeBanner: debugShowCheckedModeBanner,
             onGenerateRoute: RouterUtil.instance.generator(),
             builder: (BuildContext context, Widget? widget) {
-              return MediaQuery(
-                data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
-                child: widget ?? Container(),
+              return LoadingDialogInit(
+                child: MediaQuery(
+                  data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
+                  child: widget ?? Container(),
+                ),
               );
             },
           ),

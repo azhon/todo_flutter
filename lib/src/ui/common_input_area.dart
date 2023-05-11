@@ -38,7 +38,7 @@ class CommonInputArea extends BaseStatefulWidget {
   final TextInputType? keyboardType;
   final ValueChanged<String>? onSubmitted;
 
-  CommonInputArea({
+  const CommonInputArea({
     Key? key,
     this.minHeight,
     this.maxHeight,

@@ -15,11 +15,15 @@ class Env {
 
   static Env env = Env.release;
 
-  static bool get isDev => env == Env.dev;
+  static bool get isDev => env.name == Env.dev.name;
 
-  static bool get isTest => env == Env.test;
+  static bool get isTest => env.name == Env.test.name;
 
-  static bool get isPre => env == Env.pre;
+  static bool get isPre => env.name == Env.pre.name;
 
-  static bool get isRelease => env == Env.release;
+  static bool get isRelease => env.name == Env.release.name;
+
+  static Env fromEnv(String env) {
+    return Env._(env);
+  }
 }

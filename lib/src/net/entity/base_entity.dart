@@ -26,13 +26,7 @@ class BaseEntity<T> {
 
   @override
   String toString() {
-    return 'BaseEntity{'
-        'code: $code'
-        'message: $message'
-        'data: $data'
-        'curPage: $curPage'
-        'total: $total'
-        'totalPage: $totalPage'
-        '}';
+    return 'BaseEntity{code: $code, message: $message, data: $data, curPage: '
+        '$curPage, total: $total, totalPage: $totalPage}';
   }
 }

@@ -1,44 +1,84 @@
 import 'package:flutter/material.dart';
-import 'package:todo_flutter/src/service/route/router_util.dart';
-import 'package:todo_flutter/src/ui/dialog/common_dialog.dart';
-import 'package:todo_flutter/todo_lib.dart';
+import 'package:todo_flutter/src/base/base_stateful_widget.dart';
+import 'package:todo_flutter/src/ui/widget/loading_dialog_widget.dart';
 
 /// createTime: 2023/4/4 on 20:14
 /// desc:
 ///
 /// @author azhon
+///
+
+class LoadingDialogInit extends BaseStatefulWidget {
+  final Widget child;
+
+  const LoadingDialogInit({required this.child, Key? key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => _LoadingDialogState();
+}
+
+class _LoadingDialogState extends State<LoadingDialogInit> {
+  late OverlayEntry _overlayEntry;
+
+  @override
+  void initState() {
+    super.initState();
+    _overlayEntry = OverlayEntry(
+      builder: (_) =>
+          LoadingDialog.instance.currWidget ?? const SizedBox.shrink(),
+    );
+    LoadingDialog.instance.overlayEntry = _overlayEntry;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Material(
+        child: Overlay(
+          initialEntries: [
+            OverlayEntry(builder: (_) => widget.child),
+            _overlayEntry,
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class LoadingDialog {
-  static bool _isShowLoadingDialog = false;
-  static LoadingDialogController controller = LoadingDialogController();
+  factory LoadingDialog() => instance;
+  static final LoadingDialog instance = LoadingDialog._internal();
+  OverlayEntry? overlayEntry;
+  Widget? currWidget;
+
+  LoadingDialog._internal();
 
   ///显示对话框
   static void show({String? msg}) {
-    controller.updateMsg(msg);
-    if (_isShowLoadingDialog) {
-      return;
-    }
-    _isShowLoadingDialog = true;
-    CommonDialog.instance
-        .loadingDialog(
-          TodoLib.navigatorKey.currentContext!,
-          controller: controller,
-        )
-        .then((value) => _isShowLoadingDialog = false);
+    instance._show(msg: msg);
   }
 
   ///隐藏对话框
   static void dismiss() {
-    if (_isShowLoadingDialog) {
-      RouterUtil.instance.pop();
-    }
+    instance._dismiss();
   }
-}
 
-class LoadingDialogController extends ChangeNotifier {
-  String? msg;
+  ///是否在显示
+  static bool isShow() {
+    return instance.currWidget == null;
+  }
 
-  void updateMsg(String? msg) {
-    this.msg = msg;
-    notifyListeners();
+  void _show({String? msg}) {
+    currWidget = LoadingDialogWidget(msg: msg);
+    overlayEntry?.markNeedsBuild();
+  }
+
+  void _dismiss() {
+    if (currWidget == null) {
+      return;
+    }
+    currWidget = null;
+    overlayEntry?.markNeedsBuild();
   }
 }

@@ -5,7 +5,7 @@
 import 'package:todo_flutter/src/base/bloc/base_bloc.dart';
 import 'package:todo_flutter/src/bloc/load/load_event.dart';
 import 'package:todo_flutter/src/bloc/load/load_state.dart';
-import 'package:todo_flutter/src/service/error/api_exception.dart';
+import 'package:todo_flutter/src/service/error/domain_exception.dart';
 
 class LoadBloc extends BaseLoadBloc<LoadEvent, LoadState> {
   LoadBloc() : super(InitialState());
@@ -18,7 +18,7 @@ class LoadBloc extends BaseLoadBloc<LoadEvent, LoadState> {
     add(InitialEvent());
   }
 
-  void loadError(ApiException exception) {
+  void loadError(DomainException exception) {
     add(ErrorEvent(exception));
   }
 }

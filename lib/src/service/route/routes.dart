@@ -5,6 +5,7 @@
 
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:todo_flutter/src/ui/common_text.dart';
 
 typedef RouteHandler = Widget Function(Map<String, dynamic> map);
 
@@ -21,9 +22,10 @@ class Routes {
   static void define(FluroRouter router) {
     router.notFoundHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-        return const Scaffold(
+        final settings = context?.settings;
+        return Scaffold(
           body: Center(
-            child: Text('页面找不到了'),
+            child: CommonText('Route：${settings?.name}\nNot Found!'),
           ),
         );
       },

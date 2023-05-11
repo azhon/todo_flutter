@@ -19,11 +19,12 @@ class _DialogPageState extends BaseState<DialogPage> {
     return Scaffold(
       appBar: AppBar(title: const Text('Dialog示例')),
       body: Padding(
-        padding: symmetric(16, 16),
+        padding: all(16),
         child: Column(
           children: [
             CommonButton(
               '等待对话框',
+              width: double.infinity,
               margin: only(bottom: 10),
               radius: 10,
               onPressed: () {
@@ -38,6 +39,7 @@ class _DialogPageState extends BaseState<DialogPage> {
             ),
             CommonButton(
               '提示对话框',
+              width: double.infinity,
               margin: only(bottom: 10),
               radius: 10,
               onPressed: () {
@@ -46,6 +48,7 @@ class _DialogPageState extends BaseState<DialogPage> {
             ),
             CommonButton(
               '提示对话框内存超长',
+              width: double.infinity,
               margin: only(bottom: 10),
               radius: 10,
               onPressed: () {
@@ -55,6 +58,7 @@ class _DialogPageState extends BaseState<DialogPage> {
             ),
             CommonButton(
               '无标题对话框',
+              width: double.infinity,
               margin: only(bottom: 10),
               radius: 10,
               onPressed: () {
@@ -63,6 +67,7 @@ class _DialogPageState extends BaseState<DialogPage> {
             ),
             CommonButton(
               '单按钮对话框',
+              width: double.infinity,
               margin: only(bottom: 10),
               radius: 10,
               onPressed: () {
@@ -72,6 +77,7 @@ class _DialogPageState extends BaseState<DialogPage> {
             ),
             CommonButton(
               '输入框对话框',
+              width: double.infinity,
               margin: only(bottom: 10),
               radius: 10,
               onPressed: () {

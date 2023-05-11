@@ -9,5 +9,5 @@ import 'package:todo_flutter/src/base/ui_widget.dart';
 
 abstract class BaseStatelessWidget extends StatelessWidget
     with UIAdapter, UIWidget {
-  BaseStatelessWidget({Key? key}) : super(key: key);
+  const BaseStatelessWidget({Key? key}) : super(key: key);
 }

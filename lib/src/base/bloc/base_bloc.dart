@@ -6,9 +6,8 @@
 import 'package:todo_flutter/src/base/bloc/base_event.dart';
 import 'package:todo_flutter/src/base/loading_state.dart';
 import 'package:todo_flutter/src/bloc/load/load_bloc.dart';
-import 'package:todo_flutter/src/net/entity/base_entity.dart';
-import 'package:todo_flutter/src/service/error/api_exception.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_flutter/src/service/error/domain_exception.dart';
 
 abstract class BaseLoadBloc<E extends BaseEvent, S> extends Bloc<E, S> {
   BaseLoadBloc(S initialState) : super(initialState) {
@@ -40,19 +39,9 @@ abstract class BaseBloc<E extends BaseEvent, S> extends BaseLoadBloc<E, S> {
 
   BaseBloc(S initialState) : super(initialState);
 
-  ///显示全屏加载等待框
-  void showLoading({String? msg}) {
-    _loadingState?.showLoading(msg: msg);
-  }
-
-  ///关闭全屏加载等待框
-  void dismissLoading() {
-    _loadingState?.dismissLoading();
-  }
-
-  ///显示提示
-  void showToast(String msg) {
-    _loadingState?.showToast(msg);
+  ///view层接受bloc层事件
+  void sendEventToView(String type, [data]) {
+    _loadingState?.sendEventToView(type, data);
   }
 
   ///配合BlocLoadWidget使用，开始加载
@@ -66,8 +55,8 @@ abstract class BaseBloc<E extends BaseEvent, S> extends BaseLoadBloc<E, S> {
   }
 
   ///配合BlocLoadWidget使用，加载失败
-  void loadError(BaseEntity entity) {
-    loadBloc.loadError(ApiException(entity));
+  void loadError(DomainException exception) {
+    loadBloc.loadError(exception);
   }
 
   @override

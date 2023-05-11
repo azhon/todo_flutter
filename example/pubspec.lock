@@ -208,6 +208,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "4.0.2"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: "910f85bce16fb5c6f614e117efa303e85a1731bb0081edf3604a2ae6e9a3cc91"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.17.0"
   js:
     dependency: transitive
     description:
@@ -260,10 +268,10 @@ packages:
     dependency: transitive
     description:
       name: module_bridge
-      sha256: e3bde8c1bc756a77be4045be0bd338460cb4464ad34313f1212387b36d1ff9af
+      sha256: "38823aeed0a9d47040211b464522343120efe306fec1b0a94758646e0592dfc1"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.0"
+    version: "1.0.2"
   nested:
     dependency: transitive
     description:

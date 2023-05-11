@@ -28,8 +28,10 @@ dependencies:
   shared_preferences: ^2.0.20
   #  toast
   fluttertoast: ^8.2.1
+  #  时间格式化
+  intl: ^0.17.0
   #  模块通信
-  module_bridge: ^1.0.0
+  module_bridge: ^1.0.2
   #  版本更新
   flutter_app_update: ^3.0.2
 dev_dependencies:

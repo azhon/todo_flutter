@@ -1,6 +1,7 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
+import 'package:todo_flutter/src/service/route/bundle.dart';
 
 /// createTime: 2022/8/30 on 11:41
 /// desc:
@@ -37,8 +38,32 @@ class RouterHistoryStack {
   ///获取栈底路由
   Route get firstRoute => _queue.first;
 
+  ///获取栈底路由名称
+  String get firstRouteName => firstRoute.settings.name ?? '';
+
+  ///获取栈底路由参数
+  Bundle? get firstRouteParams {
+    final arg = firstRoute.settings.arguments;
+    if (arg is Bundle) {
+      return arg;
+    }
+    return null;
+  }
+
   ///获取栈顶路由
   Route get lastRoute => _queue.last;
+
+  ///获取栈顶路由名称
+  String get lastRouteName => lastRoute.settings.name ?? '';
+
+  ///获取栈顶路由参数
+  Bundle? get lastRouteParams {
+    final arg = lastRoute.settings.arguments;
+    if (arg is Bundle) {
+      return arg;
+    }
+    return null;
+  }
 
   ///栈中是否存在当前[route]路由
   bool exist(String route) {

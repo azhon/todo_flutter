@@ -23,7 +23,7 @@ class CommonText extends BaseStatelessWidget {
   final StrutStyle? strutStyle;
   final TextDecorationStyle? decorationStyle;
 
-  CommonText(
+  const CommonText(
     this.text, {
     Key? key,
     this.fontSize,

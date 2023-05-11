@@ -22,6 +22,7 @@ class _ToastPageState extends BaseState<ToastPage> {
         children: [
           CommonButton(
             '弹出Toast',
+            width: double.infinity,
             color: Colors.blue,
             radius: 20,
             margin: only(left: 20, right: 20, top: 40),
@@ -31,6 +32,7 @@ class _ToastPageState extends BaseState<ToastPage> {
           ),
           CommonButton(
             'Toast居于底部',
+            width: double.infinity,
             color: Colors.blue,
             radius: 20,
             margin: only(left: 20, right: 20, top: 20),

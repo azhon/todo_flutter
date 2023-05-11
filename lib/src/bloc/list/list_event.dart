@@ -2,20 +2,19 @@ import 'package:todo_flutter/src/base/bloc/base_event.dart';
 import 'package:todo_flutter/src/bloc/list/list_bloc.dart';
 import 'package:todo_flutter/src/bloc/list/list_state.dart';
 import 'package:todo_flutter/src/net/entity/base_entity.dart';
+import 'package:todo_flutter/src/util/tip_util.dart';
 
 abstract class ListEvent<T> extends BaseEvent<ListBloc<T>, ListState<T>> {}
 
 class InitEvent<T> extends ListEvent<T> {
   @override
   Future<ListState<T>> on(ListBloc<T> bloc, ListState<T> currentState) async {
-    bloc
-      ..showLoading()
-      ..loading();
+    showLoading();
+    bloc.loading();
     final bean = await bloc.request.request();
     final list = bean.data ?? <T>[];
-    bloc
-      ..dismissLoading()
-      ..loadDone();
+    dismissLoading();
+    bloc.loadDone();
     return InitialState(list);
   }
 }

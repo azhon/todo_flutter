@@ -26,7 +26,7 @@ class CommonButton extends BaseStatelessWidget {
   final VoidCallback? onPressed;
   final VoidCallback? onLongPress;
 
-  CommonButton(
+  const CommonButton(
     this.text, {
     Key? key,
     this.color,
@@ -74,13 +74,11 @@ class CommonButton extends BaseStatelessWidget {
             minimumSize: Size.zero,
             padding: padding ?? EdgeInsets.zero,
           ),
-          child: Center(
-            child: CommonText(
-              text,
-              color: textColor,
-              fontWeight: fontWeight,
-              fontSize: fontSize,
-            ),
+          child: CommonText(
+            text,
+            color: textColor,
+            fontWeight: fontWeight,
+            fontSize: fontSize,
           ),
         ),
       ),

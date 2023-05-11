@@ -9,6 +9,13 @@ import 'package:extended_image/extended_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:todo_flutter/generated/assets/todo_flutter_assets.dart';
 import 'package:todo_flutter/src/base/base_stateless_widget.dart';
+import 'package:todo_flutter/src/ui/widget/circular_progress_widget.dart';
+
+typedef BuildStateWidget = Widget Function(
+  LoadState state,
+  double? width,
+  double? height,
+);
 
 class CommonImage extends BaseStatelessWidget {
   final String? network;
@@ -18,14 +25,15 @@ class CommonImage extends BaseStatelessWidget {
   final BoxFit fit;
   final double? width;
   final double? height;
+  final double? size;
   final BorderRadius? borderRadius;
   final Color? color;
   final BoxBorder? border;
   final bool circle;
-  final Widget? loading;
-  final Widget? error;
+  final BuildStateWidget? loading;
+  final BuildStateWidget? error;
 
-  CommonImage({
+  const CommonImage({
     this.network,
     this.asset,
     this.memory,
@@ -33,6 +41,7 @@ class CommonImage extends BaseStatelessWidget {
     Key? key,
     this.width,
     this.height,
+    this.size,
     this.color,
     this.borderRadius,
     this.border,
@@ -42,11 +51,15 @@ class CommonImage extends BaseStatelessWidget {
     this.error,
   }) : super(key: key);
 
+  double? get _getWidth => size ?? width;
+
+  double? get _getHeight => size ?? height;
+
   @override
   Widget build(BuildContext context) {
     Widget? widget;
-    final double? w = width == null ? null : setWidth(width!);
-    final double? h = height == null ? null : setWidth(height!);
+    final double? w = _getWidth == null ? null : setWidth(_getWidth!);
+    final double? h = _getHeight == null ? null : setWidth(_getHeight!);
     final BoxShape shape = circle ? BoxShape.circle : BoxShape.rectangle;
     if (network != null) {
       widget = ExtendedImage.network(
@@ -58,6 +71,7 @@ class CommonImage extends BaseStatelessWidget {
         color: color,
         border: border,
         borderRadius: borderRadius,
+        gaplessPlayback: true,
         loadStateChanged: loadStateChanged,
       );
     }
@@ -71,6 +85,7 @@ class CommonImage extends BaseStatelessWidget {
         color: color,
         border: border,
         borderRadius: borderRadius,
+        gaplessPlayback: true,
         loadStateChanged: loadStateChanged,
       );
     }
@@ -84,6 +99,7 @@ class CommonImage extends BaseStatelessWidget {
         color: color,
         border: border,
         borderRadius: borderRadius,
+        gaplessPlayback: true,
         loadStateChanged: loadStateChanged,
       );
     }
@@ -97,6 +113,7 @@ class CommonImage extends BaseStatelessWidget {
         color: color,
         border: border,
         borderRadius: borderRadius,
+        gaplessPlayback: true,
         loadStateChanged: loadStateChanged,
       );
     }
@@ -106,31 +123,37 @@ class CommonImage extends BaseStatelessWidget {
   Widget? loadStateChanged(ExtendedImageState state) {
     switch (state.extendedImageLoadState) {
       case LoadState.loading:
-        return _defaultLoading(width, height);
+        return _defaultLoading();
       case LoadState.failed:
-        return Container(
-          width: width == null ? null : setWidth(width!),
-          height: height == null ? null : setWidth(height!),
-          alignment: Alignment.center,
-          child: error ?? _defaultError(),
-        );
+        return _defaultError();
       case LoadState.completed:
         return null;
     }
   }
 
-  Widget _defaultLoading(double? width, double? height) {
+  Widget _defaultLoading() {
+    if (loading != null) {
+      return loading!.call(LoadState.loading, _getWidth, _getHeight);
+    }
     return Container(
-      width: width == null ? null : setWidth(width),
-      height: height == null ? null : setWidth(height),
+      width: _getWidth == null ? null : setWidth(_getWidth!),
+      height: _getHeight == null ? null : setWidth(_getHeight!),
       alignment: Alignment.center,
-      child: loading ?? const CupertinoActivityIndicator(),
+      child: const CircularProgressWidget(),
     );
   }
 
   Widget _defaultError() {
-    return CommonImage(
-      asset: TodoFlutterAssets.icImageError,
+    if (error != null) {
+      return error!.call(LoadState.failed, _getWidth, _getHeight);
+    }
+    return Container(
+      width: _getWidth == null ? null : setWidth(_getWidth!),
+      height: _getHeight == null ? null : setWidth(_getHeight!),
+      alignment: Alignment.center,
+      child: const CommonImage(
+        asset: TodoFlutterAssets.icImageError,
+      ),
     );
   }
 }

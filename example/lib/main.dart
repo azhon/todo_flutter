@@ -9,8 +9,8 @@ import 'package:todo_flutter_example/generated/route/example_route.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
-    TodoApp(
-      home: const MyHomePage(),
+    const TodoApp(
+      home: MyHomePage(),
     ),
   );
   ModuleRoute.initRoute();
@@ -46,7 +46,7 @@ class _MyHomePageState extends BaseState<MyHomePage> {
       ),
       body: GridView.builder(
         itemCount: routes.length,
-        padding: symmetric(16, 16),
+        padding: all(16),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: 2.2,

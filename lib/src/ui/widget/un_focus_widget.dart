@@ -9,7 +9,7 @@ import 'package:todo_flutter/src/ui/common_click_widget.dart';
 class UnFocusWidget extends BaseStatelessWidget {
   final Widget child;
 
-  UnFocusWidget({required this.child, Key? key}) : super(key: key);
+  const UnFocusWidget({required this.child, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

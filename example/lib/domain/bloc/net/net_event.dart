@@ -13,12 +13,11 @@ abstract class NetEvent extends BaseEvent<NetBloc, NetState> {}
 class GetEvent extends NetEvent {
   @override
   Future<NetState> on(NetBloc bloc, NetState currentState) async {
-    bloc.showLoading();
+    showLoading();
     final bean = await NetGetRequest().request();
     await Future.delayed(const Duration(seconds: 1));
-    bloc
-      ..dismissLoading()
-      ..loadDone();
+    dismissLoading();
+    bloc.loadDone();
     return NetInitialState(bean.data);
   }
 }
@@ -29,7 +28,7 @@ class PostEvent extends NetEvent {
     bloc.loading();
     final bean = await NetPostRequest().request();
     await Future.delayed(const Duration(seconds: 1));
-    bloc.loadError(bean);
+    bloc.loadError(NetworkException(bean));
     return NetInitialState(null);
   }
 }

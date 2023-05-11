@@ -31,6 +31,7 @@ class _NetPageState extends BaseState<NetPage> {
         children: [
           CommonButton(
             'Get请求(全屏加载框)',
+            width: double.infinity,
             radius: 20,
             margin: all(16),
             onPressed: () {
@@ -39,6 +40,7 @@ class _NetPageState extends BaseState<NetPage> {
           ),
           CommonButton(
             'Post请求(局部加载框)',
+            width: double.infinity,
             radius: 20,
             margin: all(16),
             onPressed: () {
@@ -49,6 +51,7 @@ class _NetPageState extends BaseState<NetPage> {
             height: setWidth(300),
             child: BlocLoadWidget(
               loadBloc: _netBloc.loadBloc,
+              reload: () => _netBloc.get(),
               child: BlocBuilder<NetBloc, NetState>(
                 bloc: _netBloc,
                 builder: (_, state) {

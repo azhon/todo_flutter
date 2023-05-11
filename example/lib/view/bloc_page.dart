@@ -40,6 +40,7 @@ class _BlocPageState extends BaseState<BlocPage> {
             ),
             CommonButton(
               'Bloc获取数据',
+              width: double.infinity,
               margin: only(top: 16, bottom: 16),
               radius: 20,
               onPressed: () => _bloc.init(),
@@ -52,6 +53,7 @@ class _BlocPageState extends BaseState<BlocPage> {
             ),
             CommonButton(
               '简单Bloc获取数据',
+              width: double.infinity,
               margin: only(top: 16),
               radius: 20,
               onPressed: () => _bloc.changeData(),

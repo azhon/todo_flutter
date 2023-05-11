@@ -22,6 +22,7 @@ class _AppUpdatePageState extends BaseState<AppUpdatePage> {
         children: [
           CommonButton(
             '更新',
+            width: double.infinity,
             color: Colors.blue,
             radius: 20,
             margin: only(left: 20, right: 20, top: 40),

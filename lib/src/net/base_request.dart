@@ -79,7 +79,7 @@ abstract class BaseRequest<T> with Paging {
       }
     } catch (e) {
       result.statusMessage = _parseError(e);
-      LogUtil.e('BaseRequest：[request error] ${result.statusMessage}');
+      LogUtil.d('BaseRequest：[request error] ${result.statusMessage}');
     }
     return convert.convert<T>(result);
   }

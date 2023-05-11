@@ -7,12 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_flutter/src/base/loading_state.dart';
 import 'package:todo_flutter/src/base/ui_adapter.dart';
 import 'package:todo_flutter/src/base/ui_widget.dart';
-import 'package:todo_flutter/src/service/error/runtime_exception.dart';
-import 'package:todo_flutter/src/service/theme/toast_theme_data.dart';
-import 'package:todo_flutter/src/ui/dialog/loading_dialog.dart';
-import 'package:todo_flutter/todo_lib.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 abstract class BaseState<T extends StatefulWidget> extends BaseBlocState<T> {}
 
@@ -32,33 +27,13 @@ abstract class BaseBlocState<T extends StatefulWidget> extends BaseUIState<T>
         ?.where((element) => element.runtimeType.toString() == B.toString())
         .toList();
     if (list == null || list.isEmpty) {
-      throw RuntimeException('please use addBloc(${B.toString()}()) first...');
+      throw Exception('please use addBloc($B()) first...');
     }
     return list.first as B;
   }
 
   @override
-  void showLoading({String? msg}) {
-    LoadingDialog.show(msg: msg);
-  }
-
-  @override
-  void dismissLoading() {
-    LoadingDialog.dismiss();
-  }
-
-  @override
-  void showToast(String msg, {ToastThemeData? data}) {
-    final ToastThemeData themeData = data ?? TodoLib.of(context).toastThemeData;
-    Fluttertoast.showToast(
-      msg: msg,
-      fontSize: themeData.fontSize,
-      textColor: themeData.textColor,
-      backgroundColor: themeData.backgroundColor,
-      toastLength: themeData.toastLength,
-      gravity: themeData.gravity,
-    );
-  }
+  void sendEventToView(String type, [data]) {}
 
   @override
   void dispose() {

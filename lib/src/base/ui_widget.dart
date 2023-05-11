@@ -10,7 +10,7 @@ mixin UIWidget implements UIAdapter {
     return EdgeInsets.all(setWidth(value));
   }
 
-  EdgeInsets symmetric(double vertical, double horizontal) {
+  EdgeInsets symmetric({double vertical = 0.0, double horizontal = 0.0}) {
     return EdgeInsets.symmetric(
       vertical: setWidth(vertical),
       horizontal: setWidth(horizontal),

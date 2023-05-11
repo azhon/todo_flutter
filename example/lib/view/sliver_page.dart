@@ -86,22 +86,22 @@ class _SliverPageState extends BaseState<SliverPage>
           children: [
             Container(height: 50, color: Colors.amber),
             Padding(
-              padding: symmetric(16, 0),
-              child: CommonText(
+              padding: symmetric(vertical: 16),
+              child: const CommonText(
                 '头部可以放任意组件',
                 fontSize: 16,
               ),
             ),
             Container(height: 50, color: Colors.blue),
-            CommonImage(
+            const CommonImage(
               asset: ExampleAssets.icPolice,
               width: 150,
               height: 150,
             ),
             Container(height: 50, color: Colors.orange),
             Padding(
-              padding: symmetric(16, 0),
-              child: CommonText(
+              padding: symmetric(vertical: 16),
+              child: const CommonText(
                 '底部Tab带状态保存',
                 fontSize: 16,
               ),
@@ -117,7 +117,7 @@ class _SliverPageState extends BaseState<SliverPage>
 class BodyWidget extends BaseStatelessWidget {
   final String tab;
 
-  BodyWidget({required this.tab, Key? key}) : super(key: key);
+  const BodyWidget({required this.tab, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

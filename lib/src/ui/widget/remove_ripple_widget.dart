@@ -8,7 +8,7 @@ import 'package:todo_flutter/src/base/base_stateless_widget.dart';
 class RemoveRippleWidget extends BaseStatelessWidget {
   final Widget child;
 
-  RemoveRippleWidget({required this.child, Key? key}) : super(key: key);
+  const RemoveRippleWidget({required this.child, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

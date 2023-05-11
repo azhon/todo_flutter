@@ -44,6 +44,19 @@ class Bundle {
     return _data[key];
   }
 
+  ///对象[_data]内容拷贝
+  Bundle copyWith(Bundle? bundle) {
+    ///清除旧数据
+    _data.clear();
+    if (bundle == null) {
+      return this;
+    }
+    bundle._data.forEach((key, value) {
+      _data[key] = value;
+    });
+    return this;
+  }
+
   String toUri() {
     if (_data.isEmpty) {
       return '';
@@ -91,10 +104,18 @@ class Bundle {
   }
 
   Future navigatePopUntil(String untilRoute) {
-    return RouterUtil.instance.navigatePopUntil(this, untilRoute);
+    return RouterUtil.instance.navigatePopUntil(untilRoute, this);
   }
 
   Future navigateResult(ValueChanged<Bundle> result) {
-    return RouterUtil.instance.navigateResult(this, result);
+    return RouterUtil.instance.navigateResult(result, this);
+  }
+
+  void popUntil(String untilRoute) {
+    return RouterUtil.instance.popUntil(untilRoute, this);
+  }
+
+  void pop() {
+    return RouterUtil.instance.pop(this);
   }
 }

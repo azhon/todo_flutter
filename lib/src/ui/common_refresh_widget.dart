@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_flutter/src/base/base_state.dart';
 import 'package:todo_flutter/src/bloc/list/list_bloc.dart';
 import 'package:todo_flutter/src/bloc/list/list_state.dart';
-import 'package:todo_flutter/src/ui/common_text.dart';
+import 'package:todo_flutter/src/ui/common_empty_widget.dart';
 import 'package:todo_flutter/src/ui/widget/bloc_load_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -41,6 +41,7 @@ class _CommonRefreshWidgetState<T> extends BaseState<CommonRefreshWidget<T>> {
       builder: (BuildContext context, ListState<T> state) {
         return BlocLoadWidget(
           loadBloc: widget.bloc.loadBloc,
+          reload: () => widget.bloc.init(),
           child: RefreshConfiguration(
             hideFooterWhenNotFull: true,
             child: SmartRefresher(
@@ -62,21 +63,7 @@ class _CommonRefreshWidgetState<T> extends BaseState<CommonRefreshWidget<T>> {
 
   Widget _emptyView() {
     return Center(
-      child: widget.emptyWidget ??
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              CommonText(
-                '(⌒▽⌒)',
-                color: const Color(0xFF666666),
-              ),
-              sizedBox(height: 4),
-              CommonText(
-                'No Data.',
-                color: const Color(0xFF666666),
-              )
-            ],
-          ),
+      child: widget.emptyWidget ?? const CommonEmptyWidget(),
     );
   }
 

@@ -46,7 +46,7 @@ class RouterUtil {
     return _router.generator;
   }
 
-  Bundle build(String route) {
+  Bundle build([String route = '']) {
     return Bundle(route);
   }
 
@@ -66,13 +66,13 @@ class RouterUtil {
   }
 
   ///清除路由为[untilRoute]之上的路由，然后在打开新的路由[bundle]里的route
-  Future navigatePopUntil(Bundle bundle, String untilRoute) {
+  Future navigatePopUntil(String untilRoute, Bundle bundle) {
     popUntil(untilRoute);
     return navigate(bundle);
   }
 
   ///直接跳转同时接收页面返回值
-  Future navigateResult(Bundle bundle, ValueChanged<Bundle> result) {
+  Future navigateResult(ValueChanged<Bundle> result, Bundle bundle) {
     return navigateTo(bundle).then((value) => result(value ?? Bundle()));
   }
 
@@ -82,9 +82,14 @@ class RouterUtil {
   }
 
   ///返回页面直到路由为[untilRoute]时停止
-  void popUntil(String untilRoute) {
-    Navigator.of(TodoLib.navigatorKey.currentContext!)
-        .popUntil((route) => route.settings.name == untilRoute);
+  void popUntil(String untilRoute, [Bundle? bundle]) {
+    Navigator.of(TodoLib.navigatorKey.currentContext!).popUntil((route) {
+      if (route.settings.name == untilRoute) {
+        (route.settings.arguments! as Bundle).copyWith(bundle);
+        return true;
+      }
+      return false;
+    });
   }
 
   ///移除指定[route]路由名称的路由
@@ -109,7 +114,9 @@ class RouterUtil {
     Duration? transitionDuration,
     RouteTransitionsBuilder? transitionBuilder,
   }) {
-    final RouteSettings routeSettings = RouteSettings(name: bundle.route);
+    ///arguments: 用于当使用popUntil时携带返回参数
+    final RouteSettings routeSettings =
+        RouteSettings(name: bundle.route, arguments: bundle);
     final route = bundle.route + bundle.toUri();
     if (Platform.isIOS) {
       transition = TransitionType.cupertino;

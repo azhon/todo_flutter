@@ -35,8 +35,9 @@ class CommonInput extends BaseStatelessWidget {
   final List<TextInputFormatter>? inputFormatters;
   final OverlayVisibilityMode prefixMode;
   final OverlayVisibilityMode suffixMode;
+  final bool enableInteractiveSelection;
 
-  CommonInput({
+  const CommonInput({
     Key? key,
     this.controller,
     this.padding,
@@ -63,6 +64,7 @@ class CommonInput extends BaseStatelessWidget {
     this.suffixMode = OverlayVisibilityMode.always,
     this.textInputAction = TextInputAction.done,
     this.keyboardType = TextInputType.text,
+    this.enableInteractiveSelection = true,
   }) : super(key: key);
 
   @override
@@ -73,7 +75,7 @@ class CommonInput extends BaseStatelessWidget {
     return CupertinoTextField(
       controller: controller,
       focusNode: focusNode,
-      padding: padding ?? symmetric(10, 0),
+      padding: padding ?? symmetric(vertical: 10),
       placeholder: placeholder,
       decoration: decoration ??
           BoxDecoration(
@@ -112,6 +114,7 @@ class CommonInput extends BaseStatelessWidget {
       suffix: suffix,
       prefixMode: prefixMode,
       suffixMode: suffixMode,
+      enableInteractiveSelection: enableInteractiveSelection,
     );
   }
 }

@@ -8,17 +8,26 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_flutter/src/base/base_stateless_widget.dart';
 import 'package:todo_flutter/src/bloc/load/load_bloc.dart';
 import 'package:todo_flutter/src/bloc/load/load_state.dart';
-import 'package:todo_flutter/src/ui/common_text.dart';
+import 'package:todo_flutter/src/service/error/domain_exception.dart';
+import 'package:todo_flutter/src/ui/common_error_widget.dart';
+import 'package:todo_flutter/src/ui/widget/circular_progress_widget.dart';
+
+typedef ErrorWidgetBuilder = Widget? Function(
+  BuildContext context,
+  DomainException exception,
+);
 
 class BlocLoadWidget extends BaseStatelessWidget {
   final Widget child;
-  final Widget? error;
   final LoadBloc loadBloc;
+  final VoidCallback? reload;
+  final ErrorWidgetBuilder? errorBuilder;
 
-  BlocLoadWidget({
+  const BlocLoadWidget({
     required this.child,
     required this.loadBloc,
-    this.error,
+    required this.reload,
+    this.errorBuilder,
     Key? key,
   }) : super(key: key);
 
@@ -32,25 +41,26 @@ class BlocLoadWidget extends BaseStatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
-                CircularProgressIndicator(),
+                CircularProgressWidget(),
               ],
             ),
           );
         }
         if (state is ErrorState) {
-          return _errorWidget();
+          return _errorWidget(context, state.exception);
         }
         return child;
       },
     );
   }
 
-  Widget _errorWidget() {
-    return error ??
-        Container(
-          height: setWidth(200),
-          alignment: Alignment.center,
-          child: CommonText('加载失败~'),
-        );
+  Widget _errorWidget(BuildContext context, DomainException exception) {
+    final w = errorBuilder?.call(context, exception);
+    if (w == null) {
+      return CommonErrorWidget(
+        onPressed: reload,
+      );
+    }
+    return w;
   }
 }

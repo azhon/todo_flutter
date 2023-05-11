@@ -2,12 +2,10 @@
 /// desc:
 ///
 /// @author azhon
-import 'package:todo_flutter/src/service/theme/toast_theme_data.dart';
 
 mixin LoadingState {
-  void showLoading({String? msg});
-
-  void dismissLoading();
-
-  void showToast(String msg, {ToastThemeData? data});
+  ///view层接受bloc层事件
+  ///[type]事件类型
+  ///[data]事件携带数据
+  void sendEventToView(String type, [data]);
 }

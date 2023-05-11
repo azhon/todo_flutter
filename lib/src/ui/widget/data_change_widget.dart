@@ -12,7 +12,7 @@ class DataChangeWidget<T> extends BaseStatelessWidget {
   final DataChangeBloc<T> bloc;
   final BlocWidgetBuilder<T?> child;
 
-  DataChangeWidget({
+  const DataChangeWidget({
     required this.bloc,
     required this.child,
     Key? key,

@@ -42,7 +42,7 @@ mixin BaseDialog implements UIWidget {
     double messageMaxHeight = 120,
     Color backgroundColor = Colors.white,
   }) async {
-    margin = margin ?? symmetric(0, 100);
+    margin = margin ?? symmetric(horizontal: 100);
     radius = radius ?? setRadius(8);
     final result = await showDialog<Bundle>(
       context: context,
@@ -92,6 +92,7 @@ mixin BaseDialog implements UIWidget {
   ///[elevation] 阴影
   ///[singleButton] 是否是一个按钮
   ///[canceledOutside] 点击对话框外是否可以关闭
+  ///[obscureText] 是否隐藏输入内容
   ///[confirmText] 右边按钮文本
   ///[confirmColor] 右边按钮文本颜色
   ///[cancelText] 左边按钮文本
@@ -106,6 +107,7 @@ mixin BaseDialog implements UIWidget {
     String placeholder = '',
     bool singleButton = false,
     bool canceledOutside = true,
+    bool obscureText = false,
     String confirmText = '确定',
     Color confirmColor = Colors.blue,
     String cancelText = '取消',
@@ -135,7 +137,9 @@ mixin BaseDialog implements UIWidget {
               child: CommonInput(
                 placeholder: placeholder,
                 controller: controller,
-                padding: symmetric(10, 8),
+                obscureText: obscureText,
+                maxLines: obscureText ? 1 : null,
+                padding: symmetric(vertical: 10, horizontal: 8),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(setRadius(4)),
                   border: Border.all(
@@ -174,7 +178,7 @@ mixin BaseDialog implements UIWidget {
     EdgeInsets? margin,
   }) {
     final sw = MediaQuery.of(context).size.width;
-    margin = margin ?? symmetric(0, 100);
+    margin = margin ?? symmetric(horizontal: 100);
     radius = radius ?? setRadius(8);
     return UnconstrainedBox(
       child: Dialog(
@@ -264,8 +268,7 @@ mixin BaseDialog implements UIWidget {
         textColor: color,
         color: Colors.transparent,
         onPressed: () {
-          final bundle = Bundle()..withBool('result', result);
-          RouterUtil.instance.pop(bundle);
+          RouterUtil.instance.build().withBool('result', result).pop();
         },
       ),
     );

@@ -9,7 +9,7 @@ import 'package:todo_flutter/todo_flutter.dart';
 import 'package:todo_flutter_example/generated/assets/example_assets.dart';
 
 class InputPage extends BaseStatefulWidget {
-  InputPage({Key? key}) : super(key: key);
+  const InputPage({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _InputPageState();
@@ -35,7 +35,7 @@ class _InputPageState extends BaseState<InputPage> {
             padding: all(16),
             child: Column(
               children: [
-                CommonInput(
+                const CommonInput(
                   placeholder: '自动获取焦点',
                   autofocus: true,
                 ),
@@ -56,8 +56,8 @@ class _InputPageState extends BaseState<InputPage> {
                     LogUtil.d('点击键盘完成：$text');
                   },
                   prefix: Padding(
-                    padding: symmetric(0, 4),
-                    child: CommonImage(
+                    padding: symmetric(horizontal: 4),
+                    child: const CommonImage(
                       asset: ExampleAssets.icSearch,
                       width: 18,
                       height: 18,
@@ -65,7 +65,7 @@ class _InputPageState extends BaseState<InputPage> {
                   ),
                   suffix: CommonClickWidget(
                     onTap: () => _controller.text = '',
-                    child: CommonImage(
+                    child: const CommonImage(
                       asset: ExampleAssets.icClear,
                       width: 18,
                       height: 18,
@@ -73,7 +73,7 @@ class _InputPageState extends BaseState<InputPage> {
                   ),
                 ),
                 sizedBox(height: 10),
-                CommonInput(
+                const CommonInput(
                   placeholder: '最多输入10个字',
                   maxLength: 10,
                 ),
@@ -85,7 +85,7 @@ class _InputPageState extends BaseState<InputPage> {
                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                 ),
                 sizedBox(height: 10),
-                CommonInput(
+                const CommonInput(
                   placeholder: '密码输入框，*显示',
                   maxLines: 1,
                   obscureText: true,
@@ -104,7 +104,7 @@ class _InputPageState extends BaseState<InputPage> {
                         onPointerDown: (detail) =>
                             _obscureTextBloc.changeData(false),
                         onPointerUp: (de) => _obscureTextBloc.changeData(true),
-                        child: CommonImage(
+                        child: const CommonImage(
                           asset: ExampleAssets.icEye,
                           width: 18,
                           height: 18,
@@ -123,10 +123,10 @@ class _InputPageState extends BaseState<InputPage> {
                       width: setWidth(2),
                     ),
                   ),
-                  padding: symmetric(10, 8),
+                  padding: symmetric(vertical: 10, horizontal: 8),
                 ),
                 sizedBox(height: 10),
-                CommonInputArea(
+                const CommonInputArea(
                   maxLength: 20,
                 ),
               ],
