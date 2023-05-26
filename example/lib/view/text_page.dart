@@ -23,9 +23,9 @@ class _TextPageState extends BaseState<TextPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CommonText('我是文本呀'),
+              const CommonText('我是文本呀'),
               sizedBox(height: 10),
-              CommonText(
+              const CommonText(
                 '我是蓝色文本呀',
                 color: Colors.blue,
                 fontSize: 15,
@@ -38,35 +38,35 @@ class _TextPageState extends BaseState<TextPage> {
                 fontSize: 16,
               ),
               sizedBox(height: 10),
-              CommonText(
+              const CommonText(
                 '我是有下划线文本呀',
                 color: Colors.cyanAccent,
                 fontSize: 17,
                 decoration: TextDecoration.underline,
               ),
               sizedBox(height: 10),
-              CommonText(
+              const CommonText(
                 '我是有删除线文本呀',
                 color: Colors.redAccent,
                 fontSize: 18,
                 decoration: TextDecoration.lineThrough,
               ),
               sizedBox(height: 10),
-              CommonText(
+              const CommonText(
                 '我是W700文本呀',
                 color: Colors.blueGrey,
                 fontSize: 19,
                 fontWeight: FontWeight.w700,
               ),
               sizedBox(height: 10),
-              CommonText(
+              const CommonText(
                 '我是斜体文本呀',
                 color: Colors.blueGrey,
                 fontSize: 20,
                 fontStyle: FontStyle.italic,
               ),
               sizedBox(height: 10),
-              CommonText(
+              const CommonText(
                 '我是虚线下划线文本呀',
                 color: Colors.purple,
                 fontSize: 21,

@@ -8,7 +8,7 @@ import 'package:todo_flutter_example/generated/assets/example_assets.dart';
 import 'package:todo_flutter_example/generated/assets/example_icon.dart';
 
 class ImagePage extends BaseStatefulWidget {
-  ImagePage({Key? key}) : super(key: key);
+  const ImagePage({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _ImagePageState();
@@ -55,7 +55,7 @@ class _ImagePageState extends BaseState<ImagePage> {
               ),
 
               ///本地图片
-              CommonImage(
+              const CommonImage(
                 asset: ExampleAssets.icPolice,
                 width: 200,
                 height: 200,
