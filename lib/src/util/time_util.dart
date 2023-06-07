@@ -10,12 +10,12 @@ class TimeUtil {
     return DateTime.now();
   }
 
-  static String HHmmss(int timestamp, {String format = 'HH:mm:ss'}) {
-    return formatTime(timestamp, format: format);
+  static String HHmmss(int timestamp) {
+    return formatTime(timestamp, format: 'HH:mm:ss');
   }
 
-  static String yyyyMMdd(int timestamp, {String format = 'yyyy-MM-dd'}) {
-    return formatTime(timestamp, format: format);
+  static String yyyyMMdd(int timestamp) {
+    return formatTime(timestamp, format: 'yyyy-MM-dd');
   }
 
   ///格式化时间
