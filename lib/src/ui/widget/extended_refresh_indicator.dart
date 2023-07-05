@@ -186,8 +186,8 @@ class ExtendedRefreshIndicatorState extends State<ExtendedRefreshIndicator>
     final ThemeData theme = Theme.of(context);
     _valueColor = _positionController.drive(
       ColorTween(
-        begin: (widget.color ?? theme.accentColor).withOpacity(0),
-        end: (widget.color ?? theme.accentColor).withOpacity(1),
+        begin: (widget.color ?? theme.primaryColor).withOpacity(0),
+        end: (widget.color ?? theme.primaryColor).withOpacity(1),
       ).chain(
           CurveTween(curve: const Interval(0, 1.0 / _kDragSizeFactorLimit))),
     );

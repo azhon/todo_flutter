@@ -15,7 +15,7 @@ dependencies:
   #  屏幕适配
   flutter_screenutil: ^5.7.0
   #  图片库
-  extended_image: ^7.0.2
+  extended_image: ^8.0.2
   #  bloc状态管理
   flutter_bloc: ^8.1.2
   #  网络库
