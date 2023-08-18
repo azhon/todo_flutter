@@ -1,5 +1,8 @@
 ## [使用例子/Sample](https://github.com/azhon/todo-flutter/tree/main/example)
+
 ## 框架使用详解
+- 使用`Flutter 3.13.0`或更高版本
+
 ### 组件库介绍
 |  组件名称   | 描述  |
 |  ----  | ----  |

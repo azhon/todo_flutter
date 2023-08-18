@@ -9,27 +9,27 @@ class LogUtil {
   static final Logger _logger =
       Logger(printer: PrettyPrinter(printEmojis: false));
 
-  static void v(message, [error, StackTrace? stackTrace]) {
-    _logger.log(Level.verbose, message, error, stackTrace);
+  static void v(message, {Object? error, StackTrace? stackTrace}) {
+    _logger.log(Level.trace, message, error: error, stackTrace: stackTrace);
   }
 
-  static void d(message, [error, StackTrace? stackTrace]) {
-    _logger.log(Level.debug, message, error, stackTrace);
+  static void d(message, {Object? error, StackTrace? stackTrace}) {
+    _logger.log(Level.debug, message, error: error, stackTrace: stackTrace);
   }
 
-  static void i(message, [error, StackTrace? stackTrace]) {
-    _logger.log(Level.info, message, error, stackTrace);
+  static void i(message, {Object? error, StackTrace? stackTrace}) {
+    _logger.log(Level.info, message, error: error, stackTrace: stackTrace);
   }
 
-  static void w(message, [error, StackTrace? stackTrace]) {
-    _logger.log(Level.warning, message, error, stackTrace);
+  static void w(message, {Object? error, StackTrace? stackTrace}) {
+    _logger.log(Level.warning, message, error: error, stackTrace: stackTrace);
   }
 
-  static void e(message, [error, StackTrace? stackTrace]) {
-    _logger.log(Level.error, message, error, stackTrace);
+  static void e(message, {Object? error, StackTrace? stackTrace}) {
+    _logger.log(Level.error, message, error: error, stackTrace: stackTrace);
   }
 
-  static void wtf(message, [error, StackTrace? stackTrace]) {
-    _logger.log(Level.wtf, message, error, stackTrace);
+  static void wtf(message, {Object? error, StackTrace? stackTrace}) {
+    _logger.log(Level.fatal, message, error: error, stackTrace: stackTrace);
   }
 }
