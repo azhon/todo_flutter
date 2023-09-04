@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_flutter/todo_flutter.dart';
 
 class TextPage extends BaseStatefulWidget {
-  TextPage({Key? key}) : super(key: key);
+  const TextPage({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _TextPageState();

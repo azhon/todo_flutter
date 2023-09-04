@@ -13,7 +13,7 @@ dependencies:
   #  路由
   fluro: ^2.0.5
   #  屏幕适配
-  flutter_screenutil: ^5.8.4
+  flutter_screenutil: ^5.9.0
   #  图片库
   extended_image: ^8.1.0
   #  bloc状态管理
@@ -21,11 +21,11 @@ dependencies:
   #  网络库
   dio: ^5.3.2
   #  日志
-  logger: ^2.0.1
+  logger: ^2.0.2
   #  刷新
   pull_to_refresh: ^2.0.0
   # 本地存储
-  shared_preferences: ^2.2.0
+  shared_preferences: ^2.2.1
   #  toast
   fluttertoast: ^8.2.2
   #  时间格式化
@@ -37,7 +37,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.1
+  flutter_lints: ^2.0.3
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
