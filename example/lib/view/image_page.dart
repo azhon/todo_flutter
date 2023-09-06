@@ -15,7 +15,8 @@ class ImagePage extends BaseStatefulWidget {
 }
 
 class _ImagePageState extends BaseState<ImagePage> {
-  final String imgUrl = 'https://avatar.csdnimg.cn/F/8/2/1_a_zhon.jpg';
+  final String imgUrl =
+      'https://profile-avatar.csdnimg.cn/8bd82632b9c24ebba970cd1d6581d35f_a_zhon.jpg!1';
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +45,12 @@ class _ImagePageState extends BaseState<ImagePage> {
               CommonImage(
                 network: imgUrl,
                 circle: true,
+                size: 150,
               ),
               CommonImage(
                 network: imgUrl,
                 circle: true,
+                size: 150,
                 border: Border.all(
                   color: Colors.pink,
                   width: setWidth(2),
@@ -57,8 +60,8 @@ class _ImagePageState extends BaseState<ImagePage> {
               ///本地图片
               const CommonImage(
                 asset: ExampleAssets.icPolice,
-                width: 200,
-                height: 200,
+                width: 150,
+                height: 150,
               ),
             ],
           ),
