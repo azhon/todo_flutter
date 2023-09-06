@@ -28,13 +28,20 @@ void main() {
   runApp(TodoApp(home: MyHomePage()));
 }
 ```
-- 路由模块：
-    - 使用[fluro](https://pub.dev/packages/fluro)
-- 屏幕适配：
-    - 使用[flutter_screenutil](https://pub.dev/packages/flutter_screenutil)
-- 图片资源路径与路由路径通过[这个插件](https://github.com/Xie-Yin/FlutterPlugin)自动生成
+### 二、路由模块：
+- 使用[fluro](https://pub.dev/packages/fluro)
+- 路由路径生成使用[FlutterResource插件](https://github.com/Xie-Yin/FlutterResource)
 
-### 二、网络模块
+### 三、屏幕适配：
+- 使用[flutter_screenutil](https://pub.dev/packages/flutter_screenutil)
+
+### 四、图片资源生成
+- 使用[FlutterResource插件](https://github.com/Xie-Yin/FlutterResource)
+
+### 五、模块化开发
+- 使用[ModuleBridge插件](https://github.com/azhon/module_bridge)
+
+### 六、网络模块
 - 实现http客户端 `BaseNetEngine`
 - 实现数据转换器，生成对应实体 `BaseConvert`
 - 实现网络请求 `BaseRequest`并指定提供一个`BaseNetProvider`
