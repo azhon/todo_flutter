@@ -71,16 +71,16 @@ class DioEngine extends BaseNetEngine {
   ///[port]代理端口
   @override
   void setProxy(String ip, int port) {
-    final IOHttpClientAdapter adapter = IOHttpClientAdapter()
-      ..onHttpClientCreate = (HttpClient client) {
-        client
-          ..findProxy = (uri) {
-            return 'PROXY $ip:$port';
-          }
-          ..badCertificateCallback = (cert, host, port) => true;
+    _dio.httpClientAdapter = IOHttpClientAdapter(
+      createHttpClient: () {
+        final client = HttpClient();
+        client.findProxy = (uri) {
+          return 'PROXY $ip:$port';
+        };
+        client.badCertificateCallback = (cert, host, port) => true;
         return client;
-      };
-    _dio.httpClientAdapter = adapter;
+      },
+    );
   }
 
   ///添加拦截器

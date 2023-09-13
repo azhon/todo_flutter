@@ -217,7 +217,7 @@ mixin BaseDialog implements UIWidget {
                 confirmColor,
                 cancelText,
                 cancelColor,
-              )
+              ),
             ],
           ),
         ),

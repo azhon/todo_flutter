@@ -134,7 +134,7 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
                 },
               ),
             ),
-          )
+          ),
         ],
       ),
     );

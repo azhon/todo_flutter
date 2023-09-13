@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:todo_flutter/src/base/base_stateless_widget.dart';
 import 'package:todo_flutter/src/ui/common_text.dart';
 import 'package:todo_flutter/src/ui/dialog/loading_dialog.dart';
-import 'package:todo_flutter/src/ui/widget/circular_progress_widget.dart';
 
 class LoadingDialogWidget extends BaseStatelessWidget {
   final String? msg;

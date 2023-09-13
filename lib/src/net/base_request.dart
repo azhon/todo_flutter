@@ -86,7 +86,7 @@ abstract class BaseRequest<T> with Paging {
 
   ///获取异常信息
   String _parseError(e) {
-    if (e is DioError) {
+    if (e is DioException) {
       return e.message ?? '';
     }
     return e.toString();

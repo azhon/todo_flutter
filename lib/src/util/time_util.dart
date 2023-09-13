@@ -10,7 +10,7 @@ class TimeUtil {
     return DateTime.now();
   }
 
-  static String HHmmss(int timestamp) {
+  static String hhmmss(int timestamp) {
     return formatTime(timestamp, format: 'HH:mm:ss');
   }
 

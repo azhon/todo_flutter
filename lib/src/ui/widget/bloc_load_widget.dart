@@ -37,10 +37,10 @@ class BlocLoadWidget extends BaseStatelessWidget {
       bloc: loadBloc,
       builder: (BuildContext context, LoadState state) {
         if (state is LoadingState) {
-          return SizedBox.expand(
+          return const SizedBox.expand(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 CircularProgressWidget(),
               ],
             ),
