@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:todo_flutter/src/base/base_stateless_widget.dart';
 
@@ -18,19 +20,14 @@ class RemoveRippleWidget extends BaseStatelessWidget {
 
 class _RemoveRippleBehavior extends ScrollBehavior {
   @override
-  Widget buildViewportChrome(
-      BuildContext context, Widget child, AxisDirection axisDirection) {
-    final platform = getPlatform(context);
-    if (platform == TargetPlatform.android ||
-        platform == TargetPlatform.fuchsia) {
-      return GlowingOverscrollIndicator(
-        showLeading: false,
-        showTrailing: false,
-        axisDirection: axisDirection,
-        color: Theme.of(context).colorScheme.secondary,
-        child: child,
-      );
+  Widget buildOverscrollIndicator(
+    BuildContext context,
+    Widget child,
+    ScrollableDetails details,
+  ) {
+    if (Platform.isAndroid) {
+      return child;
     }
-    return child;
+    return super.buildOverscrollIndicator(context, child, details);
   }
 }
