@@ -16,7 +16,17 @@
 | DataChangeWidget  | 简单数据状态管理组件 | BaseStatefulWidget</br>BaseState  | 有状态组件 |
 | BaseStatelessWidget  | 无状态组件 | BaseBloc  | Bloc封装 |
 
-### 一、框架初始化：
+### 一、依赖本库：
+
+```dart
+todo_flutter:
+  git:
+    url: https://github.com/azhon/todo-flutter
+    # 依赖合适的Release
+    ref: 1.0.0
+```
+- 初始化
+
 ```dart
 void main() {
   runApp(TodoApp(home: MyHomePage()));
