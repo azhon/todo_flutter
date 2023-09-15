@@ -38,4 +38,8 @@ class PreferencesUtil {
   static double getDouble(String key, {double defaultValue = 0.0}) {
     return _preferences?.getDouble(key) ?? defaultValue;
   }
+
+  static Future<bool> remove(String key) {
+    return _preferences?.remove(key) ?? Future.value(false);
+  }
 }

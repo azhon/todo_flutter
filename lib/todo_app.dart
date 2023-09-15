@@ -12,6 +12,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class TodoApp extends StatelessWidget {
   final String title;
   final ThemeData? theme;
+  final ThemeData? darkTheme;
   final Widget home;
   final Size designSize;
   final TodoLibData? libData;
@@ -24,6 +25,7 @@ class TodoApp extends StatelessWidget {
     required this.home,
     this.title = '',
     this.theme,
+    this.darkTheme,
     this.libData,
     this.localizationsDelegates,
     this.debugShowCheckedModeBanner = true,
@@ -44,6 +46,7 @@ class TodoApp extends StatelessWidget {
             home: home,
             title: title,
             theme: theme,
+            darkTheme: darkTheme,
             supportedLocales: supportedLocales,
             navigatorKey: TodoLib.navigatorKey,
             navigatorObservers: navigatorObservers + [RouterHistoryObserver()],
