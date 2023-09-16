@@ -41,7 +41,7 @@ abstract class BaseRequest<T> with Paging {
 
   String get url;
 
-  RequestMethod get method;
+  RequestMethod get method => RequestMethod.get;
 
   BaseNetProvider get netProvider;
 
