@@ -3,11 +3,12 @@
 ///
 /// @author azhon
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_flutter/src/bloc/data/data_change_state.dart';
 
-class DataChangeBloc<T> extends Cubit<T?> {
-  DataChangeBloc(T? data) : super(data);
+class DataChangeBloc<T> extends Cubit<DataChangeState<T?>> {
+  DataChangeBloc(T? data) : super(DataChangeState(data));
 
   void changeData(T? data) {
-    emit(data);
+    emit(DataChangeState(data));
   }
 }

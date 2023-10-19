@@ -9,6 +9,7 @@ export 'src/base/bloc/base_event.dart';
 
 ///
 export 'src/bloc/data/data_change_bloc.dart';
+export 'src/bloc/data/data_change_state.dart';
 export 'src/bloc/list/list_bloc.dart';
 
 ///
