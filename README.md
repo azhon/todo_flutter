@@ -22,8 +22,8 @@
 todo_flutter:
   git:
     url: https://github.com/azhon/todo-flutter
-    # 依赖合适的Release
-    ref: 1.0.0
+    # 依赖合适的Release、Tag
+    ref: 1.0.1
 ```
 - 初始化
 
