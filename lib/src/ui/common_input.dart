@@ -88,9 +88,6 @@ class CommonInput extends BaseStatelessWidget {
           ),
       style: TextStyle(
         color: color ?? defaultInputTextColor,
-
-        ///解决输入框提示与内容显示不一致问题
-        height: 1.2,
         fontSize: setFontSize(fontSize ?? defaultTextSize),
       ),
       placeholderStyle: TextStyle(
