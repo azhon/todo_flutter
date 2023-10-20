@@ -9,7 +9,17 @@ import 'package:todo_flutter/src/ui/dialog/base_dialog.dart';
 /// @author azhon
 class CommonDialog with BaseDialog, UIWidget, UIAdapter {
   ///
-  static final CommonDialog instance = CommonDialog();
+  factory CommonDialog() => _getInstance();
+
+  static CommonDialog get instance => _getInstance();
+  static CommonDialog? _instance;
+
+  static CommonDialog _getInstance() {
+    _instance ??= CommonDialog._internal();
+    return _instance!;
+  }
+
+  CommonDialog._internal();
 
   ///提示对话框
   ///return [bool] false：取消，true：确定
