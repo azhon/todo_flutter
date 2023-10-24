@@ -8,7 +8,7 @@ import 'package:todo_flutter/src/service/theme/toast_theme_data.dart';
 
 class TodoLib extends InheritedWidget {
   /// 用于导航的key（从而简化跳转需要context）,需要主动进行初始化
-  static final GlobalKey<NavigatorState> navigatorKey = GlobalKey();
+  static GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
   final TodoLibData? data;
 

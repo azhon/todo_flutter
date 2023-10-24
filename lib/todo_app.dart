@@ -18,6 +18,7 @@ class TodoApp extends StatelessWidget {
   final TodoLibData? libData;
   final bool debugShowCheckedModeBanner;
   final Iterable<Locale> supportedLocales;
+  final GlobalKey<NavigatorState>? navigatorKey;
   final List<NavigatorObserver> navigatorObservers;
   final Iterable<LocalizationsDelegate<dynamic>>? localizationsDelegates;
 
@@ -27,6 +28,7 @@ class TodoApp extends StatelessWidget {
     this.theme,
     this.darkTheme,
     this.libData,
+    this.navigatorKey,
     this.localizationsDelegates,
     this.debugShowCheckedModeBanner = true,
     this.designSize = const Size(375, 667),
@@ -37,6 +39,7 @@ class TodoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TodoLib.navigatorKey = navigatorKey ?? TodoLib.navigatorKey;
     return ScreenUtilInit(
       designSize: designSize,
       builder: (_, child) {
