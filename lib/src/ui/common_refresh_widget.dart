@@ -66,10 +66,4 @@ class _CommonRefreshWidgetState<T> extends BaseState<CommonRefreshWidget<T>> {
       child: widget.emptyWidget ?? const CommonEmptyWidget(),
     );
   }
-
-  @override
-  void dispose() {
-    super.dispose();
-    widget.bloc.close();
-  }
 }
