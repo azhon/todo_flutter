@@ -1,4 +1,4 @@
-## [使用例子/Sample](https://github.com/azhon/todo-flutter/tree/main/example)
+## [使用例子/Sample](https://github.com/azhon/todo_flutter/tree/main/example)
 
 ## 基于Bloc状态管理、屏幕适配、路由管理、模块化、封装常用组件的Flutter项目脚手架
 - 使用`Flutter 3.13.0`或更高版本
@@ -21,7 +21,7 @@
 ```dart
 todo_flutter:
   git:
-    url: https://github.com/azhon/todo-flutter
+    url: https://github.com/azhon/todo_flutter
     # 依赖合适的Release、Tag
     ref: 1.0.1
 ```

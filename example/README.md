@@ -1,7 +1,7 @@
 ### 一、效果图
-<img src="https://github.com/azhon/todo-flutter/blob/main/example/img/img1.png" width="300"> <img src="https://github.com/azhon/todo-flutter/blob/main/example/img/img2.png" width="300">
-<img src="https://github.com/azhon/todo-flutter/blob/main/example/img/img3.png" width="300"> <img src="https://github.com/azhon/todo-flutter/blob/main/example/img/img4.png" width="300">
-<img src="https://github.com/azhon/todo-flutter/blob/main/example/img/img5.png" width="300">
+<img src="https://github.com/azhon/todo_flutter/raw/main/example/img/img1.png" width="300"> <img src="https://github.com/azhon/todo_flutter/raw/main/example/img/img2.png" width="300">
+<img src="https://github.com/azhon/todo_flutter/raw/main/example/img/img3.png" width="300"> <img src="https://github.com/azhon/todo_flutter/raw/main/example/img/img4.png" width="300">
+<img src="https://github.com/azhon/todo_flutter/raw/main/example/img/img5.png" width="300">
 
 ### 二、图片资源路径与路由路径通过[这个插件](https://github.com/Xie-Yin/FlutterPlugin)自动生成
 
