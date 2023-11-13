@@ -6,28 +6,27 @@
 import 'package:todo_flutter/src/net/entity/base_entity.dart';
 
 abstract class DomainException implements Exception {
-  final BaseEntity entity;
+  final String? message;
 
-  DomainException(this.entity);
+  DomainException(this.message);
 
   @override
   String toString() {
-    return '$runtimeType: $entity';
+    return '$runtimeType: $message';
   }
 }
 
 ///网络错误异常
 class NetworkException extends DomainException {
-  NetworkException(BaseEntity entity) : super(entity);
+  NetworkException(BaseEntity entity) : super(entity.toString());
 }
 
 ///服务器返回错误
 class ApiException extends DomainException {
-  ApiException(BaseEntity entity) : super(entity);
+  ApiException(BaseEntity entity) : super(entity.toString());
 }
 
 ///其他未知错误
 class UnknownException extends DomainException {
-  UnknownException(String? message)
-      : super(BaseEntity(code: BaseEntity.defaultCode, message: message));
+  UnknownException(String? message) : super(message);
 }
