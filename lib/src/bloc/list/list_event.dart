@@ -27,6 +27,8 @@ class RefreshEvent<T> extends ListEvent<T> {
     bloc.controller.refreshCompleted();
     if (bean.curPage == bean.totalPage) {
       bloc.controller.loadNoData();
+    } else {
+      bloc.controller.resetNoData();
     }
     return InitialState(list);
   }
@@ -43,7 +45,7 @@ class LoadMoreEvent<T> extends ListEvent<T> {
     }
     final list = bean.data ?? <T>[];
     currentState.data.addAll(list);
-    if (list.length < bloc.pageSize) {
+    if (bean.curPage == bean.totalPage) {
       bloc.controller.loadNoData();
     } else {
       bloc.controller.loadComplete();
