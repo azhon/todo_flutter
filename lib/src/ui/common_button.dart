@@ -60,6 +60,7 @@ class CommonButton extends BaseStatelessWidget {
         margin: margin,
         decoration: BoxDecoration(
           gradient: gradient,
+          borderRadius: BorderRadius.circular(setRadius(radius)),
         ),
         child: TextButton(
           onPressed: () => onPressed?.call(),
