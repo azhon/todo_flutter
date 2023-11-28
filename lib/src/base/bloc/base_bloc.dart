@@ -59,6 +59,11 @@ abstract class BaseBloc<E extends BaseEvent, S> extends BaseLoadBloc<E, S> {
     loadBloc.loadError(exception);
   }
 
+  ///是否在加载中
+  bool isLoading() {
+    return state is LoadingState;
+  }
+
   @override
   Future<void> close() async {
     await loadBloc.close();
