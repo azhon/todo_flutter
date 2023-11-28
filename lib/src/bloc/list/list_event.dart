@@ -9,11 +9,9 @@ abstract class ListEvent<T> extends BaseEvent<ListBloc<T>, ListState<T>> {}
 class InitEvent<T> extends ListEvent<T> {
   @override
   Future<ListState<T>> on(ListBloc<T> bloc, ListState<T> currentState) async {
-    showLoading();
     bloc.loading();
     final bean = await bloc.request.request();
     final list = bean.data ?? <T>[];
-    dismissLoading();
     bloc.loadDone();
     return InitialState(list);
   }

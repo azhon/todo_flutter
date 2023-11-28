@@ -21,15 +21,15 @@ class ModuleRoute {
   static void initRoute() {
     RouterUtil.instance.addRoute(ExampleRoute.textPage,
         (Map<String, dynamic> map) {
-      return TextPage();
+      return const TextPage();
     });
     RouterUtil.instance.addRoute(ExampleRoute.buttonPage,
         (Map<String, dynamic> map) {
-      return ButtonPage();
+      return const ButtonPage();
     });
     RouterUtil.instance.addRoute(ExampleRoute.imagePage,
         (Map<String, dynamic> map) {
-      return ImagePage();
+      return const ImagePage();
     });
     RouterUtil.instance.addRoute(ExampleRoute.toastPage,
         (Map<String, dynamic> map) {
@@ -37,7 +37,7 @@ class ModuleRoute {
     });
     RouterUtil.instance.addRoute(ExampleRoute.inputPage,
         (Map<String, dynamic> map) {
-      return InputPage();
+      return const InputPage();
     });
     RouterUtil.instance.addRoute(ExampleRoute.dialogPage,
         (Map<String, dynamic> map) {

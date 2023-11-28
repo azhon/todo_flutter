@@ -29,4 +29,16 @@ class TimeUtil {
     return DateFormat(format)
         .format(DateTime.fromMillisecondsSinceEpoch(timestamp));
   }
+
+  ///解析时间
+  static int parseTime(String? time) {
+    if (time == null || time.isEmpty) {
+      return 0;
+    }
+    try {
+      return DateTime.parse(time).millisecondsSinceEpoch;
+    } catch (e) {
+      return 0;
+    }
+  }
 }
