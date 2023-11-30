@@ -63,7 +63,7 @@ abstract class BaseBloc<E extends BaseEvent, S> extends BaseLoadBloc<E, S> {
 
   ///是否在加载中
   bool isLoading() {
-    return state is LoadingState;
+    return loadBloc.isLoading;
   }
 
   @override
