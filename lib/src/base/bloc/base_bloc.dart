@@ -17,14 +17,16 @@ abstract class BaseLoadBloc<E extends BaseEvent, S> extends Bloc<E, S> {
   void _init() {
     ///分发至event处理
     on<E>((E event, Emitter<S> emit) async {
-      final S resultState = await event.on(this, state);
-      emit.call(resultState);
+      final S? resultState = await event.on(this, state);
+      if (resultState != null) {
+        emit.call(resultState);
+      }
       onStateChange(resultState);
     });
   }
 
   ///状态变更
-  void onStateChange(S state) {}
+  void onStateChange(S? state) {}
 }
 
 abstract class BaseBloc<E extends BaseEvent, S> extends BaseLoadBloc<E, S> {

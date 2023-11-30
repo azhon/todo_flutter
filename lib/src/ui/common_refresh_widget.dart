@@ -14,12 +14,14 @@ class CommonRefreshWidget<T> extends StatefulWidget {
   final RefreshChild<T> child;
   final bool enablePullUp;
   final Widget? emptyWidget;
+  final bool wantKeepAlive;
 
   const CommonRefreshWidget({
     required this.bloc,
     required this.child,
-    this.enablePullUp = true,
     this.emptyWidget,
+    this.enablePullUp = true,
+    this.wantKeepAlive = false,
     Key? key,
   }) : super(key: key);
 
@@ -27,7 +29,8 @@ class CommonRefreshWidget<T> extends StatefulWidget {
   State<StatefulWidget> createState() => _CommonRefreshWidgetState<T>();
 }
 
-class _CommonRefreshWidgetState<T> extends BaseState<CommonRefreshWidget<T>> {
+class _CommonRefreshWidgetState<T> extends BaseState<CommonRefreshWidget<T>>
+    with AutomaticKeepAliveClientMixin {
   @override
   void initState() {
     super.initState();
@@ -36,6 +39,7 @@ class _CommonRefreshWidgetState<T> extends BaseState<CommonRefreshWidget<T>> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return BlocBuilder<ListBloc<T>, ListState<T>>(
       bloc: widget.bloc,
       builder: (BuildContext context, ListState<T> state) {
@@ -66,4 +70,7 @@ class _CommonRefreshWidgetState<T> extends BaseState<CommonRefreshWidget<T>> {
       child: widget.emptyWidget ?? const CommonEmptyWidget(),
     );
   }
+
+  @override
+  bool get wantKeepAlive => widget.wantKeepAlive;
 }
