@@ -48,6 +48,7 @@ export 'src/service/route/router_util.dart';
 export 'src/service/route/bundle.dart';
 export 'src/service/route/router_history_stack.dart';
 export 'src/service/env/env.dart';
+export 'src/service/event/global_event_manager.dart' hide GlobalEvent;
 
 ///
 export 'src/util/log_util.dart';
