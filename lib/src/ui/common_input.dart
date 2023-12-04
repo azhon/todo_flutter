@@ -24,9 +24,12 @@ class CommonInput extends BaseStatelessWidget {
   final Widget? suffix;
   final bool obscureText;
   final bool readOnly;
+  final bool enable;
   final TextAlign textAlign;
   final FocusNode? focusNode;
   final String obscuringCharacter;
+  final FontWeight? fontWeight;
+  final FontWeight? placeholderFontWeight;
   final TextEditingController? controller;
   final ValueChanged<String>? onTextChange;
   final TextInputAction textInputAction;
@@ -52,6 +55,7 @@ class CommonInput extends BaseStatelessWidget {
     this.autofocus = false,
     this.obscureText = false,
     this.readOnly = false,
+    this.enable = true,
     this.prefix,
     this.suffix,
     this.inputFormatters,
@@ -59,6 +63,8 @@ class CommonInput extends BaseStatelessWidget {
     this.onSubmitted,
     this.focusNode,
     this.onTextChange,
+    this.fontWeight,
+    this.placeholderFontWeight,
     this.textAlign = TextAlign.start,
     this.prefixMode = OverlayVisibilityMode.always,
     this.suffixMode = OverlayVisibilityMode.always,
@@ -72,46 +78,49 @@ class CommonInput extends BaseStatelessWidget {
     final defaultTextSize = TodoLib.of(context).textSize;
     final defaultPlaceholderColor = TodoLib.of(context).placeholderColor;
     final defaultInputTextColor = TodoLib.of(context).inputTextColor;
-    return CupertinoTextField(
-      controller: controller,
-      focusNode: focusNode,
-      padding: padding ?? symmetric(vertical: 10),
-      placeholder: placeholder,
-      decoration: decoration ??
-          BoxDecoration(
-            border: Border(
-              bottom: BorderSide(
-                color: const Color(0xFFEEEEEE),
-                width: setWidth(1),
+    return IgnorePointer(
+      ignoring: !enable,
+      child: CupertinoTextField(
+        controller: controller,
+        focusNode: focusNode,
+        padding: padding ?? symmetric(vertical: 10),
+        placeholder: placeholder,
+        decoration: decoration ??
+            BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  color: const Color(0xFFEEEEEE),
+                  width: setWidth(1),
+                ),
               ),
             ),
-          ),
-      style: TextStyle(
-        color: color ?? defaultInputTextColor,
-        fontSize: setFontSize(fontSize ?? defaultTextSize),
+        style: TextStyle(
+          color: color ?? defaultInputTextColor,
+          fontSize: setFontSize(fontSize ?? defaultTextSize),
+        ),
+        placeholderStyle: TextStyle(
+          color: placeholderColor ?? defaultPlaceholderColor,
+          fontSize: setFontSize(placeholderFontSize ?? defaultTextSize),
+        ),
+        onChanged: (text) => onTextChange?.call(text),
+        cursorColor: Theme.of(context).textSelectionTheme.cursorColor,
+        textAlign: textAlign,
+        textInputAction: textInputAction,
+        keyboardType: keyboardType,
+        inputFormatters: inputFormatters,
+        obscureText: obscureText,
+        obscuringCharacter: obscuringCharacter,
+        onSubmitted: onSubmitted,
+        maxLength: maxLength,
+        maxLines: maxLines,
+        autofocus: autofocus,
+        readOnly: readOnly,
+        prefix: prefix,
+        suffix: suffix,
+        prefixMode: prefixMode,
+        suffixMode: suffixMode,
+        enableInteractiveSelection: enableInteractiveSelection,
       ),
-      placeholderStyle: TextStyle(
-        color: placeholderColor ?? defaultPlaceholderColor,
-        fontSize: setFontSize(placeholderFontSize ?? defaultTextSize),
-      ),
-      onChanged: (text) => onTextChange?.call(text),
-      cursorColor: Theme.of(context).textSelectionTheme.cursorColor,
-      textAlign: textAlign,
-      textInputAction: textInputAction,
-      keyboardType: keyboardType,
-      inputFormatters: inputFormatters,
-      obscureText: obscureText,
-      obscuringCharacter: obscuringCharacter,
-      onSubmitted: onSubmitted,
-      maxLength: maxLength,
-      maxLines: maxLines,
-      autofocus: autofocus,
-      readOnly: readOnly,
-      prefix: prefix,
-      suffix: suffix,
-      prefixMode: prefixMode,
-      suffixMode: suffixMode,
-      enableInteractiveSelection: enableInteractiveSelection,
     );
   }
 }
