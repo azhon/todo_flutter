@@ -14,6 +14,14 @@ abstract class BaseLoadBloc<E extends BaseEvent, S> extends Bloc<E, S> {
     _init();
   }
 
+  @override
+  void add(E event) {
+    if (isClosed) {
+      return;
+    }
+    super.add(event);
+  }
+
   void _init() {
     ///分发至event处理
     on<E>((E event, Emitter<S> emit) async {
