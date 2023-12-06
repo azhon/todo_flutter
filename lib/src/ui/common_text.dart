@@ -14,6 +14,7 @@ class CommonText extends BaseStatelessWidget {
   final String? fontFamily;
   final FontWeight? fontWeight;
   final double? height;
+  final double? lineHeight;
   final double? letterSpacing;
   final int? maxLines;
   final TextOverflow? overflow;
@@ -31,6 +32,7 @@ class CommonText extends BaseStatelessWidget {
     this.fontFamily,
     this.fontWeight,
     this.height,
+    this.lineHeight,
     this.letterSpacing,
     this.maxLines,
     this.decoration,
@@ -43,7 +45,13 @@ class CommonText extends BaseStatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final defaultFonSize = TodoLib.of(context).textSize;
+    final defaultFonSize = fontSize ?? TodoLib.of(context).textSize;
+
+    ///calculate height
+    double? fontHeight = height;
+    if (lineHeight != null) {
+      fontHeight = lineHeight! / defaultFonSize;
+    }
     return Text(
       text,
       maxLines: maxLines,
@@ -52,10 +60,10 @@ class CommonText extends BaseStatelessWidget {
       strutStyle: strutStyle,
       style: TextStyle(
         color: color,
-        fontSize: setFontSize(fontSize ?? defaultFonSize),
+        fontSize: setFontSize(defaultFonSize),
         fontFamily: fontFamily,
         fontWeight: fontWeight,
-        height: height,
+        height: fontHeight,
         letterSpacing: letterSpacing,
         decoration: decoration,
         decorationStyle: decorationStyle,
