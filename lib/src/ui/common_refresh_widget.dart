@@ -46,7 +46,8 @@ class _CommonRefreshWidgetState<T> extends BaseState<CommonRefreshWidget<T>>
         return BlocLoadWidget(
           loadBloc: widget.bloc.loadBloc,
           reload: () => widget.bloc.init(),
-          child: RefreshConfiguration(
+          child: RefreshConfiguration.copyAncestor(
+            context: context,
             hideFooterWhenNotFull: true,
             child: SmartRefresher(
               onRefresh: () => widget.bloc.refresh(),
