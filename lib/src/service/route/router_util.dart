@@ -12,6 +12,8 @@ import 'package:todo_flutter/src/service/route/router_history_stack.dart';
 import 'package:todo_flutter/src/service/route/routes.dart';
 import 'package:todo_flutter/todo_lib.dart';
 
+typedef RouterInterceptor = String? Function(String route);
+
 class RouterUtil {
   factory RouterUtil() => _getInstance();
 
@@ -19,6 +21,9 @@ class RouterUtil {
   static RouterUtil? _instance;
 
   late FluroRouter _router;
+
+  ///拦截器
+  RouterInterceptor? routerInterceptor;
 
   static RouterUtil _getInstance() {
     _instance ??= RouterUtil._internal();
@@ -114,10 +119,14 @@ class RouterUtil {
     Duration? transitionDuration,
     RouteTransitionsBuilder? transitionBuilder,
   }) {
+    final redirectRoute = routerInterceptor?.call(bundle.route) ?? bundle.route;
+
     ///arguments: 用于当使用popUntil时携带返回参数
-    final RouteSettings routeSettings =
-        RouteSettings(name: bundle.route, arguments: bundle);
-    final route = bundle.route + bundle.toUri();
+    final RouteSettings routeSettings = RouteSettings(
+      name: redirectRoute,
+      arguments: bundle,
+    );
+    final route = redirectRoute + bundle.toUri();
     if (Platform.isIOS) {
       transition = TransitionType.cupertino;
     }
