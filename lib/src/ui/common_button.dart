@@ -14,6 +14,7 @@ class CommonButton extends BaseStatelessWidget {
   final double? width;
   final double? height;
   final double? fontSize;
+  final String? fontFamily;
   final FontWeight? fontWeight;
   final Color? color;
   final Color? textColor;
@@ -34,6 +35,7 @@ class CommonButton extends BaseStatelessWidget {
     this.height,
     this.radius = 0,
     this.fontSize,
+    this.fontFamily,
     this.fontWeight,
     this.margin,
     this.padding,
@@ -49,7 +51,9 @@ class CommonButton extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     final primaryColor = Theme.of(context).primaryColor;
-    final double defaultButtonHeight = TodoLib.of(context).defaultButtonHeight;
+    final double defaultButtonHeight = TodoLib.of(context).buttonHeight;
+    final defaultFontFamily = TodoLib.of(context).fontFamily;
+
     return IgnorePointer(
       ignoring: disable,
       child: Container(
@@ -80,6 +84,7 @@ class CommonButton extends BaseStatelessWidget {
             color: textColor,
             fontWeight: fontWeight,
             fontSize: fontSize,
+            fontFamily: fontFamily ?? defaultFontFamily,
           ),
         ),
       ),

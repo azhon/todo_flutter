@@ -20,7 +20,7 @@ class CommonInputArea extends BaseStatefulWidget {
   final EdgeInsetsGeometry? countPadding;
   final double? countFontSize;
   final Color? countTextColor;
-
+  final String? fontFamily;
   final EdgeInsetsGeometry? padding;
   final String placeholder;
   final double? placeholderFontSize;
@@ -55,6 +55,7 @@ class CommonInputArea extends BaseStatefulWidget {
     this.placeholderFontSize,
     this.placeholderColor,
     this.fontSize,
+    this.fontFamily,
     this.color,
     this.decoration,
     this.maxLength,
@@ -111,6 +112,7 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
             autofocus: widget.autofocus,
             onSubmitted: widget.onSubmitted,
             focusNode: widget.focusNode,
+            fontFamily: widget.fontFamily,
             textInputAction: widget.textInputAction,
             keyboardType: widget.keyboardType,
             decoration: const BoxDecoration(),

@@ -15,6 +15,7 @@ class CommonInput extends BaseStatelessWidget {
   final double? placeholderFontSize;
   final Color? placeholderColor;
   final double? fontSize;
+  final String? fontFamily;
   final Color? color;
   final BoxDecoration? decoration;
   final int? maxLength;
@@ -48,6 +49,7 @@ class CommonInput extends BaseStatelessWidget {
     this.placeholderFontSize,
     this.placeholderColor,
     this.fontSize,
+    this.fontFamily,
     this.color,
     this.decoration,
     this.maxLength,
@@ -78,6 +80,7 @@ class CommonInput extends BaseStatelessWidget {
     final defaultTextSize = TodoLib.of(context).textSize;
     final defaultPlaceholderColor = TodoLib.of(context).placeholderColor;
     final defaultInputTextColor = TodoLib.of(context).inputTextColor;
+    final defaultFontFamily = TodoLib.of(context).fontFamily;
     return IgnorePointer(
       ignoring: !enable,
       child: CupertinoTextField(
@@ -97,10 +100,12 @@ class CommonInput extends BaseStatelessWidget {
         style: TextStyle(
           color: color ?? defaultInputTextColor,
           fontSize: setFontSize(fontSize ?? defaultTextSize),
+          fontFamily: fontFamily ?? defaultFontFamily,
         ),
         placeholderStyle: TextStyle(
           color: placeholderColor ?? defaultPlaceholderColor,
           fontSize: setFontSize(placeholderFontSize ?? defaultTextSize),
+          fontFamily: fontFamily ?? defaultFontFamily,
         ),
         onChanged: (text) => onTextChange?.call(text),
         cursorColor: Theme.of(context).textSelectionTheme.cursorColor,

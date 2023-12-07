@@ -46,6 +46,7 @@ class CommonText extends BaseStatelessWidget {
   @override
   Widget build(BuildContext context) {
     final defaultFonSize = fontSize ?? TodoLib.of(context).textSize;
+    final defaultFontFamily = TodoLib.of(context).fontFamily;
 
     ///calculate height
     double? fontHeight = height;
@@ -61,7 +62,7 @@ class CommonText extends BaseStatelessWidget {
       style: TextStyle(
         color: color,
         fontSize: setFontSize(defaultFonSize),
-        fontFamily: fontFamily,
+        fontFamily: fontFamily ?? defaultFontFamily,
         fontWeight: fontWeight,
         height: fontHeight,
         letterSpacing: letterSpacing,
