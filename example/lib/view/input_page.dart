@@ -41,6 +41,15 @@ class _InputPageState extends BaseState<InputPage> {
                 ),
                 sizedBox(height: 10),
                 CommonInput(
+                  placeholder: '金额输入框',
+                  keyboardType:
+                      const TextInputType.numberWithOptions(decimal: true),
+                  inputFormatters: [
+                    AmountTextFieldFormatter(),
+                  ],
+                ),
+                sizedBox(height: 10),
+                CommonInput(
                   placeholder: '监听输入的内容',
                   onTextChange: (text) {
                     LogUtil.d('输入框监听：$text');
