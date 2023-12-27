@@ -3,8 +3,9 @@
 ## 基于Bloc状态管理、屏幕适配、路由管理、模块化、封装常用组件的Flutter项目脚手架
 - 使用`Flutter 3.13.0`或更高版本
 
-### [组件库介绍](https://github.com/azhon/todo_flutter/blob/main/WIDGETS.md)
-- 在使用前请务必先阅读一遍，以避免重复封装
+### 组件库介绍
+
+[在使用前请务必先阅读一遍，以避免重复封装](https://github.com/azhon/todo_flutter/blob/main/WIDGETS.md)
 
 ### 一、依赖本库：
 
