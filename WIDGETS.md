@@ -1,5 +1,6 @@
 ### 每一个组件的用途如下：
 
+```text
 .
 ├── generated
 │   └── assets
@@ -83,3 +84,4 @@
 ├── todo_app.dart （框架初始化）
 ├── todo_flutter.dart
 └── todo_lib.dart （框架数据包装）
+```
