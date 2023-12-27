@@ -18,8 +18,14 @@ mixin UIAdapter {
     return size.sp;
   }
 
+  ///see [ScreenUtil.setWidth]
   double setWidth(double width) {
     return width.w;
+  }
+
+  ///see [ScreenUtil.setHeight]
+  double setHeight(double height) {
+    return height.h;
   }
 
   double setRadius(double radius) {
