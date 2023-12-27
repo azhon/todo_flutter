@@ -3,18 +3,8 @@
 ## 基于Bloc状态管理、屏幕适配、路由管理、模块化、封装常用组件的Flutter项目脚手架
 - 使用`Flutter 3.13.0`或更高版本
 
-### 组件库介绍
-|  组件名称   | 描述  |  组件名称   | 描述  |
-|  ----  | ----  |  ----  | ----  |
-| CommonButton  | 按钮组件 | CommonImage  | 图片组件 |
-| CommonInput  | 输入框组件 | CommonInputArea  | 带计数的输入框组件 |
-| CommonRichText  | 富文本组件 | CommonText  | 文本组件 |
-| CommonClickWidget  | 点击事件组件 | CommonRefreshWidget  | 列表刷新、加载组件 |
-| CommonDialog  | 对话框组件 | SaturationWidget  | 饱和度组件 |
-| LoadingDialogWidget  | 全屏对话框组件 | BlocLoadWidget  | 加载组件 |
-| UnFocusWidget  | 移除焦点组件 | RemoveRippleWidget  | 移除Android水波纹组件 |
-| DataChangeWidget  | 简单数据状态管理组件 | BaseStatefulWidget</br>BaseState  | 有状态组件 |
-| BaseStatelessWidget  | 无状态组件 | BaseBloc  | Bloc封装 |
+### [组件库介绍](https://github.com/azhon/todo_flutter/blob/main/WIDGETS.md)
+- 在使用前请务必先阅读一遍，以避免重复封装
 
 ### 一、依赖本库：
 
