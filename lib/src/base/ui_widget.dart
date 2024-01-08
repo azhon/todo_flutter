@@ -32,14 +32,32 @@ mixin UIWidget implements UIAdapter {
   }
 
   SizedBox sizedBox({
-    double width = 0,
-    double height = 0,
+    double? width,
+    double? height,
     Widget? child,
   }) {
     return SizedBox(
-      width: setWidth(width),
-      height: setWidth(height),
+      width: width == null ? null : setWidth(width),
+      height: height == null ? null : setWidth(height),
       child: child,
+    );
+  }
+
+  BorderRadius circular(double radius) {
+    return BorderRadius.circular(setRadius(radius));
+  }
+
+  BorderRadius radiusOnly({
+    double topLeft = 0,
+    double topRight = 0,
+    double bottomLeft = 0,
+    double bottomRight = 0,
+  }) {
+    return BorderRadius.only(
+      topLeft: Radius.circular(setRadius(topLeft)),
+      topRight: Radius.circular(setRadius(topRight)),
+      bottomLeft: Radius.circular(setRadius(bottomLeft)),
+      bottomRight: Radius.circular(setRadius(bottomRight)),
     );
   }
 }
