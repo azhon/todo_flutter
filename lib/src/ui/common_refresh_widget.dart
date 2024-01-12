@@ -12,6 +12,7 @@ typedef RefreshChild<T> = Widget Function(BuildContext context, List<T> list);
 class CommonRefreshWidget<T> extends StatefulWidget {
   final ListBloc<T> bloc;
   final RefreshChild<T> child;
+  final bool enablePullDown;
   final bool enablePullUp;
   final Widget? emptyWidget;
   final bool wantKeepAlive;
@@ -20,6 +21,7 @@ class CommonRefreshWidget<T> extends StatefulWidget {
     required this.bloc,
     required this.child,
     this.emptyWidget,
+    this.enablePullDown = true,
     this.enablePullUp = true,
     this.wantKeepAlive = false,
     Key? key,
@@ -50,6 +52,7 @@ class _CommonRefreshWidgetState<T> extends BaseState<CommonRefreshWidget<T>>
             onRefresh: () => widget.bloc.refresh(),
             onLoading: () => widget.bloc.loadMore(),
             controller: widget.bloc.controller,
+            enablePullDown: widget.enablePullDown,
             enablePullUp: widget.enablePullUp,
             physics: const ClampingScrollPhysics(),
             header: const MaterialClassicHeader(),
