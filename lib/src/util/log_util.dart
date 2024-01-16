@@ -6,8 +6,21 @@
 import 'package:logger/logger.dart';
 
 class LogUtil {
-  static final Logger _logger =
-      Logger(printer: PrettyPrinter(printEmojis: false));
+  static Logger _logger = Logger(printer: PrettyPrinter(printEmojis: false));
+
+  static void init({
+    LogFilter? filter,
+    LogPrinter? printer,
+    LogOutput? output,
+    Level? level,
+  }) {
+    _logger = Logger(
+      filter: filter,
+      output: output,
+      level: level,
+      printer: printer ?? PrettyPrinter(printEmojis: false),
+    );
+  }
 
   static void v(message, {Object? error, StackTrace? stackTrace}) {
     _logger.log(Level.trace, message, error: error, stackTrace: stackTrace);
