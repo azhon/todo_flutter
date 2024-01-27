@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 ///
 /// @author azhon
 
+typedef GlobalEventCallBack = Function(String type, String? data);
+
 class GlobalEventManager {
   factory GlobalEventManager() => _getInstance();
 

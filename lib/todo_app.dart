@@ -14,6 +14,7 @@ class TodoApp extends StatelessWidget {
   final ThemeData? theme;
   final ThemeData? darkTheme;
   final Widget home;
+  final Locale? locale;
   final Size designSize;
   final TodoLibData? libData;
   final bool debugShowCheckedModeBanner;
@@ -28,6 +29,7 @@ class TodoApp extends StatelessWidget {
     this.theme,
     this.darkTheme,
     this.libData,
+    this.locale,
     this.navigatorKey,
     this.localizationsDelegates,
     this.debugShowCheckedModeBanner = true,
@@ -49,6 +51,7 @@ class TodoApp extends StatelessWidget {
             home: home,
             title: title,
             theme: theme,
+            locale: locale,
             darkTheme: darkTheme,
             supportedLocales: supportedLocales,
             navigatorKey: TodoLib.navigatorKey,

@@ -60,16 +60,16 @@ abstract class BaseGlobalEventState<T extends StatefulWidget>
   ///only one listener
   ///[type] Specify event type
   void listenerGlobalEvent({
-    required ValueChanged<String?> event,
+    required GlobalEventCallBack callBack,
     List<String>? type,
   }) {
     _cancel();
     _streamSubscription = GlobalEventManager.instance.subscribe((global) {
       if (type == null) {
-        event.call(global.data);
+        callBack.call(global.type, global.data);
       } else {
         if (type.contains(global.type)) {
-          event.call(global.data);
+          callBack.call(global.type, global.data);
         }
       }
     });
