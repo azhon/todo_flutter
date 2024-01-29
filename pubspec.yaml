@@ -29,13 +29,13 @@ dependencies:
   #  toast
   fluttertoast: ^8.2.2
   #  时间格式化
-  intl: ^0.18.1
+  intl: ^0.19.0
   #  模块通信
   module_bridge: ^1.0.4
   #  版本更新
   flutter_app_update: ^3.0.2
   #  网络抓包
-  network_capture: ^1.0.4
+  network_capture: ^1.0.7
 dev_dependencies:
   flutter_test:
     sdk: flutter
