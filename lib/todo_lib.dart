@@ -1,10 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:todo_flutter/src/I10n/text_delegate.dart';
+import 'package:todo_flutter/src/I10n/text_delegate_en.dart';
+import 'package:todo_flutter/src/service/theme/toast_theme_data.dart';
+
 /// createTime: 2021/9/29 on 13:54
 /// desc: 框架初始化
 ///
 /// @author azhon
-
-import 'package:flutter/material.dart';
-import 'package:todo_flutter/src/service/theme/toast_theme_data.dart';
 
 class TodoLib extends InheritedWidget {
   /// 用于导航的key（从而简化跳转需要context）,需要主动进行初始化
@@ -26,6 +28,16 @@ class TodoLib extends InheritedWidget {
       throw Exception('please init [TodoLib] first...');
     }
     return todoLib.data ?? TodoLibData();
+  }
+
+  ///获取当前语言
+  static TextDelegate delegate(BuildContext context) {
+    final locale = Localizations.maybeLocaleOf(context);
+    if (locale == null) {
+      return const TextDelegate();
+    }
+    final languageCode = locale.languageCode.toLowerCase();
+    return of(context).textDelegates![languageCode] ?? const TextDelegate();
   }
 
   @override
@@ -57,6 +69,9 @@ class TodoLibData {
   ///toast配置
   ToastThemeData toastThemeData;
 
+  ///文本国际化
+  Map<String, TextDelegate>? textDelegates;
+
   TodoLibData({
     this.buttonHeight = 45,
     this.clickInterceptInterval = 1000,
@@ -66,5 +81,21 @@ class TodoLibData {
     this.inputBackgroundColor = const Color(0xFFF6F7F9),
     this.toastThemeData = const ToastThemeData(),
     this.fontFamily,
-  });
+  }) {
+    textDelegates = _updateTextDelegates(textDelegates);
+  }
+
+  ///用户设置的替换原有的
+  Map<String, TextDelegate> _updateTextDelegates(
+    Map<String, TextDelegate>? textDelegates,
+  ) {
+    final map = <String, TextDelegate>{
+      'zh': const TextDelegate(),
+      'en': const TextDelegateEn(),
+    };
+    textDelegates?.forEach((key, value) {
+      map[key] = value;
+    });
+    return map;
+  }
 }

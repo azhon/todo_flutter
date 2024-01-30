@@ -23,17 +23,8 @@ class CommonErrorWidget extends BaseStatelessWidget {
             asset: TodoFlutterAssets.icError,
             size: 86,
           ),
-          Padding(
-            padding: only(top: 4),
-            child: const CommonText(
-              '系统错误',
-              fontSize: 12,
-              color: Color(0xFF161619),
-              fontWeight: FontWeight.w300,
-            ),
-          ),
           CommonButton(
-            '请重试',
+            TodoLib.delegate(context).pleaseTryAgain,
             fontSize: 12,
             textColor: const Color(0xFF161619),
             fontWeight: FontWeight.w300,

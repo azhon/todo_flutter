@@ -6,6 +6,7 @@ import 'package:todo_flutter/src/ui/common_button.dart';
 import 'package:todo_flutter/src/ui/common_input.dart';
 import 'package:todo_flutter/src/ui/common_text.dart';
 import 'package:todo_flutter/src/ui/widget/remove_ripple_widget.dart';
+import 'package:todo_flutter/todo_lib.dart';
 
 /// createTime: 2023/2/23 on 15:55
 /// desc:
@@ -35,13 +36,15 @@ mixin BaseDialog implements UIWidget {
     double elevation = 0,
     bool singleButton = false,
     bool canceledOutside = true,
-    String confirmText = '确定',
+    String? confirmText,
     Color confirmColor = Colors.blue,
-    String cancelText = '取消',
+    String? cancelText,
     Color cancelColor = const Color(0xFF666666),
     double messageMaxHeight = 120,
     Color backgroundColor = Colors.white,
   }) async {
+    confirmText ?? TodoLib.delegate(context).dialogConfirm;
+    cancelText ?? TodoLib.delegate(context).dialogCancel;
     margin = margin ?? symmetric(horizontal: 100);
     radius = radius ?? setRadius(8);
     final result = await showDialog<Bundle>(
@@ -52,9 +55,9 @@ mixin BaseDialog implements UIWidget {
           child: _commonContent(
             context,
             title: title,
-            confirmText: confirmText,
+            confirmText: confirmText!,
             confirmColor: confirmColor,
-            cancelText: cancelText,
+            cancelText: cancelText!,
             cancelColor: cancelColor,
             elevation: elevation,
             singleButton: singleButton,
@@ -108,12 +111,14 @@ mixin BaseDialog implements UIWidget {
     bool singleButton = false,
     bool canceledOutside = true,
     bool obscureText = false,
-    String confirmText = '确定',
+    String? confirmText,
     Color confirmColor = Colors.blue,
-    String cancelText = '取消',
+    String? cancelText,
     Color cancelColor = const Color(0xFF666666),
     Color backgroundColor = Colors.white,
   }) async {
+    confirmText ?? TodoLib.delegate(context).dialogConfirm;
+    cancelText ?? TodoLib.delegate(context).dialogCancel;
     final controller = TextEditingController();
     final result = await showDialog<Bundle>(
       context: context,
@@ -125,9 +130,9 @@ mixin BaseDialog implements UIWidget {
             title: title,
             radius: radius,
             margin: margin,
-            confirmText: confirmText,
+            confirmText: confirmText!,
             confirmColor: confirmColor,
-            cancelText: cancelText,
+            cancelText: cancelText!,
             cancelColor: cancelColor,
             elevation: elevation,
             singleButton: singleButton,

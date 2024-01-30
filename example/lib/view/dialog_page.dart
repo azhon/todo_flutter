@@ -30,7 +30,7 @@ class _DialogPageState extends BaseState<DialogPage> {
               onPressed: () {
                 LoadingDialog.show(msg: '请稍后...');
                 Future.delayed(const Duration(seconds: 2)).then((value) {
-                  LoadingDialog.show(msg: '加载中...');
+                  LoadingDialog.show();
                 });
                 Future.delayed(const Duration(seconds: 4)).then((value) {
                   LoadingDialog.dismiss();

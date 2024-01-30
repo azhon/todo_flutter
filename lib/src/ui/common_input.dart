@@ -11,7 +11,7 @@ import 'package:todo_flutter/src/base/base_stateless_widget.dart';
 
 class CommonInput extends BaseStatelessWidget {
   final EdgeInsetsGeometry? padding;
-  final String placeholder;
+  final String? placeholder;
   final double? placeholderFontSize;
   final Color? placeholderColor;
   final double? fontSize;
@@ -45,7 +45,7 @@ class CommonInput extends BaseStatelessWidget {
     Key? key,
     this.controller,
     this.padding,
-    this.placeholder = '请输入内容',
+    this.placeholder,
     this.placeholderFontSize,
     this.placeholderColor,
     this.fontSize,
@@ -87,7 +87,7 @@ class CommonInput extends BaseStatelessWidget {
         controller: controller,
         focusNode: focusNode,
         padding: padding ?? symmetric(vertical: 10),
-        placeholder: placeholder,
+        placeholder: placeholder ?? TodoLib.delegate(context).placeholder,
         decoration: decoration ??
             BoxDecoration(
               border: Border(

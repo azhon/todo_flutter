@@ -1,12 +1,13 @@
-/// createTime: 2021/10/19 on 17:24
-/// desc:
-///
-/// @author azhon
-
 import 'package:flutter/material.dart';
 import 'package:todo_flutter/src/base/base_stateless_widget.dart';
 import 'package:todo_flutter/src/ui/common_text.dart';
 import 'package:todo_flutter/src/ui/dialog/loading_dialog.dart';
+import 'package:todo_flutter/todo_lib.dart';
+
+/// createTime: 2021/10/19 on 17:24
+/// desc:
+///
+/// @author azhon
 
 class LoadingDialogWidget extends BaseStatelessWidget {
   final String? msg;
@@ -44,7 +45,7 @@ class LoadingDialogWidget extends BaseStatelessWidget {
               Padding(
                 padding: symmetric(horizontal: 10),
                 child: CommonText(
-                  msg ?? 'Loading...',
+                  msg ?? TodoLib.delegate(context).loading,
                   color: Colors.white,
                   maxLines: 2,
                   fontSize: 12,

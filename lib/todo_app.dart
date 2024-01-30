@@ -1,13 +1,14 @@
-/// createTime: 2022/7/26 on 10:16
-/// desc:
-///
-/// @author azhon
 import 'package:flutter/material.dart';
 import 'package:todo_flutter/src/service/route/router_history_stack.dart';
 import 'package:todo_flutter/src/service/route/router_util.dart';
 import 'package:todo_flutter/src/ui/dialog/loading_dialog.dart';
 import 'package:todo_flutter/todo_lib.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+/// createTime: 2022/7/26 on 10:16
+/// desc:
+///
+/// @author azhon
 
 class TodoApp extends StatelessWidget {
   final String title;
