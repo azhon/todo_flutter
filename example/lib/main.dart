@@ -5,7 +5,6 @@ import 'package:todo_flutter/todo_flutter.dart';
 import 'package:todo_flutter/todo_app.dart';
 import 'package:todo_flutter_example/common/route/module_route.dart';
 import 'package:todo_flutter_example/generated/route/example_route.dart';
-import 'package:network_capture/network_capture.dart';
 
 GlobalKey<NavigatorState> naviKey = GlobalKey();
 

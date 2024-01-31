@@ -28,6 +28,9 @@
 │   │       ├── load_bloc.dart （页面加载Bloc）
 │   │       ├── load_event.dart （页面加载Bloc）
 │   │       └── load_state.dart （页面加载Bloc）
+│   ├── I10n
+│   │   ├── text_delegate.dart （国际化-默认中文）
+│   │   └── text_delegate_en.dart （国际化-英文）
 │   ├── net
 │   │   ├── base_convert.dart （数据转换器基类）
 │   │   ├── base_net_engine.dart （网络请求基类）
