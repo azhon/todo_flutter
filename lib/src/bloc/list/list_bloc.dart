@@ -13,7 +13,7 @@ class ListBloc<T> extends BaseBloc<ListEvent<T>, ListState<T>> {
 
   ///分页一页数量
   final int pageSize;
-  final BaseRequest<List<T>> request;
+  BaseRequest<List<T>> request;
   final RefreshController controller = RefreshController();
 
   ListBloc({
@@ -45,6 +45,18 @@ class ListBloc<T> extends BaseBloc<ListEvent<T>, ListState<T>> {
   void loadMoreError() {
     pageNum--;
     _changeParams();
+  }
+
+  // ignore: use_setters_to_change_properties
+  void resetRequest(BaseRequest<List<T>> request) {
+    this.request = request;
+    pageNum = startPageNum;
+    _changeParams();
+    add(InitEvent());
+  }
+
+  void updateState(List<T> list) {
+    add(UpdateEvent(list));
   }
 
   void _changeParams() {

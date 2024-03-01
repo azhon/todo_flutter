@@ -16,6 +16,7 @@ class CommonRefreshWidget<T> extends StatefulWidget {
   final bool enablePullUp;
   final Widget? emptyWidget;
   final bool wantKeepAlive;
+  final bool autoInit;
 
   const CommonRefreshWidget({
     required this.bloc,
@@ -24,6 +25,7 @@ class CommonRefreshWidget<T> extends StatefulWidget {
     this.enablePullDown = true,
     this.enablePullUp = true,
     this.wantKeepAlive = false,
+    this.autoInit = true,
     Key? key,
   }) : super(key: key);
 
@@ -36,7 +38,9 @@ class _CommonRefreshWidgetState<T> extends BaseState<CommonRefreshWidget<T>>
   @override
   void initState() {
     super.initState();
-    widget.bloc.init();
+    if (widget.autoInit) {
+      widget.bloc.init();
+    }
   }
 
   @override

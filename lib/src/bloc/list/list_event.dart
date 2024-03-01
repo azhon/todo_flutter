@@ -62,3 +62,14 @@ class LoadMoreEvent<T> extends ListEvent<T> {
     return InitialState(currentState.data);
   }
 }
+
+class UpdateEvent<T> extends ListEvent<T> {
+  final List<T> list;
+
+  UpdateEvent(this.list);
+
+  @override
+  Future<ListState<T>> on(ListBloc<T> bloc, ListState<T> currentState) async {
+    return InitialState(list);
+  }
+}
