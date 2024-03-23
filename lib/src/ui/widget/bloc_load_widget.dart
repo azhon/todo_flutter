@@ -18,6 +18,7 @@ typedef ErrorWidgetBuilder = Widget? Function(
 );
 
 class BlocLoadWidget extends BaseStatelessWidget {
+  final Color color;
   final Widget child;
   final LoadBloc loadBloc;
   final VoidCallback? reload;
@@ -28,6 +29,7 @@ class BlocLoadWidget extends BaseStatelessWidget {
     required this.loadBloc,
     required this.reload,
     this.errorBuilder,
+    this.color = const Color(0xFF161619),
     Key? key,
   }) : super(key: key);
 
@@ -37,11 +39,11 @@ class BlocLoadWidget extends BaseStatelessWidget {
       bloc: loadBloc,
       builder: (BuildContext context, LoadState state) {
         if (state is LoadingState) {
-          return const SizedBox.expand(
+          return SizedBox.expand(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircularProgressWidget(),
+                CircularProgressWidget(color: color),
               ],
             ),
           );

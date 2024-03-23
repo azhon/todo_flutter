@@ -6,14 +6,19 @@ import 'package:todo_flutter/src/base/base_stateless_widget.dart';
 ///
 /// @author azhon
 class CircularProgressWidget extends BaseStatelessWidget {
-  const CircularProgressWidget({Key? key}) : super(key: key);
+  final Color color;
+
+  const CircularProgressWidget({
+    Key? key,
+    this.color = const Color(0xFF161619),
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Transform.scale(
       scale: 0.8,
       child: CircularProgressIndicator(
-        color: const Color(0xFF161619),
+        color: color,
         strokeWidth: setWidth(2),
       ),
     );
