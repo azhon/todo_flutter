@@ -63,7 +63,9 @@ class TodoApp extends StatelessWidget {
             builder: (BuildContext context, Widget? widget) {
               return LoadingDialogInit(
                 child: MediaQuery(
-                  data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
+                  data: MediaQuery.of(context).copyWith(
+                    textScaler: TextScaler.noScaling,
+                  ),
                   child: widget ?? Container(),
                 ),
               );
