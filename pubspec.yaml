@@ -35,7 +35,7 @@ dependencies:
   #  版本更新
   flutter_app_update: ^3.0.2
   #  网络抓包
-  network_capture: ^1.0.7
+  network_capture: ^1.1.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
