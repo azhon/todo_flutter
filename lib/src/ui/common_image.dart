@@ -32,6 +32,7 @@ class CommonImage extends BaseStatelessWidget {
   final bool circle;
   final BuildStateWidget? loading;
   final BuildStateWidget? error;
+  final ExtendedImageMode mode;
 
   const CommonImage({
     this.network,
@@ -49,6 +50,7 @@ class CommonImage extends BaseStatelessWidget {
     this.circle = false,
     this.loading,
     this.error,
+    this.mode = ExtendedImageMode.none,
   }) : super(key: key);
 
   double? get _getWidth => size ?? width;
@@ -67,6 +69,7 @@ class CommonImage extends BaseStatelessWidget {
         width: w,
         height: h,
         shape: shape,
+        mode: mode,
         fit: fit,
         color: color,
         border: border,
@@ -81,6 +84,7 @@ class CommonImage extends BaseStatelessWidget {
         width: w,
         height: h,
         shape: shape,
+        mode: mode,
         fit: fit,
         color: color,
         border: border,
@@ -95,6 +99,7 @@ class CommonImage extends BaseStatelessWidget {
         width: w,
         height: h,
         shape: shape,
+        mode: mode,
         fit: fit,
         color: color,
         border: border,
@@ -109,6 +114,7 @@ class CommonImage extends BaseStatelessWidget {
         width: w,
         height: h,
         shape: shape,
+        mode: mode,
         fit: fit,
         color: color,
         border: border,

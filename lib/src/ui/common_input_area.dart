@@ -17,7 +17,7 @@ class CommonInputArea extends BaseStatefulWidget {
   final double? maxHeight;
   final Color? backgroundColor;
   final BorderRadius? borderRadius;
-  final EdgeInsetsGeometry? countPadding;
+  final EdgeInsets? countPadding;
   final double? countFontSize;
   final Color? countTextColor;
   final String? fontFamily;
@@ -78,7 +78,8 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
   @override
   void initState() {
     super.initState();
-    addBloc(DataChangeBloc<int>(0));
+    final length = widget.controller?.text.length ?? 0;
+    addBloc(DataChangeBloc<int>(length));
   }
 
   @override
@@ -87,7 +88,7 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
         TodoLib.of(context).inputBackgroundColor;
     return Container(
       constraints: BoxConstraints(
-        minHeight: widget.minHeight ?? 0,
+        minHeight: widget.minHeight ?? setWidth(90),
         maxHeight: widget.maxHeight ?? double.infinity,
       ),
       decoration: BoxDecoration(
@@ -95,9 +96,7 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
         borderRadius:
             widget.borderRadius ?? BorderRadius.circular(setRadius(16)),
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.end,
+      child: Stack(
         children: [
           CommonInput(
             controller: widget.controller,
@@ -121,10 +120,11 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
               _countBloc.changeData(text.length);
             },
           ),
-          Visibility(
-            visible: widget.maxLength != null,
-            child: Padding(
-              padding: widget.countPadding ?? only(right: 24, bottom: 24),
+          Positioned(
+            bottom: widget.countPadding?.bottom ?? setWidth(12),
+            right: widget.countPadding?.right ?? setWidth(16),
+            child: Visibility(
+              visible: widget.maxLength != null,
               child: DataChangeWidget<int>(
                 bloc: _countBloc,
                 child: (context, int? state) {

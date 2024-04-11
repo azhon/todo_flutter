@@ -16,6 +16,9 @@ void main() {
       child: TodoApp(
         home: const MyHomePage(),
         navigatorKey: naviKey,
+        theme: ThemeData(
+          useMaterial3: false,
+        ),
       ),
     ),
   );

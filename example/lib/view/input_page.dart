@@ -136,7 +136,7 @@ class _InputPageState extends BaseState<InputPage> {
                 ),
                 sizedBox(height: 10),
                 const CommonInputArea(
-                  maxLength: 20,
+                  maxLength: 30,
                 ),
               ],
             ),
