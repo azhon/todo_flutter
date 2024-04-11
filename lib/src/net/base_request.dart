@@ -78,17 +78,23 @@ abstract class BaseRequest<T> with Paging {
           break;
       }
     } catch (e) {
-      result.statusMessage = _parseError(e);
+      _parseError(result, e);
       LogUtil.d('BaseRequest：[request error] ${result.statusMessage}');
     }
     return convert.convert<T>(result);
   }
 
   ///获取异常信息
-  String _parseError(e) {
+  void _parseError(Result result, e) {
     if (e is DioException) {
-      return e.message ?? '';
+      if (e.response != null) {
+        result.statusCode = e.response!.statusCode;
+        result.statusMessage = e.response!.statusMessage;
+      } else {
+        result.statusMessage = e.message ?? '';
+      }
+    } else {
+      result.statusMessage = e.toString();
     }
-    return e.toString();
   }
 }
