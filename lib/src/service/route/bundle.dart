@@ -14,6 +14,20 @@ class Bundle {
 
   Bundle([this.route = '']);
 
+  ///便捷存储
+  Bundle withAll(String key, value) {
+    if (value is String) {
+      withString(key, value);
+    }
+    if (value is num) {
+      withNum(key, value);
+    }
+    if (value is bool) {
+      withBool(key, value);
+    }
+    return this;
+  }
+
   ///存储字符串
   Bundle withString(String key, String? value) {
     _data[key] = value;
