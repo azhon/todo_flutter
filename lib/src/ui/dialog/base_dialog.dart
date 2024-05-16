@@ -43,8 +43,8 @@ mixin BaseDialog implements UIWidget {
     double messageMaxHeight = 120,
     Color backgroundColor = Colors.white,
   }) async {
-    confirmText ?? TodoLib.delegate(context).dialogConfirm;
-    cancelText ?? TodoLib.delegate(context).dialogCancel;
+    confirmText = confirmText ?? TodoLib.delegate(context).dialogConfirm;
+    cancelText = cancelText ?? TodoLib.delegate(context).dialogCancel;
     margin = margin ?? symmetric(horizontal: 100);
     radius = radius ?? setRadius(8);
     final result = await showDialog<Bundle>(
@@ -117,8 +117,8 @@ mixin BaseDialog implements UIWidget {
     Color cancelColor = const Color(0xFF666666),
     Color backgroundColor = Colors.white,
   }) async {
-    confirmText ?? TodoLib.delegate(context).dialogConfirm;
-    cancelText ?? TodoLib.delegate(context).dialogCancel;
+    confirmText = confirmText ?? TodoLib.delegate(context).dialogConfirm;
+    cancelText = cancelText ?? TodoLib.delegate(context).dialogCancel;
     final controller = TextEditingController();
     final result = await showDialog<Bundle>(
       context: context,

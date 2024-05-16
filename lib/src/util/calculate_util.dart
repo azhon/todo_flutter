@@ -6,26 +6,23 @@ import 'package:decimal/decimal.dart';
 /// @author azhon
 class CalculateUtil {
   ///加法
-  static String plus(double a, double b) {
-    final result = Decimal.parse(a.toString()) + Decimal.parse(b.toString());
-    return result.toStringAsFixed(2);
+  static Decimal plus(double a, double b) {
+    return Decimal.parse(a.toString()) + Decimal.parse(b.toString());
   }
 
   ///减法
-  static String minus(double a, double b) {
-    final result = Decimal.parse(a.toString()) - Decimal.parse(b.toString());
-    return result.toStringAsFixed(2);
+  static Decimal minus(double a, double b) {
+    return Decimal.parse(a.toString()) - Decimal.parse(b.toString());
   }
 
   ///乘法
-  static String multiply(double a, double b) {
-    final result = Decimal.parse(a.toString()) * Decimal.parse(b.toString());
-    return result.toStringAsFixed(2);
+  static Decimal multiply(double a, double b) {
+    return Decimal.parse(a.toString()) * Decimal.parse(b.toString());
   }
 
   ///除法
-  static String divide(double a, double b) {
+  static Decimal divide(double a, double b) {
     final result = Decimal.parse(a.toString()) / Decimal.parse(b.toString());
-    return result.toDouble().toStringAsFixed(2);
+    return result.toDecimal();
   }
 }
