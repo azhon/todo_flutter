@@ -9,6 +9,7 @@ class BaseEntity<T> {
   T? data;
   int code = defaultCode;
   String? message;
+  String? traceId;
 
   ///分页接口
   int? curPage;
@@ -22,11 +23,21 @@ class BaseEntity<T> {
     this.curPage,
     this.total,
     this.totalPage,
+    this.traceId,
   });
 
   @override
   String toString() {
-    return 'BaseEntity{code: $code, message: $message, data: $data, curPage: '
-        '$curPage, total: $total, totalPage: $totalPage}';
+    return '''
+BaseEntity {
+  code: $code,
+  message: $message,
+  traceId: $traceId,
+  data: $data,
+  data: $data,
+  curPage: $curPage,
+  total: $total,
+}
+''';
   }
 }
