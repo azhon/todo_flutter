@@ -6,6 +6,7 @@ import 'package:todo_flutter/src/ui/common_button.dart';
 import 'package:todo_flutter/src/ui/common_input.dart';
 import 'package:todo_flutter/src/ui/common_text.dart';
 import 'package:todo_flutter/src/ui/widget/remove_ripple_widget.dart';
+import 'package:todo_flutter/src/util/object_util.dart';
 import 'package:todo_flutter/todo_lib.dart';
 
 /// createTime: 2023/2/23 on 15:55
@@ -15,6 +16,7 @@ import 'package:todo_flutter/todo_lib.dart';
 mixin BaseDialog implements UIWidget {
   ///基础对话框
   ///[message] 提示内容
+  ///[name] 对话框的名称
   ///[title] 标题
   ///[radius] 圆角
   ///[margin] 左右边距
@@ -30,6 +32,7 @@ mixin BaseDialog implements UIWidget {
   Future<bool?> baseDialog(
     BuildContext context, {
     required String message,
+    String? name,
     String? title,
     double? radius,
     EdgeInsets? margin,
@@ -49,6 +52,8 @@ mixin BaseDialog implements UIWidget {
     radius = radius ?? setRadius(8);
     final result = await showDialog<Bundle>(
       context: context,
+      routeSettings:
+          ObjectUtil.isEmpty(name) ? null : RouteSettings(name: name),
       builder: (_) {
         return WillPopScope(
           onWillPop: () => Future.value(canceledOutside),
@@ -89,6 +94,7 @@ mixin BaseDialog implements UIWidget {
   }
 
   ///基础输入框对话框
+  ///[name] 对话框的名称
   ///[title] 标题
   ///[radius] 圆角
   ///[margin] 左右边距
@@ -103,6 +109,7 @@ mixin BaseDialog implements UIWidget {
   ///[backgroundColor] 背景颜色
   Future<String?> baseInputDialog(
     BuildContext context, {
+    String? name,
     String? title,
     double? radius,
     EdgeInsets? margin,
@@ -122,6 +129,8 @@ mixin BaseDialog implements UIWidget {
     final controller = TextEditingController();
     final result = await showDialog<Bundle>(
       context: context,
+      routeSettings:
+          ObjectUtil.isEmpty(name) ? null : RouteSettings(name: name),
       builder: (_) {
         return WillPopScope(
           onWillPop: () => Future.value(canceledOutside),
