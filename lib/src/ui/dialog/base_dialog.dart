@@ -6,7 +6,6 @@ import 'package:todo_flutter/src/ui/common_button.dart';
 import 'package:todo_flutter/src/ui/common_input.dart';
 import 'package:todo_flutter/src/ui/common_text.dart';
 import 'package:todo_flutter/src/ui/widget/remove_ripple_widget.dart';
-import 'package:todo_flutter/src/util/object_util.dart';
 import 'package:todo_flutter/todo_lib.dart';
 
 /// createTime: 2023/2/23 on 15:55
@@ -52,8 +51,7 @@ mixin BaseDialog implements UIWidget {
     radius = radius ?? setRadius(8);
     final result = await showDialog<Bundle>(
       context: context,
-      routeSettings:
-          ObjectUtil.isEmpty(name) ? null : RouteSettings(name: name),
+      routeSettings: RouteSettings(name: name),
       builder: (_) {
         return WillPopScope(
           onWillPop: () => Future.value(canceledOutside),
@@ -129,8 +127,7 @@ mixin BaseDialog implements UIWidget {
     final controller = TextEditingController();
     final result = await showDialog<Bundle>(
       context: context,
-      routeSettings:
-          ObjectUtil.isEmpty(name) ? null : RouteSettings(name: name),
+      routeSettings: RouteSettings(name: name),
       builder: (_) {
         return WillPopScope(
           onWillPop: () => Future.value(canceledOutside),
