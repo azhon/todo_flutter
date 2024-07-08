@@ -23,32 +23,32 @@ class DioEngine extends BaseNetEngine {
 
   @override
   Future<Result> get(String url, {Map<String, dynamic>? params}) async {
-    final Response response = await _dio.get<Map>(url, queryParameters: params);
+    final Response response = await _dio.get(url, queryParameters: params);
     return Result(response.data, response.statusCode, response.statusMessage);
   }
 
   @override
   Future<Result> post(String url, {Map<String, dynamic>? params}) async {
     final Response response =
-        await _dio.post<Map>(url, data: FormData.fromMap(params ?? {}));
+        await _dio.post(url, data: FormData.fromMap(params ?? {}));
     return Result(response.data, response.statusCode, response.statusMessage);
   }
 
   @override
   Future<Result> postJson(String url, {Map<String, dynamic>? params}) async {
-    final Response response = await _dio.post<Map>(url, data: params);
+    final Response response = await _dio.post(url, data: params);
     return Result(response.data, response.statusCode, response.statusMessage);
   }
 
   @override
   Future<Result> del(String url, {Map<String, dynamic>? params}) async {
-    final Response response = await _dio.delete<Map>(url, data: params);
+    final Response response = await _dio.delete(url, data: params);
     return Result(response.data, response.statusCode, response.statusMessage);
   }
 
   @override
   Future<Result> put(String url, {Map<String, dynamic>? params}) async {
-    final Response response = await _dio.put<Map>(url, data: params);
+    final Response response = await _dio.put(url, data: params);
     return Result(response.data, response.statusCode, response.statusMessage);
   }
 
