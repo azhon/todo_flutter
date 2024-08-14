@@ -24,32 +24,57 @@ class DioEngine extends BaseNetEngine {
   @override
   Future<Result> get(String url, {Map<String, dynamic>? params}) async {
     final Response response = await _dio.get(url, queryParameters: params);
-    return Result(response.data, response.statusCode, response.statusMessage);
+    return Result(
+      response.data,
+      response.statusCode,
+      response.statusMessage,
+      url,
+    );
   }
 
   @override
   Future<Result> post(String url, {Map<String, dynamic>? params}) async {
     final Response response =
         await _dio.post(url, data: FormData.fromMap(params ?? {}));
-    return Result(response.data, response.statusCode, response.statusMessage);
+    return Result(
+      response.data,
+      response.statusCode,
+      response.statusMessage,
+      url,
+    );
   }
 
   @override
   Future<Result> postJson(String url, {Map<String, dynamic>? params}) async {
     final Response response = await _dio.post(url, data: params);
-    return Result(response.data, response.statusCode, response.statusMessage);
+    return Result(
+      response.data,
+      response.statusCode,
+      response.statusMessage,
+      url,
+    );
   }
 
   @override
   Future<Result> del(String url, {Map<String, dynamic>? params}) async {
     final Response response = await _dio.delete(url, data: params);
-    return Result(response.data, response.statusCode, response.statusMessage);
+    return Result(
+      response.data,
+      response.statusCode,
+      response.statusMessage,
+      url,
+    );
   }
 
   @override
   Future<Result> put(String url, {Map<String, dynamic>? params}) async {
     final Response response = await _dio.put(url, data: params);
-    return Result(response.data, response.statusCode, response.statusMessage);
+    return Result(
+      response.data,
+      response.statusCode,
+      response.statusMessage,
+      url,
+    );
   }
 
   ///设置连接超时时间

@@ -55,7 +55,7 @@ abstract class BaseRequest<T> with Paging {
   Future<BaseEntity<T>> request() async {
     final BaseNetEngine engine = netProvider.engine;
     final BaseConvert convert = netProvider.convert;
-    Result result = Result(null, null, null);
+    Result result = Result();
     final url = _realUrl;
     final logUrl = 'url：${engine.baseUrl}$url\nparams：${jsonEncode(params)}';
     LogUtil.d('BaseRequest：[request start]\n$logUrl\nmethod：$method');

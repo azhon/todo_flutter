@@ -5,10 +5,11 @@
 
 class Result {
   dynamic data;
+  String? url;
   int? statusCode;
   String? statusMessage;
 
-  Result(this.data, this.statusCode, this.statusMessage);
+  Result([this.data, this.statusCode, this.statusMessage, this.url]);
 }
 
 abstract class BaseNetEngine {
