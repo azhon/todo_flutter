@@ -35,7 +35,7 @@ dependencies:
   #  版本更新
   flutter_app_update: ^3.0.2
   #  网络抓包
-  network_capture: ^1.1.4
+  network_capture: ^1.1.5
   # 精度计算
   decimal: ^2.3.3
 dev_dependencies:
