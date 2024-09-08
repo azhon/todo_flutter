@@ -9,12 +9,14 @@ class CommonRichText extends BaseStatefulWidget {
   final int maxLines;
   final String? fontFamily;
   final TextOverflow? overflow;
+  final List<String>? fontFamilyFallback;
 
   const CommonRichText(
     this.params, {
     Key? key,
     this.fontFamily,
     this.maxLines = 1,
+    this.fontFamilyFallback,
     this.overflow = TextOverflow.ellipsis,
   }) : super(key: key);
 
@@ -25,7 +27,9 @@ class CommonRichText extends BaseStatefulWidget {
 class _CommonRichTextState extends BaseState<CommonRichText> {
   List<TextSpan> _getItem() {
     final defaultFontFamily = TodoLib.of(context).fontFamily;
+    final defaultFontFamilyFallback = TodoLib.of(context).fontFamilyFallback;
     final List<TextSpan> list = [];
+
     widget.params.forEach((element) {
       list.add(
         TextSpan(
@@ -37,6 +41,8 @@ class _CommonRichTextState extends BaseState<CommonRichText> {
             fontWeight: element.fontWeight,
             fontSize: setFontSize(element.size),
             fontFamily: widget.fontFamily ?? defaultFontFamily,
+            fontFamilyFallback:
+                widget.fontFamilyFallback ?? defaultFontFamilyFallback,
           ),
         ),
       );

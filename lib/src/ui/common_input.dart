@@ -30,6 +30,7 @@ class CommonInput extends BaseStatelessWidget {
   final FocusNode? focusNode;
   final String obscuringCharacter;
   final FontWeight? fontWeight;
+  final List<String>? fontFamilyFallback;
   final FontWeight? placeholderFontWeight;
   final TextEditingController? controller;
   final ValueChanged<String>? onTextChange;
@@ -66,6 +67,7 @@ class CommonInput extends BaseStatelessWidget {
     this.focusNode,
     this.onTextChange,
     this.fontWeight,
+    this.fontFamilyFallback,
     this.placeholderFontWeight,
     this.textAlign = TextAlign.start,
     this.prefixMode = OverlayVisibilityMode.always,
@@ -81,6 +83,8 @@ class CommonInput extends BaseStatelessWidget {
     final defaultPlaceholderColor = TodoLib.of(context).placeholderColor;
     final defaultInputTextColor = TodoLib.of(context).inputTextColor;
     final defaultFontFamily = TodoLib.of(context).fontFamily;
+    final defaultFontFamilyFallback = TodoLib.of(context).fontFamilyFallback;
+
     return IgnorePointer(
       ignoring: !enable,
       child: CupertinoTextField(
@@ -101,11 +105,13 @@ class CommonInput extends BaseStatelessWidget {
           color: color ?? defaultInputTextColor,
           fontSize: setFontSize(fontSize ?? defaultTextSize),
           fontFamily: fontFamily ?? defaultFontFamily,
+          fontFamilyFallback: fontFamilyFallback ?? defaultFontFamilyFallback,
         ),
         placeholderStyle: TextStyle(
           color: placeholderColor ?? defaultPlaceholderColor,
           fontSize: setFontSize(placeholderFontSize ?? defaultTextSize),
           fontFamily: fontFamily ?? defaultFontFamily,
+          fontFamilyFallback: fontFamilyFallback ?? defaultFontFamilyFallback,
         ),
         onChanged: (text) => onTextChange?.call(text),
         cursorColor: Theme.of(context).textSelectionTheme.cursorColor,

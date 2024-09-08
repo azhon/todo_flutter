@@ -69,6 +69,9 @@ class TodoLibData {
   ///toast配置
   ToastThemeData toastThemeData;
 
+  ///解决ios 中文[FontWeight.w500]不起作用bug
+  List<String>? fontFamilyFallback;
+
   ///文本国际化
   Map<String, TextDelegate>? textDelegates;
 
@@ -76,6 +79,7 @@ class TodoLibData {
     this.buttonHeight = 45,
     this.clickInterceptInterval = 1000,
     this.textSize = 14,
+    this.fontFamilyFallback,
     this.placeholderColor = const Color(0xFFC7CCD5),
     this.inputTextColor = const Color(0xFF393C42),
     this.inputBackgroundColor = const Color(0xFFF6F7F9),

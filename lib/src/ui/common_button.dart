@@ -26,6 +26,7 @@ class CommonButton extends BaseStatelessWidget {
   final Gradient? gradient;
   final VoidCallback? onPressed;
   final VoidCallback? onLongPress;
+  final List<String>? fontFamilyFallback;
 
   const CommonButton(
     this.text, {
@@ -44,6 +45,7 @@ class CommonButton extends BaseStatelessWidget {
     this.gradient,
     this.borderWidth = 1,
     this.disable = false,
+    this.fontFamilyFallback,
     this.borderColor = Colors.transparent,
     this.textColor = Colors.white,
   }) : super(key: key);
@@ -53,6 +55,7 @@ class CommonButton extends BaseStatelessWidget {
     final primaryColor = Theme.of(context).primaryColor;
     final double defaultButtonHeight = TodoLib.of(context).buttonHeight;
     final defaultFontFamily = TodoLib.of(context).fontFamily;
+    final defaultFontFamilyFallback = TodoLib.of(context).fontFamilyFallback;
 
     return IgnorePointer(
       ignoring: disable,
@@ -85,6 +88,7 @@ class CommonButton extends BaseStatelessWidget {
             fontWeight: fontWeight,
             fontSize: fontSize,
             fontFamily: fontFamily ?? defaultFontFamily,
+            fontFamilyFallback: fontFamilyFallback ?? defaultFontFamilyFallback,
           ),
         ),
       ),

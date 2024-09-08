@@ -22,6 +22,7 @@ class CommonText extends BaseStatelessWidget {
   final FontStyle fontStyle;
   final TextAlign? textAlign;
   final StrutStyle? strutStyle;
+  final List<String>? fontFamilyFallback;
   final TextDecorationStyle? decorationStyle;
 
   const CommonText(
@@ -40,6 +41,7 @@ class CommonText extends BaseStatelessWidget {
     this.overflow,
     this.textAlign,
     this.strutStyle,
+    this.fontFamilyFallback,
     this.fontStyle = FontStyle.normal,
   }) : super(key: key);
 
@@ -47,6 +49,7 @@ class CommonText extends BaseStatelessWidget {
   Widget build(BuildContext context) {
     final defaultFonSize = fontSize ?? TodoLib.of(context).textSize;
     final defaultFontFamily = TodoLib.of(context).fontFamily;
+    final defaultFontFamilyFallback = TodoLib.of(context).fontFamilyFallback;
 
     ///calculate height
     double? fontHeight = height;
@@ -69,6 +72,7 @@ class CommonText extends BaseStatelessWidget {
         decoration: decoration,
         decorationStyle: decorationStyle,
         fontStyle: fontStyle,
+        fontFamilyFallback: fontFamilyFallback ?? defaultFontFamilyFallback,
       ),
     );
   }
