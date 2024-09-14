@@ -2,6 +2,7 @@ library todo_flutter;
 
 export 'src/base/base_state.dart';
 export 'src/base/ui_adapter.dart';
+export 'src/base/ui_widget.dart';
 export 'src/base/base_stateful_widget.dart';
 export 'src/base/base_stateless_widget.dart';
 export 'src/base/bloc/base_bloc.dart';
