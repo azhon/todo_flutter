@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todo_flutter/src/base/base_stateful_widget.dart';
 import 'package:todo_flutter/src/ui/widget/loading_dialog_widget.dart';
+import 'package:todo_flutter/todo_flutter.dart';
 
 /// createTime: 2023/4/4 on 20:14
 /// desc:
@@ -28,6 +28,9 @@ class _LoadingDialogState extends State<LoadingDialogInit> {
           LoadingDialog.instance.currWidget ?? const SizedBox.shrink(),
     );
     LoadingDialog.instance.overlayEntry = _overlayEntry;
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      LoadingDialog.instance.customLoading = TodoLib.of(context).loadingWidget;
+    });
   }
 
   @override
@@ -51,6 +54,7 @@ class LoadingDialog {
   static final LoadingDialog instance = LoadingDialog._internal();
   OverlayEntry? overlayEntry;
   Widget? currWidget;
+  Widget? customLoading;
 
   LoadingDialog._internal();
 
@@ -70,7 +74,7 @@ class LoadingDialog {
   }
 
   void _show({String? msg}) {
-    currWidget = LoadingDialogWidget(msg: msg);
+    currWidget = customLoading ?? LoadingDialogWidget(msg: msg);
     overlayEntry?.markNeedsBuild();
   }
 

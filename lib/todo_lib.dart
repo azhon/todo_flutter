@@ -75,16 +75,20 @@ class TodoLibData {
   ///文本国际化
   Map<String, TextDelegate>? textDelegates;
 
+  ///加载组件
+  Widget? loadingWidget;
+
   TodoLibData({
     this.buttonHeight = 45,
     this.clickInterceptInterval = 1000,
     this.textSize = 14,
-    this.fontFamilyFallback,
     this.placeholderColor = const Color(0xFFC7CCD5),
     this.inputTextColor = const Color(0xFF393C42),
     this.inputBackgroundColor = const Color(0xFFF6F7F9),
     this.toastThemeData = const ToastThemeData(),
     this.fontFamily,
+    this.fontFamilyFallback,
+    this.loadingWidget,
   }) {
     textDelegates = _updateTextDelegates(textDelegates);
   }
