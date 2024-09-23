@@ -18,6 +18,7 @@ analyzer:
     avoid_function_literals_in_foreach_calls: ignore
     parameter_assignments: ignore
     cascade_invocations: ignore
+    use_setters_to_change_properties: ignore
 linter:
   rules:
     - always_declare_return_types
