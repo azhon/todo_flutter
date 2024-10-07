@@ -57,8 +57,7 @@ abstract class BaseRequest<T> with Paging {
     final BaseConvert convert = netProvider.convert;
     Result result = Result();
     final url = _realUrl;
-    final logUrl = 'url：${engine.baseUrl}$url\nparams：${jsonEncode(params)}';
-    LogUtil.d('BaseRequest：[request start]\n$logUrl\nmethod：$method');
+    final logUrl = _printLog(engine);
     try {
       switch (method) {
         case RequestMethod.get:
@@ -82,6 +81,18 @@ abstract class BaseRequest<T> with Paging {
       LogUtil.d('BaseRequest：[request error] $logUrl\n${result.statusMessage}');
     }
     return convert.convert<T>(result);
+  }
+
+  String _printLog(BaseNetEngine engine) {
+    String paramsStr = params.toString();
+    try {
+      paramsStr = jsonEncode(params);
+    } catch (e) {
+      ///ignore
+    }
+    final logUrl = 'url：${engine.baseUrl}$url\nparams：$paramsStr';
+    LogUtil.d('BaseRequest：[request start]\n$logUrl\nmethod：$method');
+    return logUrl;
   }
 
   ///获取异常信息

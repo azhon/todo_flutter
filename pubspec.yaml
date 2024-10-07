@@ -1,6 +1,6 @@
 name: todo_flutter
 description: Flutter项目开发脚手架
-version: 0.0.1
+version: 1.5.8
 homepage: https://github.com/azhon/todo_flutter
 
 environment:
