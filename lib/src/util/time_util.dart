@@ -10,12 +10,36 @@ class TimeUtil {
     return DateTime.now();
   }
 
-  static String hhmmss(int timestamp) {
-    return formatTime(timestamp, format: 'HH:mm:ss');
+  static String year(int timestamp) {
+    return formatTime(timestamp, format: 'yyyy');
+  }
+
+  static String month(int timestamp) {
+    return formatTime(timestamp, format: 'MM');
+  }
+
+  static String day(int timestamp) {
+    return formatTime(timestamp, format: 'dd');
   }
 
   static String yyyyMMdd(int timestamp) {
     return formatTime(timestamp, format: 'yyyy-MM-dd');
+  }
+
+  static String hour(int timestamp) {
+    return formatTime(timestamp, format: 'HH');
+  }
+
+  static String minutes(int timestamp) {
+    return formatTime(timestamp, format: 'mm');
+  }
+
+  static String seconds(int timestamp) {
+    return formatTime(timestamp, format: 'ss');
+  }
+
+  static String hhmmss(int timestamp) {
+    return formatTime(timestamp, format: 'HH:mm:ss');
   }
 
   ///格式化时间
@@ -30,15 +54,19 @@ class TimeUtil {
         .format(DateTime.fromMillisecondsSinceEpoch(timestamp));
   }
 
+  static int parseTimestamp(String? time) {
+    return parseDate(time).millisecondsSinceEpoch;
+  }
+
   ///解析时间
-  static int parseTime(String? time) {
-    if (time == null || time.isEmpty) {
-      return 0;
-    }
+  static DateTime parseDate(String? time) {
     try {
-      return DateTime.parse(time).millisecondsSinceEpoch;
+      if (time == null || time.isEmpty) {
+        throw Exception('time is empty.');
+      }
+      return DateTime.parse(time);
     } catch (e) {
-      return 0;
+      return DateTime.now();
     }
   }
 }
