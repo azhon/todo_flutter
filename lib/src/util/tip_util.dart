@@ -33,7 +33,7 @@ void cancelToast() {
 }
 
 ///显示等待对话框
-void showLoading({String? msg}) {
+void showLoading([String? msg]) {
   LoadingDialog.show(msg: msg);
 }
 

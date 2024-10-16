@@ -11,42 +11,42 @@ class TimeUtil {
   }
 
   static String year(int timestamp) {
-    return formatTime(timestamp, format: 'yyyy');
+    return formatTime(timestamp, 'yyyy');
   }
 
   static String month(int timestamp) {
-    return formatTime(timestamp, format: 'MM');
+    return formatTime(timestamp, 'MM');
   }
 
   static String day(int timestamp) {
-    return formatTime(timestamp, format: 'dd');
+    return formatTime(timestamp, 'dd');
   }
 
   static String yyyyMMdd(int timestamp) {
-    return formatTime(timestamp, format: 'yyyy-MM-dd');
+    return formatTime(timestamp, 'yyyy-MM-dd');
   }
 
   static String hour(int timestamp) {
-    return formatTime(timestamp, format: 'HH');
+    return formatTime(timestamp, 'HH');
   }
 
   static String minutes(int timestamp) {
-    return formatTime(timestamp, format: 'mm');
+    return formatTime(timestamp, 'mm');
   }
 
   static String seconds(int timestamp) {
-    return formatTime(timestamp, format: 'ss');
+    return formatTime(timestamp, 'ss');
   }
 
   static String hhmmss(int timestamp) {
-    return formatTime(timestamp, format: 'HH:mm:ss');
+    return formatTime(timestamp, 'HH:mm:ss');
   }
 
   ///格式化时间
   static String formatTime(
-    int timestamp, {
+    int timestamp, [
     String format = 'yyyy-MM-dd HH:mm:ss',
-  }) {
+  ]) {
     if (timestamp <= 0) {
       return '';
     }
