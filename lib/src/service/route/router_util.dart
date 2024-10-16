@@ -90,11 +90,23 @@ class RouterUtil {
   void popUntil(String untilRoute, [Bundle? bundle]) {
     Navigator.of(TodoLib.navigatorKey.currentContext!).popUntil((route) {
       if (route.settings.name == untilRoute) {
-        (route.settings.arguments! as Bundle).copyWith(bundle);
+        final arguments = route.settings.arguments;
+        if (arguments != null && arguments is Bundle) {
+          arguments.copyWith(bundle);
+        }
         return true;
       }
       return false;
     });
+  }
+
+  ///返回到App指定路由，如果不存在则返回到根路由
+  void popToMain(String route, [Bundle? bundle]) {
+    if (RouterHistoryStack.instance.exist(route)) {
+      popUntil(route, bundle);
+    } else {
+      popUntil(Navigator.defaultRouteName, bundle);
+    }
   }
 
   ///移除指定[route]路由名称的路由
