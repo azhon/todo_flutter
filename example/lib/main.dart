@@ -43,7 +43,6 @@ class _MyHomePageState extends BaseState<MyHomePage> {
     ['Bloc示例', ExampleRoute.blocPage],
     ['网络示例', ExampleRoute.netPage],
     ['下拉刷新示例', ExampleRoute.refreshPage],
-    ['版本更新示例', ExampleRoute.appUpdatePage],
     ['Sliver示例', ExampleRoute.sliverPage],
   ];
 

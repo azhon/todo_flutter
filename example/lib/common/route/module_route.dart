@@ -1,10 +1,5 @@
-/// createTime: 2021/9/17 on 18:12
-/// desc:
-///
-/// @author azhon
 import 'package:todo_flutter/todo_flutter.dart';
 import 'package:todo_flutter_example/generated/route/example_route.dart';
-import 'package:todo_flutter_example/view/app_update_page.dart';
 import 'package:todo_flutter_example/view/bloc_page.dart';
 import 'package:todo_flutter_example/view/button_page.dart';
 import 'package:todo_flutter_example/view/dialog_page.dart';
@@ -15,6 +10,11 @@ import 'package:todo_flutter_example/view/refresh_page.dart';
 import 'package:todo_flutter_example/view/sliver_page.dart';
 import 'package:todo_flutter_example/view/text_page.dart';
 import 'package:todo_flutter_example/view/toast_page.dart';
+
+/// createTime: 2021/9/17 on 18:12
+/// desc:
+///
+/// @author azhon
 
 class ModuleRoute {
   ///添加模块路由
@@ -54,10 +54,6 @@ class ModuleRoute {
     RouterUtil.instance.addRoute(ExampleRoute.refreshPage,
         (Map<String, dynamic> map) {
       return const RefreshPage();
-    });
-    RouterUtil.instance.addRoute(ExampleRoute.appUpdatePage,
-        (Map<String, dynamic> map) {
-      return const AppUpdatePage();
     });
     RouterUtil.instance.addRoute(ExampleRoute.sliverPage,
         (Map<String, dynamic> map) {

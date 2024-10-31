@@ -10,5 +10,4 @@ class ExampleRoute {
   static const dialogPage = '/example/dialogPage';
   static const sliverPage = '/example/sliverPage';
   static const refreshPage = '/example/refreshPage';
-  static const appUpdatePage = '/example/appUpdatePage';
 }
