@@ -32,8 +32,6 @@ dependencies:
   intl: ^0.19.0
   #  模块通信
   module_bridge: ^1.0.4
-  #  版本更新
-  flutter_app_update: ^3.1.2
   #  网络抓包
   network_capture: ^1.1.7
   # 精度计算

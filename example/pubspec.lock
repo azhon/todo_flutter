@@ -151,13 +151,13 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_app_update:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_app_update
-      sha256: "010afbe4bda1764e94b2f930210858587484f825aca682b909c0937df947149d"
+      sha256: "86d154604493e314d6e78c53ae562b349ee5b80707a5f0239c5485af417875de"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "3.1.2"
+    version: "3.2.0"
   flutter_bloc:
     dependency: transitive
     description:
