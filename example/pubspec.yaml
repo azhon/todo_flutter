@@ -30,7 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   extended_nested_scroll_view: ^6.1.2
   #  版本更新
-  flutter_app_update: ^3.1.2
+  flutter_app_update: ^3.2.0
   todo_flutter:
     path: ../../todo_flutter
 

@@ -16,6 +16,14 @@ class AppUpdatePage extends StatefulWidget {
 
 class _AppUpdatePageState extends BaseState<AppUpdatePage> {
   @override
+  void initState() {
+    super.initState();
+    AzhonAppUpdate.listener((model) {
+      debugPrint(model.toString());
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('版本更新示例')),
