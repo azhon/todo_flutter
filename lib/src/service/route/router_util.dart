@@ -6,6 +6,7 @@
 import 'dart:io';
 
 import 'package:fluro/fluro.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_flutter/src/service/route/bundle.dart';
 import 'package:todo_flutter/src/service/route/router_history_stack.dart';
@@ -139,7 +140,7 @@ class RouterUtil {
       arguments: bundle,
     );
     final route = redirectRoute + bundle.toUri();
-    if (Platform.isIOS) {
+    if (!kIsWeb && Platform.isIOS) {
       transition = TransitionType.cupertino;
     }
     return _router.navigateTo(
