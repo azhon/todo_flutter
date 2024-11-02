@@ -56,3 +56,6 @@
     ├── text_page.dart
     └── toast_page.dart
 ```
+
+### 运行之Web端
+> 增加启动参数：--web-renderer html
