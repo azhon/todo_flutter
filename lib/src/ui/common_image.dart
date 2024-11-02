@@ -3,13 +3,13 @@
 ///
 /// @author azhon
 
-import 'dart:io' as io;
 import 'dart:typed_data';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:todo_flutter/generated/assets/todo_flutter_assets.dart';
 import 'package:todo_flutter/src/base/base_stateless_widget.dart';
 import 'package:todo_flutter/src/ui/widget/circular_progress_widget.dart';
+import 'package:extended_image_library/extended_image_library.dart';
 
 typedef BuildStateWidget = Widget Function(
   LoadState state,
@@ -21,7 +21,7 @@ class CommonImage extends BaseStatelessWidget {
   final String? network;
   final String? asset;
   final Uint8List? memory;
-  final io.File? file;
+  final File? file;
   final BoxFit fit;
   final double? width;
   final double? height;
