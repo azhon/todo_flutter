@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_flutter/src/base/base_stateless_widget.dart';
 
@@ -25,7 +26,7 @@ class _RemoveRippleBehavior extends ScrollBehavior {
     Widget child,
     ScrollableDetails details,
   ) {
-    if (Platform.isAndroid) {
+    if (!kIsWeb && Platform.isAndroid) {
       return child;
     }
     return super.buildOverscrollIndicator(context, child, details);
