@@ -10,6 +10,10 @@ class TimeUtil {
     return DateTime.now();
   }
 
+  static int nowUnix() {
+    return DateTime.now().millisecondsSinceEpoch;
+  }
+
   static String year(int timestamp) {
     return formatTime(timestamp, 'yyyy');
   }
