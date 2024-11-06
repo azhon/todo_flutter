@@ -61,11 +61,13 @@ export 'src/util/object_util.dart';
 export 'src/util/preference_util.dart';
 export 'src/util/time_util.dart';
 export 'src/util/tip_util.dart';
+export 'src/util/calculate_util.dart';
 
 export 'todo_lib.dart';
 
 ///other library
 export 'package:dio/dio.dart';
+export 'package:decimal/decimal.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
 export 'package:fluttertoast/fluttertoast.dart';
 export 'package:module_bridge/module_bridge.dart';
