@@ -58,6 +58,14 @@ class TimeUtil {
         .format(DateTime.fromMillisecondsSinceEpoch(timestamp));
   }
 
+  ///格式化时间
+  static String formatDate(
+    DateTime date, [
+    String format = 'yyyy-MM-dd HH:mm:ss',
+  ]) {
+    return formatTime(date.millisecondsSinceEpoch, format);
+  }
+
   static int parseTimestamp(String? time) {
     return parseDate(time).millisecondsSinceEpoch;
   }
