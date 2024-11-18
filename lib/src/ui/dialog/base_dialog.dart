@@ -275,7 +275,7 @@ mixin BaseDialog implements UIWidget {
       child: CommonButton(
         text,
         fontSize: fontSize,
-        height: setWidth(40),
+        height: 40,
         textColor: color,
         color: Colors.transparent,
         onPressed: () {
