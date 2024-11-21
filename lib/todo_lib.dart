@@ -89,6 +89,7 @@ class TodoLibData {
     this.fontFamily,
     this.fontFamilyFallback,
     this.loadingWidget,
+    this.textDelegates,
   }) {
     textDelegates = _updateTextDelegates(textDelegates);
   }
