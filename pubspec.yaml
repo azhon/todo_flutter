@@ -33,7 +33,7 @@ dependencies:
   #  模块通信
   module_bridge: ^1.0.5
   #  网络抓包
-  network_capture: ^1.1.8
+  network_capture: ^1.1.9
   # 精度计算
   decimal: ^2.3.3
 dev_dependencies:
