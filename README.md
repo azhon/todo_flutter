@@ -31,7 +31,7 @@ void main() {
 - 使用[flutter_screenutil](https://pub.dev/packages/flutter_screenutil)
 
 ### 四、图片资源生成
-- 使用[FlutterResource插件](https://github.com/Xie-Yin/FlutterResource)
+- 使用[FlutterResource插件](https://github.com/azhon/FlutterResource)
 
 ### 五、模块化开发
 - 使用[ModuleBridge插件](https://github.com/azhon/module_bridge)
