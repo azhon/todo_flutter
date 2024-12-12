@@ -2,6 +2,7 @@ import 'dart:collection';
 
 import 'package:flutter/material.dart';
 import 'package:todo_flutter/src/service/route/bundle.dart';
+import 'package:todo_flutter/src/util/object_util.dart';
 
 /// createTime: 2022/8/30 on 11:41
 /// desc:
@@ -22,8 +23,11 @@ class RouterHistoryStack {
     return _instance!;
   }
 
+  ///dialog 默认没有路由名称，需主动设置
   void _push(Route route) {
-    _queue.add(route);
+    if (ObjectUtil.isNotEmpty(route.settings.name)) {
+      _queue.add(route);
+    }
   }
 
   void _replace(Route newRoute, Route oldRoute) {
