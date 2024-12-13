@@ -21,7 +21,7 @@ class _BlocPageState extends BaseState<BlocPage> {
   @override
   void initState() {
     super.initState();
-    addBloc(TestBloc()..setState(this));
+    addBloc(TestBloc());
   }
 
   @override

@@ -1,13 +1,14 @@
-/// createTime: 2021/9/29 on 16:49
-/// desc:
-///
-/// @author azhon
-
+import 'package:flutter/cupertino.dart';
 import 'package:todo_flutter/src/base/bloc/base_event.dart';
 import 'package:todo_flutter/src/base/loading_state.dart';
 import 'package:todo_flutter/src/bloc/load/load_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_flutter/src/service/error/domain_exception.dart';
+
+/// createTime: 2021/9/29 on 16:49
+/// desc:
+///
+/// @author azhon
 
 abstract class BaseLoadBloc<E extends BaseEvent, S> extends Bloc<E, S> {
   BaseLoadBloc(S initialState) : super(initialState) {
@@ -43,7 +44,7 @@ abstract class BaseBloc<E extends BaseEvent, S> extends BaseLoadBloc<E, S> {
 
   LoadBloc get loadBloc => _loadBloc;
 
-  Future<void> setState(LoadingState? state) async {
+  Future<void> setState(LoadingState state) async {
     _loadingState = state;
   }
 
@@ -51,7 +52,17 @@ abstract class BaseBloc<E extends BaseEvent, S> extends BaseLoadBloc<E, S> {
 
   ///view层接受bloc层事件
   void sendEventToView(String type, [data]) {
-    _loadingState?.sendEventToView(type, data);
+    if (_loadingState == null) {
+      throw Exception('Please use [BaseState.addBloc()] first...');
+    }
+    _loadingState!.sendEventToView(type, data);
+  }
+
+  BuildContext get context {
+    if (_loadingState == null) {
+      throw Exception('Please use [BaseState.addBloc()] first...');
+    }
+    return _loadingState!.buildContext;
   }
 
   ///配合BlocLoadWidget使用，开始加载
@@ -78,5 +89,6 @@ abstract class BaseBloc<E extends BaseEvent, S> extends BaseLoadBloc<E, S> {
   Future<void> close() async {
     await loadBloc.close();
     await super.close();
+    _loadingState = null;
   }
 }

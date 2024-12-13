@@ -25,7 +25,7 @@ class TodoLib extends InheritedWidget {
     final TodoLib? todoLib =
         context.dependOnInheritedWidgetOfExactType<TodoLib>();
     if (todoLib == null) {
-      throw Exception('please init [TodoLib] first...');
+      throw Exception('Please init [TodoLib] first...');
     }
     return todoLib.data ?? TodoLibData();
   }

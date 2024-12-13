@@ -20,7 +20,7 @@ class _NetPageState extends BaseState<NetPage> {
   @override
   void initState() {
     super.initState();
-    addBloc(NetBloc()..setState(this));
+    addBloc(NetBloc());
   }
 
   @override

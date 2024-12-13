@@ -73,13 +73,13 @@ class CommonInputArea extends BaseStatefulWidget {
 }
 
 class _CommonInputAreaState extends BaseState<CommonInputArea> {
-  DataChangeBloc<int> get _countBloc => getBloc<DataChangeBloc<int>>();
+  late DataChangeBloc<int> _countBloc;
 
   @override
   void initState() {
     super.initState();
     final length = widget.controller?.text.length ?? 0;
-    addBloc(DataChangeBloc<int>(length));
+    _countBloc = DataChangeBloc<int>(length);
   }
 
   @override
@@ -140,5 +140,11 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _countBloc.close();
   }
 }

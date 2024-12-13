@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:todo_flutter/src/base/bloc/base_bloc.dart';
 import 'package:todo_flutter/src/base/loading_state.dart';
 import 'package:todo_flutter/src/base/ui_adapter.dart';
 import 'package:todo_flutter/src/base/ui_widget.dart';
@@ -18,12 +19,13 @@ abstract class BaseUIState<T extends StatefulWidget> extends State<T>
 ///bloc
 abstract class BaseBlocState<T extends StatefulWidget> extends BaseUIState<T>
     with LoadingState {
-  List<BlocBase>? _blocs;
+  List<BaseBloc>? _blocs;
 
   ///添加bloc进行管理
-  void addBloc(BlocBase bloc) {
+  void addBloc(BaseBloc bloc) {
     _blocs ??= [];
     _blocs!.add(bloc);
+    bloc.setState(this);
   }
 
   ///获取bloc进行管理
@@ -39,6 +41,9 @@ abstract class BaseBlocState<T extends StatefulWidget> extends BaseUIState<T>
 
   @override
   void sendEventToView(String type, [data]) {}
+
+  @override
+  BuildContext get buildContext => context;
 
   @override
   void dispose() {
