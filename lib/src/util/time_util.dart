@@ -67,18 +67,18 @@ class TimeUtil {
   }
 
   static int parseTimestamp(String? time) {
-    return parseDate(time).millisecondsSinceEpoch;
+    return parseDate(time)?.millisecondsSinceEpoch ?? 0;
   }
 
   ///解析时间
-  static DateTime parseDate(String? time) {
+  static DateTime? parseDate(String? time) {
     try {
       if (time == null || time.isEmpty) {
         throw Exception('time is empty.');
       }
       return DateTime.parse(time);
     } catch (e) {
-      return DateTime.now();
+      return null;
     }
   }
 }
