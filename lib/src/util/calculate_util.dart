@@ -21,7 +21,12 @@ class CalculateUtil {
   }
 
   ///除法
-  static Decimal divide(double a, double b) {
+  ///[scaleOnInfinitePrecision] 保留几位小数
+  static Decimal divide(
+    double a,
+    double b, [
+    int scaleOnInfinitePrecision = 2,
+  ]) {
     final result = Decimal.parse(a.toString()) / Decimal.parse(b.toString());
     return result.toDecimal();
   }
