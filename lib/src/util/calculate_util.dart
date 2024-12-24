@@ -28,6 +28,6 @@ class CalculateUtil {
     int scaleOnInfinitePrecision = 2,
   ]) {
     final result = Decimal.parse(a.toString()) / Decimal.parse(b.toString());
-    return result.toDecimal();
+    return result.toDecimal(scaleOnInfinitePrecision: scaleOnInfinitePrecision);
   }
 }
