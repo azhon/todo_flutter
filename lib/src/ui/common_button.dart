@@ -27,6 +27,8 @@ class CommonButton extends BaseStatelessWidget {
   final VoidCallback? onPressed;
   final VoidCallback? onLongPress;
   final List<String>? fontFamilyFallback;
+  final TextAlign? textAlign;
+  final TextOverflow? overflow;
 
   const CommonButton(
     this.text, {
@@ -43,6 +45,8 @@ class CommonButton extends BaseStatelessWidget {
     this.onPressed,
     this.onLongPress,
     this.gradient,
+    this.textAlign,
+    this.overflow,
     this.borderWidth = 1,
     this.disable = false,
     this.fontFamilyFallback,
@@ -87,6 +91,8 @@ class CommonButton extends BaseStatelessWidget {
             color: textColor,
             fontWeight: fontWeight,
             fontSize: fontSize,
+            textAlign: textAlign,
+            overflow: overflow,
             fontFamily: fontFamily ?? defaultFontFamily,
             fontFamilyFallback: fontFamilyFallback ?? defaultFontFamilyFallback,
           ),
