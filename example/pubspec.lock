@@ -340,10 +340,10 @@ packages:
     dependency: transitive
     description:
       name: network_capture
-      sha256: "8c4fa7ffaca96f6363c273cb6c710a14df58abdd10a2c7f5a07cf810b158c933"
+      sha256: f1acdd4d0e56327b07e1a6184df278dafafe30a6ea4dd7dd25fe88bbe0f54bbd
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.1.8"
+    version: "1.1.9"
   path:
     dependency: transitive
     description:
@@ -603,7 +603,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "1.5.8"
+    version: "1.6.7"
   typed_data:
     dependency: transitive
     description:
