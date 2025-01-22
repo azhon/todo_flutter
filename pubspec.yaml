@@ -4,7 +4,7 @@ version: 0.0.1
 homepage: https://github.com/azhon/todo_flutter
 
 environment:
-  sdk: ">=2.15.0 <3.0.0"
+  sdk: ">=2.15.0 <4.0.0"
   flutter: ">=3.7.0"
 
 dependencies:
@@ -16,6 +16,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   #  图片库
   extended_image: ^9.0.4
+  extended_image_library: ^4.0.5
   #  bloc状态管理
   flutter_bloc: ^8.1.6
   #  网络库

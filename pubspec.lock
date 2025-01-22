@@ -90,7 +90,7 @@ packages:
     source: hosted
     version: "9.0.4"
   extended_image_library:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: extended_image_library
       sha256: "9a94ec9314aa206cfa35f16145c3cd6e2c924badcc670eaaca8a3a8063a68cd7"
