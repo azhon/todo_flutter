@@ -20,7 +20,7 @@ class ListBloc<T> extends BaseBloc<ListEvent<T>, ListState<T>> {
     required this.request,
     this.pageSize = 15,
     this.startPageNum = 1,
-  }) : super(InitialState(<T>[])) {
+  }) : super(InitialState(<T>[], null)) {
     this.pageNum = startPageNum;
   }
 

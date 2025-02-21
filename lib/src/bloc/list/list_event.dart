@@ -13,14 +13,14 @@ class InitEvent<T> extends ListEvent<T> {
     final bean = await bloc.request.request();
     if (bean.code == BaseEntity.defaultCode) {
       bloc.loadError(NetworkException(bean));
-      return InitialState<T>(<T>[]);
+      return InitialState<T>(<T>[], bean);
     }
     final list = bean.data ?? <T>[];
     bloc.loadDone();
     if (bean.curPage == bean.totalPage) {
       bloc.controller.loadNoData();
     }
-    return InitialState(list);
+    return InitialState(list, bean);
   }
 }
 
@@ -30,7 +30,7 @@ class RefreshEvent<T> extends ListEvent<T> {
     final bean = await bloc.request.request();
     if (bean.code == BaseEntity.defaultCode) {
       bloc.loadError(NetworkException(bean));
-      return InitialState<T>(<T>[]);
+      return InitialState<T>(<T>[], bean);
     }
     final list = bean.data ?? <T>[];
     bloc.controller.refreshCompleted();
@@ -39,7 +39,7 @@ class RefreshEvent<T> extends ListEvent<T> {
     } else {
       bloc.controller.resetNoData();
     }
-    return InitialState(list);
+    return InitialState(list, bean);
   }
 }
 
@@ -59,7 +59,7 @@ class LoadMoreEvent<T> extends ListEvent<T> {
     } else {
       bloc.controller.loadComplete();
     }
-    return InitialState(currentState.data);
+    return InitialState(currentState.data, bean);
   }
 }
 
@@ -70,6 +70,6 @@ class UpdateEvent<T> extends ListEvent<T> {
 
   @override
   Future<ListState<T>> on(ListBloc<T> bloc, ListState<T> currentState) async {
-    return InitialState(list);
+    return InitialState(list, currentState.entity);
   }
 }

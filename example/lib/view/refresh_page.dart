@@ -30,7 +30,7 @@ class _RefreshPageState extends BaseState<RefreshPage> {
       appBar: AppBar(title: const Text('下拉刷新示例')),
       body: CommonRefreshWidget<ListDataEntity>(
         bloc: _listBloc,
-        child: (BuildContext context, List<ListDataEntity> list) {
+        child: (context, list, entity) {
           return ListView.builder(
             itemCount: list.length,
             padding: all(16),

@@ -2,12 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:todo_flutter/src/base/base_state.dart';
 import 'package:todo_flutter/src/bloc/list/list_bloc.dart';
 import 'package:todo_flutter/src/bloc/list/list_state.dart';
+import 'package:todo_flutter/src/net/entity/base_entity.dart';
 import 'package:todo_flutter/src/ui/common_empty_widget.dart';
 import 'package:todo_flutter/src/ui/widget/bloc_load_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-typedef RefreshChild<T> = Widget Function(BuildContext context, List<T> list);
+typedef RefreshChild<T> = Widget Function(
+  BuildContext context,
+  List<T> list,
+  BaseEntity? entity,
+);
 
 class CommonRefreshWidget<T> extends StatefulWidget {
   final ListBloc<T> bloc;
@@ -62,7 +67,7 @@ class _CommonRefreshWidgetState<T> extends BaseState<CommonRefreshWidget<T>>
             header: const MaterialClassicHeader(),
             child: state.data.isEmpty
                 ? _emptyView()
-                : widget.child.call(context, state.data),
+                : widget.child.call(context, state.data, state.entity),
           ),
         );
       },
