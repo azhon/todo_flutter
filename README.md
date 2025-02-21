@@ -10,11 +10,7 @@
 ### 一、依赖本库：
 
 ```dart
-todo_flutter:
-  git:
-    url: https://github.com/azhon/todo_flutter
-    # 依赖合适的Release、Tag
-    ref: 1.0.1
+todo_flutter: ^latest_version
 ```
 - 初始化
 
