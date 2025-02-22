@@ -8,11 +8,7 @@ import 'package:todo_flutter/src/ui/widget/bloc_load_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-typedef RefreshChild<T> = Widget Function(
-  BuildContext context,
-  List<T> list,
-  BaseEntity? entity,
-);
+typedef RefreshChild<T> = Widget Function(BuildContext context, List<T> list);
 
 class CommonRefreshWidget<T> extends StatefulWidget {
   final ListBloc<T> bloc;
@@ -22,11 +18,13 @@ class CommonRefreshWidget<T> extends StatefulWidget {
   final Widget? emptyWidget;
   final bool wantKeepAlive;
   final bool autoInit;
+  final ValueChanged<BaseEntity?>? result;
 
   const CommonRefreshWidget({
     required this.bloc,
     required this.child,
     this.emptyWidget,
+    this.result,
     this.enablePullDown = true,
     this.enablePullUp = true,
     this.wantKeepAlive = false,
@@ -54,6 +52,7 @@ class _CommonRefreshWidgetState<T> extends BaseState<CommonRefreshWidget<T>>
     return BlocBuilder<ListBloc<T>, ListState<T>>(
       bloc: widget.bloc,
       builder: (BuildContext context, ListState<T> state) {
+        widget.result?.call(state.entity);
         return BlocLoadWidget(
           loadBloc: widget.bloc.loadBloc,
           reload: () => widget.bloc.init(),
@@ -67,7 +66,7 @@ class _CommonRefreshWidgetState<T> extends BaseState<CommonRefreshWidget<T>>
             header: const MaterialClassicHeader(),
             child: state.data.isEmpty
                 ? _emptyView()
-                : widget.child.call(context, state.data, state.entity),
+                : widget.child.call(context, state.data),
           ),
         );
       },
