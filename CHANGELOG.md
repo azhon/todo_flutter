@@ -1,3 +1,7 @@
+## 0.0.4
+* fix listBloc init event
+* opt
+
 ## 0.0.3
 * opt listBloc result
 
