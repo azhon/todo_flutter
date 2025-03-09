@@ -19,6 +19,8 @@ class InitEvent<T> extends ListEvent<T> {
     bloc.loadDone();
     if (bean.curPage == bean.totalPage) {
       bloc.controller.loadNoData();
+    } else {
+      bloc.controller.resetNoData();
     }
     return InitialState(list, bean);
   }

@@ -12,5 +12,5 @@ extension BuildContextEx on BuildContext {
   double get bottom => MediaQuery.of(this).padding.bottom;
 
   ///
-  Size get size => MediaQuery.of(this).size;
+  Size get screenSize => MediaQuery.of(this).size;
 }
