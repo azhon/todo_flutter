@@ -18,6 +18,7 @@ class TodoApp extends StatelessWidget {
   final Locale? locale;
   final Size designSize;
   final TodoLibData? libData;
+  final TransitionBuilder? builder;
   final bool debugShowCheckedModeBanner;
   final Iterable<Locale> supportedLocales;
   final GlobalKey<NavigatorState>? navigatorKey;
@@ -31,6 +32,7 @@ class TodoApp extends StatelessWidget {
     this.darkTheme,
     this.libData,
     this.locale,
+    this.builder,
     this.navigatorKey,
     this.localizationsDelegates,
     this.debugShowCheckedModeBanner = true,
@@ -61,12 +63,13 @@ class TodoApp extends StatelessWidget {
             debugShowCheckedModeBanner: debugShowCheckedModeBanner,
             onGenerateRoute: RouterUtil.instance.generator(),
             builder: (BuildContext context, Widget? widget) {
+              final child = builder?.call(context, widget);
               return LoadingDialogInit(
                 child: MediaQuery(
                   data: MediaQuery.of(context).copyWith(
                     textScaler: TextScaler.noScaling,
                   ),
-                  child: widget ?? Container(),
+                  child: child ?? Container(),
                 ),
               );
             },

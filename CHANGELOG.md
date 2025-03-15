@@ -1,6 +1,9 @@
+## 0.0.5
+* opt TodoApp
+
 ## 0.0.4
 * fix listBloc init event
-* opt
+* opt context extension
 
 ## 0.0.3
 * opt listBloc result
