@@ -1,3 +1,6 @@
+## 0.0.6
+* fix TodoApp
+
 ## 0.0.5
 * opt TodoApp
 
