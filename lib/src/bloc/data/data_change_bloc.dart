@@ -14,4 +14,8 @@ class DataChangeBloc<T> extends Cubit<DataChangeState<T?>> {
     }
     emit(DataChangeState(data));
   }
+
+  void update() {
+    changeData(state.data);
+  }
 }
