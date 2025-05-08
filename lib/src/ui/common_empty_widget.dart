@@ -10,14 +10,19 @@ import 'package:todo_flutter/todo_lib.dart';
 ///
 /// @author azhon
 class CommonEmptyWidget extends BaseStatelessWidget {
-  const CommonEmptyWidget({Key? key}) : super(key: key);
+  final double pt;
+
+  const CommonEmptyWidget({
+    Key? key,
+    this.pt = 112,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       color: Colors.white,
-      padding: only(top: 112),
+      padding: only(top: pt),
       child: Column(
         children: [
           const CommonImage(
