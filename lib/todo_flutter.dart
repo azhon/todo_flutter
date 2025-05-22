@@ -42,7 +42,7 @@ export 'src/ui/widget/saturation_widget.dart';
 export 'src/ui/widget/remove_ripple_widget.dart';
 export 'src/ui/widget/extended_refresh_indicator.dart';
 export 'src/ui/widget/amount_text_field_formatter.dart';
-
+export 'src/ui/widget/circular_progress_widget.dart';
 export 'src/ui/dialog/common_dialog.dart';
 export 'src/ui/dialog/loading_dialog.dart';
 
