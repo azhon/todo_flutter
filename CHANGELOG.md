@@ -1,3 +1,6 @@
+## 0.0.7
+* feat CommonEmptyWidget、NetworkCapture
+
 ## 0.0.6
 * fix TodoApp
 
