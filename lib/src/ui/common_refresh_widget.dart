@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide ErrorWidgetBuilder;
 import 'package:todo_flutter/src/base/base_state.dart';
 import 'package:todo_flutter/src/bloc/list/list_bloc.dart';
 import 'package:todo_flutter/src/bloc/list/list_state.dart';
@@ -19,12 +19,14 @@ class CommonRefreshWidget<T> extends StatefulWidget {
   final bool wantKeepAlive;
   final bool autoInit;
   final ValueChanged<BaseEntity?>? result;
+  final ErrorWidgetBuilder? errorBuilder;
 
   const CommonRefreshWidget({
     required this.bloc,
     required this.child,
     this.emptyWidget,
     this.result,
+    this.errorBuilder,
     this.enablePullDown = true,
     this.enablePullUp = true,
     this.wantKeepAlive = false,
@@ -56,6 +58,7 @@ class _CommonRefreshWidgetState<T> extends BaseState<CommonRefreshWidget<T>>
         return BlocLoadWidget(
           loadBloc: widget.bloc.loadBloc,
           reload: () => widget.bloc.init(),
+          errorBuilder: widget.errorBuilder,
           child: SmartRefresher(
             onRefresh: () => widget.bloc.refresh(),
             onLoading: () => widget.bloc.loadMore(),
