@@ -57,24 +57,24 @@ class RouterUtil {
   }
 
   ///直接跳转
-  Future navigate(Bundle bundle) {
-    return navigateTo(bundle);
+  Future<T?> navigate<T>(Bundle bundle) {
+    return navigateTo<T>(bundle);
   }
 
   ///替换当前路由跳转
-  Future navigateReplace(Bundle bundle) {
-    return navigateTo(bundle, replace: true);
+  Future<T?> navigateReplace<T>(Bundle bundle) {
+    return navigateTo<T>(bundle, replace: true);
   }
 
   ///清除之前所有路由跳转
-  Future navigateClear(Bundle bundle) {
-    return navigateTo(bundle, clearStack: true);
+  Future<T?> navigateClear<T>(Bundle bundle) {
+    return navigateTo<T>(bundle, clearStack: true);
   }
 
   ///清除路由为[untilRoute]之上的路由，然后在打开新的路由[bundle]里的route
-  Future navigatePopUntil(String untilRoute, Bundle bundle) {
+  Future<T?> navigatePopUntil<T>(String untilRoute, Bundle bundle) {
     popUntil(untilRoute);
-    return navigate(bundle);
+    return navigate<T>(bundle);
   }
 
   ///直接跳转同时接收页面返回值
@@ -122,7 +122,7 @@ class RouterUtil {
   }
 
   ///跳转
-  Future navigateTo(
+  Future<T?> navigateTo<T>(
     Bundle bundle, {
     bool replace = false,
     bool clearStack = false,
@@ -131,7 +131,7 @@ class RouterUtil {
     TransitionType transition = TransitionType.material,
     Duration? transitionDuration,
     RouteTransitionsBuilder? transitionBuilder,
-  }) {
+  }) async {
     final redirectRoute = routerInterceptor?.call(bundle.route) ?? bundle.route;
 
     ///arguments: 用于当使用popUntil时携带返回参数
@@ -143,7 +143,7 @@ class RouterUtil {
     if (!kIsWeb && Platform.isIOS) {
       transition = TransitionType.cupertino;
     }
-    return _router.navigateTo(
+    final future = await _router.navigateTo(
       TodoLib.navigatorKey.currentContext!,
       route,
       replace: replace,
@@ -155,5 +155,6 @@ class RouterUtil {
       transitionBuilder: transitionBuilder,
       routeSettings: routeSettings,
     );
+    return Future.value(future);
   }
 }
