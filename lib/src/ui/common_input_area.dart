@@ -31,6 +31,7 @@ class CommonInputArea extends BaseStatefulWidget {
   final int? maxLength;
   final int? maxLines;
   final bool autofocus;
+  final bool showCounter;
   final FocusNode? focusNode;
   final TextEditingController? controller;
   final ValueChanged<String>? onTextChange;
@@ -61,6 +62,7 @@ class CommonInputArea extends BaseStatefulWidget {
     this.maxLength,
     this.maxLines,
     this.autofocus = false,
+    this.showCounter = true,
     this.onSubmitted,
     this.focusNode,
     this.onTextChange,
@@ -124,7 +126,7 @@ class _CommonInputAreaState extends BaseState<CommonInputArea> {
             bottom: widget.countPadding?.bottom ?? setWidth(12),
             right: widget.countPadding?.right ?? setWidth(16),
             child: Visibility(
-              visible: widget.maxLength != null,
+              visible: widget.showCounter && widget.maxLength != null,
               child: DataChangeWidget<int>(
                 bloc: _countBloc,
                 child: (context, int? state) {
