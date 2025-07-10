@@ -105,20 +105,20 @@ class Bundle {
     }
   }
 
-  Future navigate() {
-    return RouterUtil.instance.navigate(this);
+  Future<T?> navigate<T>() {
+    return RouterUtil.instance.navigate<T>(this);
   }
 
-  Future navigateReplace() {
-    return RouterUtil.instance.navigateReplace(this);
+  Future<T?> navigateReplace<T>() {
+    return RouterUtil.instance.navigateReplace<T>(this);
   }
 
-  Future navigateClear() {
-    return RouterUtil.instance.navigateClear(this);
+  Future<T?> navigateClear<T>() {
+    return RouterUtil.instance.navigateClear<T>(this);
   }
 
-  Future navigatePopUntil(String untilRoute) {
-    return RouterUtil.instance.navigatePopUntil(untilRoute, this);
+  Future<T?> navigatePopUntil<T>(String untilRoute) {
+    return RouterUtil.instance.navigatePopUntil<T>(untilRoute, this);
   }
 
   Future navigateResult(ValueChanged<Bundle> result) {
