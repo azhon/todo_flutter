@@ -4,11 +4,11 @@
 /// @author azhon
 
 import 'package:flutter/material.dart';
-import 'package:todo_flutter/src/base/base_stateless_widget.dart';
+import 'package:todo_flutter/src/base/base_state.dart';
 import 'package:todo_flutter/todo_lib.dart';
 import 'package:todo_flutter/src/ui/common_text.dart';
 
-class CommonButton extends BaseStatelessWidget {
+class CommonButton extends StatefulWidget {
   final String text;
   final double radius;
   final double? width;
@@ -24,6 +24,7 @@ class CommonButton extends BaseStatelessWidget {
   final EdgeInsets? margin;
   final EdgeInsets? padding;
   final Gradient? gradient;
+  final VoidCallback? singleClick;
   final VoidCallback? onPressed;
   final VoidCallback? onLongPress;
   final List<String>? fontFamilyFallback;
@@ -42,6 +43,7 @@ class CommonButton extends BaseStatelessWidget {
     this.fontWeight,
     this.margin,
     this.padding,
+    this.singleClick,
     this.onPressed,
     this.onLongPress,
     this.gradient,
@@ -55,6 +57,21 @@ class CommonButton extends BaseStatelessWidget {
   }) : super(key: key);
 
   @override
+  State<CommonButton> createState() => _CommonButtonState();
+}
+
+class _CommonButtonState extends BaseState<CommonButton> {
+  double? get width => widget.width;
+
+  double? get height => widget.height;
+
+  EdgeInsets? get padding => widget.padding;
+
+  EdgeInsets? get margin => widget.margin;
+
+  int _lastClick = 0;
+
+  @override
   Widget build(BuildContext context) {
     final primaryColor = Theme.of(context).primaryColor;
     final double defaultButtonHeight = TodoLib.of(context).buttonHeight;
@@ -62,7 +79,7 @@ class CommonButton extends BaseStatelessWidget {
     final defaultFontFamilyFallback = TodoLib.of(context).fontFamilyFallback;
 
     return IgnorePointer(
-      ignoring: disable,
+      ignoring: widget.disable,
       child: Container(
         width: width == null ? null : setWidth(width!),
         height: height == null
@@ -70,34 +87,65 @@ class CommonButton extends BaseStatelessWidget {
             : setWidth(height!),
         margin: margin,
         decoration: BoxDecoration(
-          gradient: gradient,
-          borderRadius: BorderRadius.circular(setRadius(radius)),
+          gradient: widget.gradient,
+          borderRadius: BorderRadius.circular(setRadius(widget.radius)),
         ),
         child: TextButton(
-          onPressed: () => onPressed?.call(),
-          onLongPress: () => onLongPress?.call(),
+          onPressed: () => _interceptClick(
+            TodoLib.of(context).clickInterceptInterval,
+          ),
+          onLongPress: () => widget.onLongPress?.call(),
           style: TextButton.styleFrom(
             foregroundColor: Colors.black,
-            backgroundColor: gradient == null ? (color ?? primaryColor) : null,
-            side: BorderSide(color: borderColor, width: setWidth(borderWidth)),
+            backgroundColor:
+                widget.gradient == null ? (widget.color ?? primaryColor) : null,
+            side: BorderSide(
+              color: widget.borderColor,
+              width: setWidth(widget.borderWidth),
+            ),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(setRadius(radius)),
+              borderRadius: BorderRadius.circular(setRadius(widget.radius)),
             ),
             minimumSize: Size.zero,
             padding: padding ?? EdgeInsets.zero,
           ),
           child: CommonText(
-            text,
-            color: textColor,
-            fontWeight: fontWeight,
-            fontSize: fontSize,
-            textAlign: textAlign,
-            overflow: overflow,
-            fontFamily: fontFamily ?? defaultFontFamily,
-            fontFamilyFallback: fontFamilyFallback ?? defaultFontFamilyFallback,
+            widget.text,
+            color: widget.textColor,
+            fontWeight: widget.fontWeight,
+            fontSize: widget.fontSize,
+            textAlign: widget.textAlign,
+            overflow: widget.overflow,
+            fontFamily: widget.fontFamily ?? defaultFontFamily,
+            fontFamilyFallback:
+                widget.fontFamilyFallback ?? defaultFontFamilyFallback,
           ),
         ),
       ),
     );
+  }
+
+  ///重复多次点击截流处理
+  void _interceptClick(int clickInterceptInterval) {
+    final int nowTime = DateTime.now().millisecondsSinceEpoch;
+    if ((nowTime - _lastClick).abs() > clickInterceptInterval) {
+      if (widget.singleClick != null) {
+        _checkHandler(0);
+      } else {
+        _checkHandler(1);
+      }
+      _lastClick = nowTime;
+    } else {
+      _checkHandler(1);
+    }
+  }
+
+  ///检测是否中断
+  Future<void> _checkHandler(int type) async {
+    if (type == 0) {
+      widget.singleClick!.call();
+    } else if (type == 1) {
+      widget.onPressed?.call();
+    }
   }
 }
