@@ -126,7 +126,7 @@ class Bundle {
   }
 
   void popUntil(String untilRoute) {
-    return RouterUtil.instance.popUntil(untilRoute, this);
+    return RouterUtil.instance.popUntil(untilRoute);
   }
 
   void pop() {

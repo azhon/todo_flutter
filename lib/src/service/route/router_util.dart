@@ -88,25 +88,18 @@ class RouterUtil {
   }
 
   ///返回页面直到路由为[untilRoute]时停止
-  void popUntil(String untilRoute, [Bundle? bundle]) {
+  void popUntil(String untilRoute) {
     Navigator.of(TodoLib.navigatorKey.currentContext!).popUntil((route) {
-      if (route.settings.name == untilRoute) {
-        final arguments = route.settings.arguments;
-        if (arguments != null && arguments is Bundle) {
-          arguments.copyWith(bundle);
-        }
-        return true;
-      }
-      return false;
+      return route.settings.name == untilRoute;
     });
   }
 
   ///返回到App指定路由，如果不存在则返回到根路由
-  void popToMain(String route, [Bundle? bundle]) {
+  void popToMain(String route) {
     if (RouterHistoryStack.instance.exist(route)) {
-      popUntil(route, bundle);
+      popUntil(route);
     } else {
-      popUntil(Navigator.defaultRouteName, bundle);
+      popUntil(Navigator.defaultRouteName);
     }
   }
 

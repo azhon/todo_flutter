@@ -8,6 +8,8 @@ import 'package:todo_flutter/src/bloc/data/data_change_state.dart';
 class DataChangeBloc<T> extends Cubit<DataChangeState<T?>> {
   DataChangeBloc(T? data) : super(DataChangeState(data));
 
+  T? get data => state.data;
+
   void changeData(T? data) {
     if (isClosed) {
       return;
@@ -16,6 +18,6 @@ class DataChangeBloc<T> extends Cubit<DataChangeState<T?>> {
   }
 
   void update() {
-    changeData(state.data);
+    changeData(data);
   }
 }

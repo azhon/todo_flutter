@@ -13,4 +13,8 @@ extension BuildContextEx on BuildContext {
 
   ///
   Size get screenSize => MediaQuery.of(this).size;
+
+  double safeBottom([double pb = 0]) {
+    return bottom > 0 ? bottom : pb;
+  }
 }
