@@ -9,7 +9,6 @@ class AmountTextFieldFormatter extends FilteringTextInputFormatter {
   final int digit;
   final String _decimalComma = ',';
   final String _decimalDot = '.';
-  String _oldText = '';
 
   AmountTextFieldFormatter({
     this.digit = 2,
@@ -37,10 +36,8 @@ class AmountTextFieldFormatter extends FilteringTextInputFormatter {
       selectionIndex++;
     }
     if (_getValueDigit(value) > digit || _pointCount(value) > 1) {
-      value = _oldText;
-      selectionIndex = _oldText.length;
+      return oldValue;
     }
-    _oldText = value;
     return TextEditingValue(
       text: value,
       selection: TextSelection.collapsed(offset: selectionIndex),
