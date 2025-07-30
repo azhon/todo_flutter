@@ -1,7 +1,7 @@
 ## [使用例子/Sample](https://github.com/azhon/todo_flutter/tree/main/example)
 
 ## 基于Bloc状态管理、屏幕适配、路由管理、模块化、封装常用组件的Flutter项目脚手架
-- 使用`Flutter 3.13.0`或更高版本
+- 使用`Flutter 3.24.5`或更高版本
 
 ### 组件库介绍
 
