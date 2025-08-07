@@ -15,26 +15,26 @@ dependencies:
   #  屏幕适配
   flutter_screenutil: ^5.9.3
   #  图片库
-  extended_image: ^9.0.4
-  extended_image_library: ^4.0.5
+  extended_image: ^10.0.1
+  extended_image_library: ^5.0.1
   #  bloc状态管理
-  flutter_bloc: ^8.1.6
+  flutter_bloc: ^9.1.1
   #  网络库
-  dio: ^5.7.0
+  dio: ^5.8.0+1
   #  日志
-  logger: ^2.4.0
+  logger: ^2.6.1
   #  刷新
   pull_to_refresh: ^2.0.0
   # 本地存储
-  shared_preferences: ^2.2.3
+  shared_preferences: ^2.5.3
   #  toast
-  fluttertoast: ^8.2.5
+  fluttertoast: ^8.2.12
   #  时间格式化
   intl: ^0.19.0
   #  模块通信
   module_bridge: ^1.0.5
   #  网络抓包
-  network_capture: ^1.2.2
+  network_capture: ^1.2.3
   # 精度计算
   decimal: ^2.3.3
 dev_dependencies:
