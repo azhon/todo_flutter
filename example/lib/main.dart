@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_flutter/todo_flutter.dart';
 import 'package:todo_flutter/todo_app.dart';
@@ -33,19 +34,25 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends BaseState<MyHomePage> {
-  List<List<String>> routes = [
-    ['文本示例', ExampleRoute.textPage],
-    ['按钮示例', ExampleRoute.buttonPage],
-    ['图片示例', ExampleRoute.imagePage],
-    ['Toast示例', ExampleRoute.toastPage],
-    ['输入框示例', ExampleRoute.inputPage],
-    ['Dialog示例', ExampleRoute.dialogPage],
-    ['Bloc示例', ExampleRoute.blocPage],
-    ['网络示例', ExampleRoute.netPage],
-    ['下拉刷新示例', ExampleRoute.refreshPage],
-    ['版本更新示例', ExampleRoute.appUpdatePage],
-    ['Sliver示例', ExampleRoute.sliverPage],
-  ];
+  late List<List<String>> routes;
+
+  @override
+  void initState() {
+    super.initState();
+    routes = [
+      ['文本示例', ExampleRoute.textPage],
+      ['按钮示例', ExampleRoute.buttonPage],
+      ['图片示例', ExampleRoute.imagePage],
+      ['Toast示例', ExampleRoute.toastPage],
+      ['输入框示例', ExampleRoute.inputPage],
+      ['Dialog示例', ExampleRoute.dialogPage],
+      ['Bloc示例', ExampleRoute.blocPage],
+      ['网络示例', ExampleRoute.netPage],
+      ['下拉刷新示例', ExampleRoute.refreshPage],
+      if (!kIsWeb) ['版本更新示例', ExampleRoute.appUpdatePage],
+      ['Sliver示例', ExampleRoute.sliverPage],
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
