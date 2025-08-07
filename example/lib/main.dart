@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/foundation.dart';
@@ -49,9 +50,16 @@ class _MyHomePageState extends BaseState<MyHomePage> {
       ['Bloc示例', ExampleRoute.blocPage],
       ['网络示例', ExampleRoute.netPage],
       ['下拉刷新示例', ExampleRoute.refreshPage],
-      if (!kIsWeb) ['版本更新示例', ExampleRoute.appUpdatePage],
+      if (_supportAppUpdate) ['版本更新示例', ExampleRoute.appUpdatePage],
       ['Sliver示例', ExampleRoute.sliverPage],
     ];
+  }
+
+  bool get _supportAppUpdate {
+    if (kIsWeb) {
+      return false;
+    }
+    return Platform.isIOS || Platform.isAndroid;
   }
 
   @override
