@@ -1,4 +1,5 @@
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter/material.dart';
+import 'package:toastification/toastification.dart';
 import 'package:todo_flutter/src/service/theme/toast_theme_data.dart';
 import 'package:todo_flutter/src/ui/dialog/loading_dialog.dart';
 import 'package:todo_flutter/src/util/object_util.dart';
@@ -14,22 +15,30 @@ void showToast(String msg, {ToastThemeData? data}) {
   if (ObjectUtil.isEmpty(msg)) {
     return;
   }
-  final ToastThemeData themeData =
+  final ToastThemeData theme =
       data ?? TodoLib.of(TodoLib.navigatorKey.currentContext!).toastThemeData;
   cancelToast();
-  Fluttertoast.showToast(
-    msg: msg,
-    fontSize: themeData.fontSize,
-    textColor: themeData.textColor,
-    backgroundColor: themeData.backgroundColor,
-    toastLength: themeData.toastLength,
-    gravity: themeData.gravity,
+  toastification.show(
+    title: Text(msg),
+    style: theme.style,
+    alignment: theme.alignment,
+    foregroundColor: theme.foregroundColor,
+    backgroundColor: theme.backgroundColor,
+    borderRadius: theme.borderRadius,
+    margin: theme.margin,
+    autoCloseDuration: theme.autoCloseDuration,
+    padding: theme.padding,
+    closeButton: theme.closeButton,
+    animationBuilder: (_, animation, alignment, child) {
+      return theme.animationBuilder?.call(_, animation, alignment, child) ??
+          FadeTransition(opacity: animation, child: child);
+    },
   );
 }
 
 ///取消所有toast
 void cancelToast() {
-  Fluttertoast.cancel();
+  toastification.dismissAll();
 }
 
 ///显示等待对话框

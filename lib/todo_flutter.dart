@@ -70,7 +70,7 @@ export 'todo_lib.dart';
 export 'package:dio/dio.dart';
 export 'package:decimal/decimal.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
-export 'package:fluttertoast/fluttertoast.dart';
+export 'package:toastification/toastification.dart';
 export 'package:module_bridge/module_bridge.dart';
 export 'package:pull_to_refresh/pull_to_refresh.dart';
 export 'package:network_capture/network_capture.dart';

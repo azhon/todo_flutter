@@ -15,6 +15,7 @@ void main() {
   runApp(
     NetworkCaptureApp(
       navigatorKey: naviKey,
+      enable: true,
       child: TodoApp(
         home: const MyHomePage(),
         navigatorKey: naviKey,

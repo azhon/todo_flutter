@@ -31,7 +31,7 @@ class _ToastPageState extends BaseState<ToastPage> {
             },
           ),
           CommonButton(
-            'Toast居于底部',
+            'Toast居于中间',
             width: double.infinity,
             color: Colors.blue,
             radius: 20,
@@ -39,7 +39,7 @@ class _ToastPageState extends BaseState<ToastPage> {
             onPressed: () {
               showToast(
                 '底部Toast',
-                data: const ToastThemeData(gravity: ToastGravity.BOTTOM),
+                data: const ToastThemeData(alignment: Alignment.center),
               );
             },
           ),

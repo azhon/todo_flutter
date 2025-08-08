@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toastification/toastification.dart';
 import 'package:todo_flutter/src/service/route/router_history_stack.dart';
 import 'package:todo_flutter/src/service/route/router_util.dart';
 import 'package:todo_flutter/src/ui/dialog/loading_dialog.dart';
@@ -50,29 +51,32 @@ class TodoApp extends StatelessWidget {
       builder: (_, child) {
         return TodoLib(
           data: libData,
-          child: MaterialApp(
-            home: home,
-            title: title,
-            theme: theme,
-            locale: locale,
-            darkTheme: darkTheme,
-            supportedLocales: supportedLocales,
-            navigatorKey: TodoLib.navigatorKey,
-            navigatorObservers: navigatorObservers + [RouterHistoryObserver()],
-            localizationsDelegates: localizationsDelegates,
-            debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-            onGenerateRoute: RouterUtil.instance.generator(),
-            builder: (BuildContext context, Widget? widget) {
-              final child = builder?.call(context, widget);
-              return LoadingDialogInit(
-                child: MediaQuery(
-                  data: MediaQuery.of(context).copyWith(
-                    textScaler: TextScaler.noScaling,
+          child: ToastificationWrapper(
+            child: MaterialApp(
+              home: home,
+              title: title,
+              theme: theme,
+              locale: locale,
+              darkTheme: darkTheme,
+              supportedLocales: supportedLocales,
+              navigatorKey: TodoLib.navigatorKey,
+              navigatorObservers:
+                  navigatorObservers + [RouterHistoryObserver()],
+              localizationsDelegates: localizationsDelegates,
+              debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+              onGenerateRoute: RouterUtil.instance.generator(),
+              builder: (BuildContext context, Widget? widget) {
+                final child = builder?.call(context, widget);
+                return LoadingDialogInit(
+                  child: MediaQuery(
+                    data: MediaQuery.of(context).copyWith(
+                      textScaler: TextScaler.noScaling,
+                    ),
+                    child: child ?? widget ?? Container(),
                   ),
-                  child: child ?? widget ?? Container(),
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
         );
       },

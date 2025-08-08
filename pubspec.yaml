@@ -28,7 +28,7 @@ dependencies:
   # 本地存储
   shared_preferences: ^2.5.3
   #  toast
-  fluttertoast: ^8.2.12
+  toastification: ^3.0.3
   #  时间格式化
   intl: ^0.19.0
   #  模块通信

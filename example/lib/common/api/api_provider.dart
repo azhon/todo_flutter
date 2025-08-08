@@ -22,6 +22,7 @@ class ApiProvider extends BaseNetProvider {
   ApiProvider._internal() {
     // dioEngine.setProxy('192.168.110.7', 8888);
     dioEngine.addInterceptor(TestInterceptor());
+    dioEngine.addInterceptor(CaptureDioInterceptor());
   }
 
   @override
