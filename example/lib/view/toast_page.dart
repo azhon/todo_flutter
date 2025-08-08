@@ -38,7 +38,7 @@ class _ToastPageState extends BaseState<ToastPage> {
             margin: only(left: 20, right: 20, top: 20),
             onPressed: () {
               showToast(
-                '底部Toast',
+                '中间Toast',
                 data: const ToastThemeData(alignment: Alignment.center),
               );
             },
