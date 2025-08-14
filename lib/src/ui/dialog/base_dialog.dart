@@ -47,7 +47,7 @@ mixin BaseDialog implements UIWidget {
   }) async {
     confirmText = confirmText ?? TodoLib.delegate(context).dialogConfirm;
     cancelText = cancelText ?? TodoLib.delegate(context).dialogCancel;
-    margin = margin ?? symmetric(horizontal: 100);
+    margin = margin ?? symmetric(horizontal: 40);
     radius = radius ?? setRadius(8);
     final result = await showDialog<Bundle>(
       context: context,
@@ -188,49 +188,47 @@ mixin BaseDialog implements UIWidget {
     double? radius,
     EdgeInsets? margin,
   }) {
-    final sw = MediaQuery.of(context).size.width;
-    margin = margin ?? symmetric(horizontal: 100);
+    margin = margin ?? symmetric(horizontal: 40);
     radius = radius ?? setRadius(8);
-    return UnconstrainedBox(
-      child: Dialog(
-        insetPadding: EdgeInsets.zero,
-        backgroundColor: Colors.transparent,
-        elevation: elevation,
-        child: Container(
-          width: sw - (margin.left + margin.right),
-          decoration: BoxDecoration(
-            color: backgroundColor,
-            borderRadius: BorderRadius.circular(radius),
-          ),
-          child: Column(
-            children: [
-              Offstage(
-                offstage: title == null,
-                child: Padding(
-                  padding: only(top: 12),
-                  child: CommonText(
-                    title ?? '',
-                    fontSize: 16,
-                    maxLines: 1,
-                    color: const Color(0xFF333333),
-                    fontWeight: FontWeight.w500,
-                  ),
+    return Dialog(
+      insetPadding: EdgeInsets.zero,
+      backgroundColor: Colors.transparent,
+      elevation: elevation,
+      child: Container(
+        margin: margin,
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(radius),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Offstage(
+              offstage: title == null,
+              child: Padding(
+                padding: only(top: 12),
+                child: CommonText(
+                  title ?? '',
+                  fontSize: 16,
+                  maxLines: 1,
+                  color: const Color(0xFF333333),
+                  fontWeight: FontWeight.w500,
                 ),
               ),
-              content,
-              Divider(
-                height: setWidth(1),
-                color: const Color(0xFFEEEEEE),
-              ),
-              _buildButton(
-                singleButton,
-                confirmText,
-                confirmColor,
-                cancelText,
-                cancelColor,
-              ),
-            ],
-          ),
+            ),
+            content,
+            Divider(
+              height: setWidth(1),
+              color: const Color(0xFFEEEEEE),
+            ),
+            _buildButton(
+              singleButton,
+              confirmText,
+              confirmColor,
+              cancelText,
+              cancelColor,
+            ),
+          ],
         ),
       ),
     );
