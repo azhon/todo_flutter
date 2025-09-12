@@ -1,3 +1,7 @@
+## 1.0.0
+* change Toast package
+* update Flutter sdk to 3.32.8
+
 ## 0.0.10
 * opt CommonButton
 * opt RouterUtil
