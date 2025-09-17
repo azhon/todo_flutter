@@ -41,7 +41,7 @@ class TestInterceptor extends InterceptorsWrapper {
 }
 
 abstract class ApiRequest<T> extends BaseRequest<T> {
-  ApiRequest(Map<String, dynamic>? params) : super(params);
+  ApiRequest(Object? params) : super(params);
 
   @override
   String get pageKey => 'page';

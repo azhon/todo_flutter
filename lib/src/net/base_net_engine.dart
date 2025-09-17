@@ -22,11 +22,11 @@ abstract class BaseNetEngine {
 
   Future<Result> post(String url, {Map<String, dynamic>? params});
 
-  Future<Result> postJson(String url, {Map<String, dynamic>? params});
+  Future<Result> postJson(String url, {Object? params});
 
-  Future<Result> del(String url, {Map<String, dynamic>? params});
+  Future<Result> del(String url, {Object? params});
 
-  Future<Result> put(String url, {Map<String, dynamic>? params});
+  Future<Result> put(String url, {Object? params});
 
   ///设置连接超时时间
   ///[timeout]超时时间

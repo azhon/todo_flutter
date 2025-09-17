@@ -60,16 +60,22 @@ class ListBloc<T> extends BaseBloc<ListEvent<T>, ListState<T>> {
   }
 
   void _changeParams() {
-    request.params ??= {};
+    request.params ??= <String, dynamic>{};
+
+    ///请求参数不是Map类型，则不处理页码在url path上
+    if (request.params is! Map<String, dynamic>) {
+      return;
+    }
+    final map = request.params! as Map<String, dynamic>;
 
     ///处理页码存在url path上
     if (request.url.contains(request.page)) {
       final realUrl = request.url.replaceAll(request.page, '$pageNum');
-      request.params![request.pagingUrlKey] = realUrl;
+      map[request.pagingUrlKey] = realUrl;
     } else {
-      request.params![request.pageKey] = pageNum;
+      map[request.pageKey] = pageNum;
     }
-    request.params![request.pageSizeKey] = pageSize;
+    map[request.pageSizeKey] = pageSize;
   }
 
   @override
