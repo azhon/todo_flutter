@@ -35,7 +35,7 @@ mixin Paging {
 }
 
 abstract class BaseRequest<T> with Paging {
-  Map<String, dynamic>? params;
+  Object? params;
 
   BaseRequest(this.params);
 
@@ -46,9 +46,13 @@ abstract class BaseRequest<T> with Paging {
   BaseNetProvider get netProvider;
 
   String get _realUrl {
-    final temp = params?[pagingUrlKey] ?? url;
-    params?.remove(pagingUrlKey);
-    return temp;
+    if (params is Map<String, dynamic>?) {
+      final map = params as Map<String, dynamic>?;
+      final temp = map?[pagingUrlKey] ?? url;
+      map?.remove(pagingUrlKey);
+      return temp;
+    }
+    return url;
   }
 
   ///请求数据
@@ -61,10 +65,22 @@ abstract class BaseRequest<T> with Paging {
     try {
       switch (method) {
         case RequestMethod.get:
-          result = await engine.get(url, params: params);
+          if (params is! Map<String, dynamic>?) {
+            throw Exception(
+              'Method:[get], params type must be Map<String,dynamic>?',
+            );
+          }
+          result =
+              await engine.get(url, params: params as Map<String, dynamic>?);
           break;
         case RequestMethod.post:
-          result = await engine.post(url, params: params);
+          if (params is! Map<String, dynamic>?) {
+            throw Exception(
+              'Method:[post], params type must be Map<String,dynamic>?',
+            );
+          }
+          result =
+              await engine.post(url, params: params as Map<String, dynamic>?);
           break;
         case RequestMethod.postJson:
           result = await engine.postJson(url, params: params);

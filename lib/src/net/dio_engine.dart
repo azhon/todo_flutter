@@ -45,7 +45,7 @@ class DioEngine extends BaseNetEngine {
   }
 
   @override
-  Future<Result> postJson(String url, {Map<String, dynamic>? params}) async {
+  Future<Result> postJson(String url, {Object? params}) async {
     final Response response = await _dio.post(url, data: params);
     return Result(
       response.data,
@@ -56,7 +56,7 @@ class DioEngine extends BaseNetEngine {
   }
 
   @override
-  Future<Result> del(String url, {Map<String, dynamic>? params}) async {
+  Future<Result> del(String url, {Object? params}) async {
     final Response response = await _dio.delete(url, data: params);
     return Result(
       response.data,
@@ -67,7 +67,7 @@ class DioEngine extends BaseNetEngine {
   }
 
   @override
-  Future<Result> put(String url, {Map<String, dynamic>? params}) async {
+  Future<Result> put(String url, {Object? params}) async {
     final Response response = await _dio.put(url, data: params);
     return Result(
       response.data,
