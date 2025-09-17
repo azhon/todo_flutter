@@ -10,6 +10,7 @@ class CommonRichText extends BaseStatefulWidget {
   final String? fontFamily;
   final TextOverflow? overflow;
   final List<String>? fontFamilyFallback;
+  final TextAlign? textAlign;
 
   const CommonRichText(
     this.params, {
@@ -17,6 +18,7 @@ class CommonRichText extends BaseStatefulWidget {
     this.fontFamily,
     this.maxLines = 1,
     this.fontFamilyFallback,
+    this.textAlign,
     this.overflow = TextOverflow.ellipsis,
   }) : super(key: key);
 
@@ -58,6 +60,7 @@ class _CommonRichTextState extends BaseState<CommonRichText> {
       ),
       maxLines: widget.maxLines,
       overflow: widget.overflow,
+      textAlign: widget.textAlign,
     );
   }
 }
