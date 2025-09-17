@@ -132,4 +132,9 @@ class Bundle {
   void pop() {
     return RouterUtil.instance.pop(this);
   }
+
+  @override
+  String toString() {
+    return toUri();
+  }
 }
