@@ -1,3 +1,7 @@
+## 0.0.11
+* opt Bundle Dialog
+* refactor BaseRequest
+
 ## 0.0.10
 * opt CommonButton
 * opt RouterUtil
