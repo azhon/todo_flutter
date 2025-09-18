@@ -46,10 +46,10 @@ abstract class BaseRequest<T> with Paging {
   BaseNetProvider get netProvider;
 
   String get _realUrl {
-    if (params is Map<String, dynamic>?) {
-      final map = params as Map<String, dynamic>?;
-      final temp = map?[pagingUrlKey] ?? url;
-      map?.remove(pagingUrlKey);
+    if (params is Map) {
+      final map = params! as Map;
+      final temp = map[pagingUrlKey] ?? url;
+      map.remove(pagingUrlKey);
       return temp;
     }
     return url;
