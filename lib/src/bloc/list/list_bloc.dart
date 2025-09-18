@@ -63,10 +63,10 @@ class ListBloc<T> extends BaseBloc<ListEvent<T>, ListState<T>> {
     request.params ??= <String, dynamic>{};
 
     ///请求参数不是Map类型，则不处理页码在url path上
-    if (request.params is! Map<String, dynamic>) {
+    if (request.params is! Map) {
       return;
     }
-    final map = request.params! as Map<String, dynamic>;
+    final map = Map<String, dynamic>.from(request.params! as Map);
 
     ///处理页码存在url path上
     if (request.url.contains(request.page)) {
@@ -76,6 +76,8 @@ class ListBloc<T> extends BaseBloc<ListEvent<T>, ListState<T>> {
       map[request.pageKey] = pageNum;
     }
     map[request.pageSizeKey] = pageSize;
+
+    request.params = map;
   }
 
   @override
