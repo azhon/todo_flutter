@@ -1,3 +1,6 @@
+## 0.0.12
+* fix BaseRequest bugs
+
 ## 0.0.11
 * opt Bundle Dialog
 * refactor BaseRequest
