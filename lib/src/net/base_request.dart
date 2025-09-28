@@ -65,22 +65,20 @@ abstract class BaseRequest<T> with Paging {
     try {
       switch (method) {
         case RequestMethod.get:
-          if (params is! Map<String, dynamic>?) {
-            throw Exception(
-              'Method:[get], params type must be Map<String,dynamic>?',
-            );
-          }
-          result =
-              await engine.get(url, params: params as Map<String, dynamic>?);
+          result = await engine.get(
+            url,
+            params: params == null
+                ? null
+                : Map<String, dynamic>.from(params! as Map),
+          );
           break;
         case RequestMethod.post:
-          if (params is! Map<String, dynamic>?) {
-            throw Exception(
-              'Method:[post], params type must be Map<String,dynamic>?',
-            );
-          }
-          result =
-              await engine.post(url, params: params as Map<String, dynamic>?);
+          result = await engine.post(
+            url,
+            params: params == null
+                ? null
+                : Map<String, dynamic>.from(params! as Map),
+          );
           break;
         case RequestMethod.postJson:
           result = await engine.postJson(url, params: params);
