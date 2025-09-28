@@ -1,3 +1,6 @@
+## 0.0.13
+* fix BaseRequest bugs, when params = {} 
+
 ## 0.0.12
 * fix BaseRequest bugs
 
