@@ -1,4 +1,7 @@
 ## 0.0.13
+* fix: Router clearStack, but stack history not clear bug
+
+## 0.0.13
 * fix BaseRequest bugs, when params = {} 
 
 ## 0.0.12
