@@ -117,6 +117,12 @@ class RouterHistoryObserver extends NavigatorObserver {
   }
 
   @override
+  void didRemove(Route route, Route? previousRoute) {
+    super.didRemove(route, previousRoute);
+    RouterHistoryStack.instance._pop(route);
+  }
+
+  @override
   void didReplace({Route<dynamic>? newRoute, Route<dynamic>? oldRoute}) {
     super.didReplace(newRoute: newRoute, oldRoute: oldRoute);
     RouterHistoryStack.instance._replace(newRoute!, oldRoute!);
