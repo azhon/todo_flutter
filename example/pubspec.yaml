@@ -31,8 +31,7 @@ dependencies:
   extended_nested_scroll_view: ^6.1.2
   #  版本更新
   flutter_app_update: ^3.2.0
-  todo_flutter:
-    path: ../../todo_flutter
+  todo_flutter: ^0.0.13
 
 dev_dependencies:
   flutter_test:
